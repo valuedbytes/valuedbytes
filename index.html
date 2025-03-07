@@ -62,6 +62,20 @@
         button:hover {
             background-color: #0056b3;
         }
+        .courses {
+            margin-top: 40px;
+            text-align: left;
+            display: inline-block;
+        }
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .modules {
+            margin-left: 20px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -76,8 +90,38 @@
         <button onclick="subscribe()">Notify Me</button>
     </div>
     
+    <div class="courses">
+        <h2>Courses We Offer</h2>
+        <p class="course-title">Basic Computer Skills</p>
+        <p class="modules">Modules: MS Office, Internet Basics, Typing Skills</p>
+        
+        <p class="course-title">Graphics Designing</p>
+        <p class="modules">Modules: Photoshop, Illustrator, InDesign, Canva</p>
+        
+        <p class="course-title">Web Designing</p>
+        <p class="modules">Modules: HTML, CSS, Bootstrap, UI/UX</p>
+        
+        <p class="course-title">Web Development</p>
+        <p class="modules">Modules: HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+        
+        <p class="course-title">Mobile App Development</p>
+        <p class="modules">Modules: Flutter, React Native, Firebase</p>
+        
+        <p class="course-title">Python</p>
+        <p class="modules">Modules: Basics, Data Science, Django, Automation</p>
+        
+        <p class="course-title">Freelancing</p>
+        <p class="modules">Modules: Fiverr, Upwork, Client Handling, Portfolio Building</p>
+        
+        <p class="course-title">3D Animation using Blender</p>
+        <p class="modules">Modules: Modeling, Rigging, Texturing, Animation</p>
+        
+        <p class="course-title">Video Editing</p>
+        <p class="modules">Modules: Premiere Pro, After Effects, Filmora, DaVinci Resolve</p>
+    </div>
+    
     <script>
-        const courses = ["Web Development", "JavaScript", "Python", "MERN Stack", "Looker Studio", "C Language"];
+        const courses = ["Basic Computer Skills", "Graphics Designing", "Web Designing", "Web Development", "Mobile App Development", "Python", "Freelancing", "3D Animation using Blender", "Video Editing"];
         let index = 0;
         let courseNameElement = document.getElementById("course-name");
         
