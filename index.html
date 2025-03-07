@@ -6,24 +6,30 @@
     <title>Valued Bytes Academy</title>
     <style>
         body {
-            background-color: #F8F8F8; /* Off-white background */
-            font-family: Arial, sans-serif;
+            background-color: #FAF9F6; /* Off-white background */
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             color: #1B2A5E;
             padding: 20px;
         }
         h1 {
             color: #1B2A5E;
+            font-size: 32px;
         }
         .highlight {
             color: #E63946;
             font-weight: bold;
         }
-        .typing {
-            font-size: 24px;
+        .typing-container {
+            font-size: 26px;
             font-weight: bold;
-            display: inline;
-            color: #E63946;
+            margin-top: 20px;
+        }
+        .static-text {
+            color: #FF5733; /* Catchy color for "Come to Learn" */
+        }
+        .typing {
+            color: #2D5F9A; /* Different color for course names */
         }
         .contact {
             margin-top: 20px;
@@ -31,12 +37,23 @@
         }
         .whatsapp-link {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #1B2A5E;
+            padding: 12px 25px;
+            background-color: #25D366;
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
             margin-top: 10px;
+            transition: 0.3s;
+        }
+        .whatsapp-link:hover {
+            background-color: #1EBE57;
+        }
+        .icon {
+            width: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -47,9 +64,16 @@
     <p>Join us to learn industry-leading skills and courses.</p>
     <p>Our Academy will be launching soon, InshaAllah after Eid-ul-Fitr (2025).</p>
     <p><strong>Location:</strong> Infront of Bakhsi Market, Kathehry Road Chiniot</p>
-    <p class="typing" style="color: #1B2A5E; text-align: left; display: inline-block;">Come to Learn <span id="courseName"></span></p>
+    
+    <div class="typing-container">
+        <span class="static-text">Come to Learn </span>
+        <span class="typing" id="courseName"></span>
+    </div>
+    
     <p class="contact">For more details or to avail the early bird discount, contact Shaukat Munir on WhatsApp:</p>
-    <a class="whatsapp-link" href="https://wa.me/923227826078">Message on WhatsApp</a>
+    <a class="whatsapp-link" href="https://wa.me/923227826078">
+        <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">Message on WhatsApp
+    </a>
     
     <script>
         const courses = [
