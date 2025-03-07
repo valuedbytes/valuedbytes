@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,13 +56,13 @@
     <div class="container">
         <h2>بسم اللہ الرحمن الرحیم</h2>
         <img src="logo.png" alt="Academy Logo" width="100">
-        <h1>خوش آمدید <span class="highlight">Valued Bytes Academy</span></h1>
-        <p>ہماری اکیڈمی میں جدید ٹیکنالوجی کے کورسز سیکھیں!</p>
-        <p><strong>جلدی کریں:</strong> ابھی سائن اپ کریں اور خصوصی رعایت حاصل کریں!</p>
+        <h1>Welcome to <span class="highlight">Valued Bytes Academy</span></h1>
+        <p>Join our academy to learn the latest technology courses!</p>
+        <p><strong>Early Bird Offer:</strong> Sign up now and get an exclusive discount!</p>
         <h2><span id="course-name" class="blinking-cursor"></span></h2>
         <form id="subscribeForm">
-            <input type="text" id="contactInput" placeholder="ای میل یا واٹس ایپ نمبر درج کریں" required>
-            <button type="submit">مجھے اطلاع دیں</button>
+            <input type="text" id="contactInput" placeholder="Enter Email or WhatsApp Number" required>
+            <button type="submit">Notify Me</button>
         </form>
     </div>
 
@@ -111,15 +111,19 @@
         document.getElementById("subscribeForm").addEventListener("submit", function(event) {
             event.preventDefault();
             const contact = document.getElementById("contactInput").value;
-
-            fetch("https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec", {
+            const url = "https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec";
+            
+            const formData = new FormData();
+            formData.append("Email", contact);
+            formData.append("SheetName", "subscribers");
+            
+            fetch(url, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ Email: contact, SheetName: "subscribers" })
+                body: formData
             })
             .then(response => response.text())
             .then(data => {
-                alert("شکریہ! ہم آپ کو لانچ کی اطلاع دیں گے۔");
+                alert("Thank you! You will be notified upon launch.");
                 document.getElementById("contactInput").value = "";
             })
             .catch(error => console.error("Error:", error));
