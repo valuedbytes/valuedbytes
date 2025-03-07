@@ -71,12 +71,13 @@
     <h2>Welcome to Valued Bytes Academy</h2>
     <p>Join us and explore the best tech courses!</p>
     <p class="typing">Learn <span id="course-name"></span><span class="cursor"></span></p>
-    
-    <div class="email-box">
+
+    <form id="subscribeForm" class="email-box">
         <p>Enter your email to get notified when we launch:</p>
-        <input type="email" id="email" placeholder="Enter your email"></br>
-        <button onclick="subscribe()">Notify Me</button>
-    </div>
+  <input type="email" id="emailInput" placeholder="Enter your email" required>
+  <button type="submit">Notify Me</button>
+</form>
+    
     <div class="email-box">
         <p>InshaAllah - To be Launched after Eid-ul-Fitr (2025)</br>
         Infront of Bakhshi Plaza, Katchehry Road, Chiniot</p>
@@ -125,14 +126,22 @@
         
         typeCourse();
         
-        function subscribe() {
-            let email = document.getElementById("email").value;
-            if (email) {
-                alert("Thank you! You'll be notified at " + email);
-            } else {
-                alert("Please enter a valid email address.");
-            }
-        }
+        document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var email = document.getElementById("emailInput").value;
+
+    fetch("https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("Thank you! You'll be notified.");
+        document.getElementById("emailInput").value = ""; // Clear input field
+    })
+    .catch(error => console.error("Error:", error));
+});
     </script>
 </body>
 </html>
