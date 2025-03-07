@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,14 +54,15 @@
 </head>
 <body>
     <div class="container">
+        <h2>بسم اللہ الرحمن الرحیم</h2>
         <img src="logo.png" alt="Academy Logo" width="100">
-        <h1>Welcome to <span class="highlight">Valued Bytes Academy</span></h1>
-        <p>Join us to learn cutting-edge skills in technology!</p>
-        <p><strong>Early Bird Discount:</strong> Sign up now to get exclusive offers when we launch!</p>
+        <h1>خوش آمدید <span class="highlight">Valued Bytes Academy</span></h1>
+        <p>ہماری اکیڈمی میں جدید ٹیکنالوجی کے کورسز سیکھیں!</p>
+        <p><strong>جلدی کریں:</strong> ابھی سائن اپ کریں اور خصوصی رعایت حاصل کریں!</p>
         <h2><span id="course-name" class="blinking-cursor"></span></h2>
         <form id="subscribeForm">
-            <input type="text" id="contactInput" placeholder="Enter your Email or WhatsApp Number" required>
-            <button type="submit">Notify Me</button>
+            <input type="text" id="contactInput" placeholder="ای میل یا واٹس ایپ نمبر درج کریں" required>
+            <button type="submit">مجھے اطلاع دیں</button>
         </form>
     </div>
 
@@ -114,11 +115,11 @@
             fetch("https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: contact })
+                body: JSON.stringify({ Email: contact, SheetName: "subscribers" })
             })
             .then(response => response.text())
             .then(data => {
-                alert("Thank you! You'll be notified when we launch.");
+                alert("شکریہ! ہم آپ کو لانچ کی اطلاع دیں گے۔");
                 document.getElementById("contactInput").value = "";
             })
             .catch(error => console.error("Error:", error));
