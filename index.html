@@ -1,133 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valued Bytes Academy</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background-color: #0A284A; /* Dark Blue from Logo */
+            color: #FFFFFF;
         }
-        .container {
-            max-width: 600px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
+        .logo {
+            width: 300px;
+            margin-top: 20px;
         }
-        h1 {
-            color: #333;
-        }
-        .highlight {
-            color: #ff5733;
+        .typing-container {
+            font-size: 24px;
             font-weight: bold;
         }
-        .blinking-cursor::after {
-            content: '|';
-            display: inline-block;
-            animation: blink 1s step-end infinite;
+        .course-name {
+            color: #75C5E7; /* Light Blue from Logo */
         }
-        @keyframes blink {
+        .blink {
+            animation: blink-animation 0.8s steps(2, start) infinite;
+        }
+        @keyframes blink-animation {
             50% { opacity: 0; }
+        }
+        .form-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1E3D5B;
+            display: inline-block;
+            border-radius: 10px;
         }
         input, button {
             padding: 10px;
-            width: 100%;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        button {
-            background: #ff5733;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #e64a19;
+            margin: 5px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>بسم اللہ الرحمن الرحیم</h2>
-        <img src="logo.png" alt="Academy Logo" width="100">
-        <h1>Welcome to <span class="highlight">Valued Bytes Academy</span></h1>
-        <p>Join our academy to learn the latest technology courses!</p>
-        <p><strong>Early Bird Offer:</strong> Sign up now and get an exclusive discount!</p>
-        <h2><span id="course-name" class="blinking-cursor"></span></h2>
-        <form id="subscribeForm">
-            <input type="text" id="contactInput" placeholder="Enter Email or WhatsApp Number" required>
-            <button type="submit">Notify Me</button>
-        </form>
+    <h1 style="font-size: 30px;">بِسْمِ ٱللَّٰهِ</h1>
+    <img src="Asset 4f.png" alt="Academy Logo" class="logo">
+    <h2>Welcome to Valued Bytes Academy</h2>
+    <p>Join us to learn industry-leading courses and enhance your skills.</p>
+    
+    <div class="typing-container">
+        We offer <span class="course-name" id="course"></span><span class="blink">|</span>
+    </div>
+    
+    <div class="form-container">
+        <p>Sign up now to get notified and avail the **Early Bird Discount**!</p>
+        <input type="text" id="userInput" placeholder="Enter Email or WhatsApp Number">
+        <button onclick="saveData()">Notify Me</button>
     </div>
 
     <script>
         const courses = [
-            "Basic Computer Skills (Windows, MS Office, Internet Basics)",
+            "Basic Computer Skills",
             "Graphics Designing (Photoshop, Illustrator, InDesign, Canva)",
-            "Web Designing (HTML, CSS, JavaScript, Bootstrap)",
-            "Web Development (MERN Stack, PHP, Laravel, WordPress)",
-            "Mobile App Development (Flutter, React Native)",
-            "Python (Basics, Data Science, AI, Machine Learning)",
-            "Freelancing (Fiverr, Upwork, Freelancer.com)",
-            "3D Animation using Blender (Modeling, Texturing, Rendering)",
-            "Video Editing (Premiere Pro, After Effects, DaVinci Resolve)"
+            "Web Designing (HTML, CSS, JavaScript)",
+            "Web Development (MERN Stack)",
+            "Mobile App Development",
+            "Python Programming",
+            "Freelancing & Earning Online",
+            "3D Animation using Blender",
+            "Video Editing (Adobe Premiere, After Effects)"
         ];
-
-        let courseIndex = 0;
-        let courseText = '';
+        let index = 0;
         let charIndex = 0;
         let isDeleting = false;
 
         function typeEffect() {
-            const courseElement = document.getElementById("course-name");
-            const currentCourse = courses[courseIndex];
-
-            if (!isDeleting) {
-                courseText = currentCourse.substring(0, charIndex++);
+            let currentText = courses[index];
+            if (isDeleting) {
+                document.getElementById("course").textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                courseText = currentCourse.substring(0, charIndex--);
+                document.getElementById("course").textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
             }
-            
-            courseElement.innerHTML = `<span class="highlight">${courseText}</span>`;
-            
-            if (!isDeleting && charIndex === currentCourse.length) {
+
+            if (!isDeleting && charIndex === currentText.length) {
                 isDeleting = true;
-                setTimeout(typeEffect, 3000);
+                setTimeout(typeEffect, 2000);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                courseIndex = (courseIndex + 1) % courses.length;
+                index = (index + 1) % courses.length;
                 setTimeout(typeEffect, 500);
             } else {
                 setTimeout(typeEffect, isDeleting ? 50 : 100);
             }
         }
-        
-        document.getElementById("subscribe-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    let email = document.getElementById("email").value;
-    
-    fetch("https://script.google.com/macros/s/AKfycbyp3ip1NDx5kDUJ_puRJhhLP5nd9GLW8rC4YVe94x7DckRtiDj_VOLiJiFSAObYp5MF/exec", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: { "Content-Type": "application/json" }
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert("Subscription Successful! Thank you.");
-        document.getElementById("email").value = "";
-    })
-    .catch(error => console.error("Error:", error));
-});
-
-        
         typeEffect();
+
+        function saveData() {
+            const userInput = document.getElementById("userInput").value;
+            if (userInput.trim() === "") {
+                alert("Please enter your Email or WhatsApp Number");
+                return;
+            }
+            fetch("https://script.google.com/macros/s/AKfycbyp3ip1NDx5kDUJ_puRJhhLP5nd9GLW8rC4YVe94x7DckRtiDj_VOLiJiFSAObYp5MF/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({ "Email": userInput })
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("Thank you! You'll be notified upon launch.");
+                document.getElementById("userInput").value = "";
+            })
+            .catch(error => console.error("Error:", error));
+        }
     </script>
 </body>
 </html>
