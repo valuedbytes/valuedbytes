@@ -79,13 +79,36 @@
     <script>
         const courses = ["Web Development", "JavaScript", "Python", "MERN Stack", "Looker Studio", "C Language"];
         let index = 0;
+        let courseNameElement = document.getElementById("course-name");
         
         function typeCourse() {
-            document.getElementById("course-name").textContent = courses[index];
-            index = (index + 1) % courses.length;
+            let course = courses[index];
+            let charIndex = 0;
+            
+            function typeChar() {
+                if (charIndex < course.length) {
+                    courseNameElement.textContent += course.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 100);
+                } else {
+                    setTimeout(eraseCourse, 2000);
+                }
+            }
+            
+            function eraseCourse() {
+                if (courseNameElement.textContent.length > 0) {
+                    courseNameElement.textContent = courseNameElement.textContent.slice(0, -1);
+                    setTimeout(eraseCourse, 50);
+                } else {
+                    index = (index + 1) % courses.length;
+                    setTimeout(typeCourse, 500);
+                }
+            }
+            
+            typeChar();
         }
         
-        setInterval(typeCourse, 5000); // Change course name every 5 seconds
+        typeCourse();
         
         function subscribe() {
             let email = document.getElementById("email").value;
