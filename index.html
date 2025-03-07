@@ -108,26 +108,24 @@
             }
         }
         
-        document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const contact = document.getElementById("contactInput").value;
-            const url = "https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec";
-            
-            const formData = new FormData();
-            formData.append("Email", contact);
-            formData.append("SheetName", "subscribers");
-            
-            fetch(url, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert("Thank you! You will be notified upon launch.");
-                document.getElementById("contactInput").value = "";
-            })
-            .catch(error => console.error("Error:", error));
-        });
+        document.getElementById("subscribe-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    let email = document.getElementById("email").value;
+    
+    fetch("https://script.google.com/macros/s/AKfycbz-UWLXDCZYtypAamX7LkmXdtTujNE4V4Ym_nTJ46vUpEdApqzuci1iGs3TT2OtAm5R/exec", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("Subscription Successful! Thank you.");
+        document.getElementById("email").value = "";
+    })
+    .catch(error => console.error("Error:", error));
+});
+
         
         typeEffect();
     </script>
