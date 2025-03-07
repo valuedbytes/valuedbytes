@@ -31,6 +31,15 @@
         .typing {
             color: #2D5F9A; /* Different color for course names */
         }
+        .blinking-cursor {
+            font-weight: bold;
+            font-size: 26px;
+            color: #2D5F9A;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
         .contact {
             margin-top: 20px;
             font-size: 18px;
@@ -69,6 +78,7 @@
         <span class="static-text">Come to Learn </span> <br />
         <span style="color:white">.</span>
         <span class="typing" id="courseName"></span>
+        <span class="blinking-cursor">|</span>
     </div>
     
     <p class="contact">For more details or to avail the early bird discount, contact <br /><b>Shaukat Munir : 03227826078 </b><br /> on WhatsApp:</p>
