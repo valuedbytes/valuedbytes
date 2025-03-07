@@ -6,115 +6,89 @@
     <title>Valued Bytes Academy</title>
     <style>
         body {
-            text-align: center;
+            background-color: #D2E6AC;
             font-family: Arial, sans-serif;
-            background-color: #D2E6AC; /* Dark Blue from Logo */
-            color: #FFFFFF;
+            text-align: center;
+            color: #1B2A5E;
+            padding: 20px;
         }
-        .logo {
-            width: 300px;
-            margin-top: 20px;
+        h1 {
+            color: #1B2A5E;
         }
-        .typing-container {
-            font-size: 24px;
+        .highlight {
+            color: #E63946;
             font-weight: bold;
         }
-        .course-name {
-            color: #75C5E7; /* Light Blue from Logo */
+        .typing {
+            font-size: 24px;
+            font-weight: bold;
+            display: inline;
+            color: #E63946;
         }
-        .blink {
-            animation: blink-animation 0.8s steps(2, start) infinite;
-        }
-        @keyframes blink-animation {
-            50% { opacity: 0; }
-        }
-        .form-container {
+        .contact {
             margin-top: 20px;
-            padding: 20px;
-            background-color: #1E3D5B;
-            display: inline-block;
-            border-radius: 10px;
+            font-size: 18px;
         }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 16px;
+        .whatsapp-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1B2A5E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1 style="font-size: 30px;">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِیْمِ</h1>
-    <img src="logo.png" alt="Academy Logo" class="logo">
+    <h1>ﻠﺎﻟ ﻣﺑﺻﻓﺎﺻ</h1>
+    <img src="Asset 4f.png" alt="Valued Bytes Academy Logo" width="300">
     <h2>Welcome to Valued Bytes Academy</h2>
-    <p>Join us to learn industry-leading courses and enhance your skills.</p>
+    <p>Join us to learn industry-leading skills and courses.</p>
+    <p>Our Academy will be launching soon, InshaAllah after Eid-ul-Fitr (2025).</p>
+    <p><strong>Location:</strong> Infront of Bakhsi Market, Kathehry Road Chiniot</p>
+    <p class="typing" id="courseName"></p>
+    <p class="contact">For more details or to avail the early bird discount, contact us on WhatsApp:</p>
+    <a class="whatsapp-link" href="https://wa.me/923227826078">Message on WhatsApp</a>
     
-    <div class="typing-container">
-        We offer <span class="course-name" id="course"></span><span class="blink">|</span>
-    </div>
-    
-    <div class="form-container">
-        <p>Sign up now to get notified and avail the **Early Bird Discount**!</p>
-        <input type="text" id="userInput" placeholder="Enter Email or WhatsApp Number">
-        <button onclick="saveData()">Notify Me</button>
-    </div>
-
     <script>
         const courses = [
             "Basic Computer Skills",
             "Graphics Designing (Photoshop, Illustrator, InDesign, Canva)",
-            "Web Designing (HTML, CSS, JavaScript)",
-            "Web Development (MERN Stack)",
+            "Web Designing",
+            "Web Development",
             "Mobile App Development",
             "Python Programming",
-            "Freelancing & Earning Online",
+            "Freelancing",
             "3D Animation using Blender",
-            "Video Editing (Adobe Premiere, After Effects)"
+            "Video Editing"
         ];
+        
         let index = 0;
         let charIndex = 0;
-        let isDeleting = false;
-
+        let deleting = false;
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const delayBetween = 2000;
+        const courseElement = document.getElementById("courseName");
+        
         function typeEffect() {
-            let currentText = courses[index];
-            if (isDeleting) {
-                document.getElementById("course").textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
+            if (!deleting && charIndex <= courses[index].length) {
+                courseElement.textContent = courses[index].substring(0, charIndex++);
+                setTimeout(typeEffect, typingSpeed);
+            } else if (deleting && charIndex >= 0) {
+                courseElement.textContent = courses[index].substring(0, charIndex--);
+                setTimeout(typeEffect, erasingSpeed);
             } else {
-                document.getElementById("course").textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                index = (index + 1) % courses.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
+                deleting = !deleting;
+                if (!deleting) {
+                    index = (index + 1) % courses.length;
+                }
+                setTimeout(typeEffect, delayBetween);
             }
         }
+        
         typeEffect();
-
-        function saveData() {
-            const userInput = document.getElementById("userInput").value;
-            if (userInput.trim() === "") {
-                alert("Please enter your Email or WhatsApp Number");
-                return;
-            }
-            fetch("https://script.google.com/macros/s/AKfycbyEUGmaLFjIVMG3dt96YYrRLKSIxdVJj13soweVcdsszgYgwkt-rbWcHGZRTJzrh2t2/exec", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams({ "Email": userInput })
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert("Thank you! You'll be notified upon launch.");
-                document.getElementById("userInput").value = "";
-            })
-            .catch(error => console.error("Error:", error));
-        }
     </script>
 </body>
 </html>
