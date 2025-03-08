@@ -3,129 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="favicon.ico.png">
-
     <title>Valued Bytes Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #FAF9F6; /* Off-white background */
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            color: #1B2A5E;
-            padding: 20px;
-        }
-        h1 {
-            color: #1B2A5E;
-            font-size: 32px;
-        }
-        .highlight {
-            color: #E63946;
-            font-weight: bold;
-        }
-        .typing-container {
-            font-size: 26px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .static-text {
-            color: #FF5733; /* Catchy color for "Come to Learn" */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
         .typing {
-            color: #2D5F9A; /* Different color for course names */
-        }
-        .blinking-cursor {
-            font-weight: bold;
-            font-size: 26px;
-            color: #2D5F9A;
-            animation: blink 0.8s infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        .contact {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .whatsapp-link {
+            overflow: hidden;
+            white-space: nowrap;
             display: inline-block;
-            padding: 12px 25px;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-        .whatsapp-link:hover {
-            background-color: #1EBE57;
-        }
-        .icon {
-            width: 40px;
-            vertical-align: middle;
-            margin-right: 10px;
+            border-right: 2px solid white;
+            animation: typing 3s steps(30, end) infinite alternate;
         }
     </style>
 </head>
-<body>
-    <h1>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِیْمِ</h1>
-    <img src="logo.png" alt="Valued Bytes Academy Logo" width="300">
-    <h2>Welcome to <br /><span style="color:#FF5733; font-weight:bold">Valued Bytes Academy</span><br /></h2>
-    <p>Join us to learn industry-leading skills and courses.</p>
-    <p>Our Academy will be launching soon, InshaAllah after Eid-ul-Fitr (2025).</p>
-    <p><strong>Location:</strong> Infront of Bakhsi Market, Katchehry Road Chiniot</p>
+<body class="bg-gray-100 text-gray-900">
     
-    <div class="typing-container">
-        <span class="static-text">Come to Learn </span> <br />
-        <span style="color:white">.</span>
-        <span class="typing" id="courseName"></span>
-        <span class="blinking-cursor">|</span>
-    </div>
+    <!-- Hero Section -->
+    <header class="bg-blue-600 text-white py-16 text-center relative">
+        <img src="logo.png" alt="Valued Bytes Academy Logo" class="absolute top-6 left-6 w-20">
+        <h1 class="text-5xl font-bold">Valued Bytes Academy</h1>
+        <p class="text-xl mt-4">Empowering Your Future with Knowledge & Skills</p>
+        <p class="text-lg mt-2 font-semibold">Launching after Eid! Stay Tuned.</p>
+    </header>
     
-    <p class="contact">For more details or to avail the early bird discount, contact <br /><b>Shaukat Munir : 03227826078 </b><br /> on WhatsApp:</p>
-    <a class="whatsapp-link" href="https://wa.me/923227826078">
-        <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">Message on WhatsApp
-    </a>
+    <!-- About Section -->
+    <section class="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold">Why Choose Us?</h2>
+        <p class="text-lg text-gray-600 mt-4">A premier learning platform designed to equip you with real-world skills.</p>
+        <div class="grid md:grid-cols-3 gap-6 mt-10">
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-2xl font-semibold">Expert Mentors</h3>
+                <p class="text-gray-600 mt-2">Learn from professionals with years of experience.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-2xl font-semibold">Practical Learning</h3>
+                <p class="text-gray-600 mt-2">Project-based courses with hands-on applications.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-2xl font-semibold">Career Boost</h3>
+                <p class="text-gray-600 mt-2">Guidance to help you excel in the tech industry.</p>
+            </div>
+        </div>
+    </section>
     
-    <script>
-        const courses = [
-            "Basic Computer Skills",
-            "Graphics Designing",
-            "Web Designing (Frontend)",
-            "Web Designing (Backend)",
-            "Mobile App Development",
-            "Python Programming",
-            "Freelancing",
-            "3D Animation in Blender",
-            "Video Editing", "and much more ..."
-        ];
-        
-        let index = 0;
-        let charIndex = 0;
-        let deleting = false;
-        const typingSpeed = 100;
-        const erasingSpeed = 50;
-        const delayBetween = 2000;
-        const courseElement = document.getElementById("courseName");
-        
-        function typeEffect() {
-            if (!deleting && charIndex <= courses[index].length) {
-                courseElement.textContent = courses[index].substring(0, charIndex++);
-                setTimeout(typeEffect, typingSpeed);
-            } else if (deleting && charIndex >= 0) {
-                courseElement.textContent = courses[index].substring(0, charIndex--);
-                setTimeout(typeEffect, erasingSpeed);
-            } else {
-                deleting = !deleting;
-                if (!deleting) {
-                    index = (index + 1) % courses.length;
-                }
-                setTimeout(typeEffect, delayBetween);
-            }
-        }
-        
-        typeEffect();
-    </script>
+    <!-- Courses Section with Typing Effect -->
+    <section id="courses" class="bg-gray-200 py-16 text-center">
+        <h2 class="text-4xl font-bold">Our Upcoming Courses</h2>
+        <div class="text-3xl font-semibold text-blue-600 mt-6">
+            <span class="typing">Web Development | Data Analytics | MERN Stack | Graphic Design</span>
+        </div>
+    </section>
+    
+    <!-- Motivation Section -->
+    <section class="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold">Be Ready for a Game-Changing Learning Experience!</h2>
+        <p class="text-lg text-gray-600 mt-4">Your future starts here. Join us after Eid and take the first step toward your success.</p>
+  <!-- Contact Section -->
+    <section class="text-center py-6 bg-blue-600 text-white">
+        <p class="text-lg font-semibold">For early bird discount and more details, call <strong>03227826078 (Shaukat Munir)</strong></p>
+    </section>
+        <p class="text-lg text-gray-600 mt-2 font-semibold">Stay tuned for more updates! </p>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-900 text-gray-300">
+        <p>&copy; 2025 Valued Bytes Academy. All rights reserved.</p>
+    </footer>
+    
 </body>
 </html>
