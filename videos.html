@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Videos | Valued Bytes Tech</title>
+<title>Learning Hub | Valued Bytes Tech</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:Poppins,sans-serif;background:#020617;color:#e5e7eb}
@@ -12,6 +12,7 @@ nav a{color:#e5e7eb;text-decoration:none;margin-left:20px;font-weight:500}
 nav a:hover{color:#67e8f9}
 .container{max-width:1300px;margin:auto;padding:30px 20px;display:grid;grid-template-columns:2.3fr 1fr;gap:30px;}
 #player{width:100%;height:460px;border-radius:18px;border:1px solid rgba(255,255,255,.1);}
+#video-desc{margin-top:12px;color:#cbd5f5;font-size:.95rem;line-height:1.4;opacity:0;transition:opacity .5s;}
 .list{display:flex;flex-direction:column;gap:12px;overflow-y:auto;max-height:500px;padding-right:6px;}
 .item{display:flex;gap:10px;cursor:pointer;align-items:center;}
 .item img{width:120px;height:70px;border-radius:10px;object-fit:cover;}
@@ -28,57 +29,68 @@ nav a:hover{color:#67e8f9}
   <strong>Valued Bytes</strong>
   <div>
     <a href="index.html">Home</a>
-    <a href="videos.html">Tips & Tricks</a>
+    <a href="videos.html">Learning Hub</a>
     <a href="index.html#courses">Courses</a>
   </div>
 </nav>
 
 <!-- MAIN CONTENT -->
 <div class="container">
-  <iframe id="player" src="" allowfullscreen></iframe>
+  <div>
+    <iframe id="player" src="" allowfullscreen></iframe>
+    <div id="video-desc"></div>
+  </div>
   <div class="list" id="sidebar"></div>
 </div>
 
 <div class="more-videos" id="more"></div>
 
 <script>
-const PLAYLIST_ID = 'PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2'; // <-- Replace with your playlist ID
-const API_KEY = 'AIzaSyBlWB2plVJ4RhK94qjLwUZ75X9WNH-Ks20'; // <-- We'll use free YouTube Data API key
+const PLAYLIST_ID = 'PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2';
+const API_KEY = 'AIzaSyBlWB2plVJ4RhK94qjLwUZ75X9WNH-Ks20';
 
-// Fetch playlist videos
 async function loadVideos(){
-  const maxResults = 50; // max videos to fetch
+  const maxResults = 50;
   const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`);
   const data = await res.json();
   const videos = data.items;
-
   if(videos.length==0) return;
 
-  // Set first video as main
-  document.getElementById('player').src = `https://www.youtube.com/embed/${videos[0].snippet.resourceId.videoId}`;
-
+  const player = document.getElementById('player');
   const sidebar = document.getElementById('sidebar');
   const more = document.getElementById('more');
+  const descDiv = document.getElementById('video-desc');
 
   videos.forEach((v,i)=>{
     const id = v.snippet.resourceId.videoId;
     const thumb = v.snippet.thumbnails.high.url;
     const title = v.snippet.title;
+    const desc = v.snippet.description.length > 200 ? v.snippet.description.slice(0,200)+'...' : v.snippet.description;
+
+    function playVideo(){
+      player.src = `https://www.youtube.com/embed/${id}`;
+      descDiv.style.opacity = 0;
+      setTimeout(()=>{descDiv.textContent = desc; descDiv.style.opacity=1}, 200);
+    }
 
     if(i<6){
-      // sidebar first 6 videos
       const div = document.createElement('div');
       div.className='item';
       div.innerHTML=`<img src="${thumb}"><span>${title}</span>`;
-      div.onclick=()=>document.getElementById('player').src=`https://www.youtube.com/embed/${id}`;
+      div.onclick = playVideo;
       sidebar.appendChild(div);
     } else {
-      // rest go below
       const img = document.createElement('img');
       img.src = thumb;
       img.title = title;
-      img.onclick = ()=>document.getElementById('player').src=`https://www.youtube.com/embed/${id}`;
+      img.onclick = playVideo;
       more.appendChild(img);
+    }
+
+    if(i===0){
+      player.src = `https://www.youtube.com/embed/${id}`;
+      descDiv.textContent = desc;
+      descDiv.style.opacity=1;
     }
   });
 }
