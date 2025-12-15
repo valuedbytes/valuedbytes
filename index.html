@@ -1,160 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valued Bytes Tech Institute</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valued Bytes Tech Institute</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-  <style>
-    :root{
-      --bg:#0b0f1a;
-      --card:#12182b;
-      --accent:#22d3ee;
-      --accent2:#6366f1;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background:radial-gradient(circle at top,#111827,#020617);
-      color:var(--text);
-    }
-
-    nav{
-      position:sticky;top:0;z-index:20;
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 28px;
-      backdrop-filter:blur(12px);
-      background:rgba(2,6,23,.75);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
-
-    header{
-      padding:110px 20px 90px;
-      text-align:center;
-    }
-    header h1{
-      font-size:3rem;
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:14px;
-    }
-    header p{max-width:760px;margin:auto;color:var(--muted);font-size:1.05rem}
-
-    section{padding:80px 20px;max-width:1200px;margin:auto}
-
-    h2{
-      font-size:2rem;
-      margin-bottom:14px;
-      background:linear-gradient(90deg,#a5b4fc,#67e8f9);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .sub{color:var(--muted);margin-bottom:40px}
-
-    /* COURSES GRID */
-    .courses{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px;
-    }
-
-    @media(max-width:900px){
-      .courses{grid-template-columns:repeat(2,1fr)}
-    }
-    @media(max-width:600px){
-      .courses{grid-template-columns:1fr}
-    }
-
-    .course{
-      background:linear-gradient(180deg,#12182b,#0b1022);
-      border-radius:20px;
-      padding:30px;
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 20px 50px rgba(0,0,0,.45);
-      transition:.35s;
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .course::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(120deg,transparent,rgba(99,102,241,.25),transparent);
-      opacity:0;transition:.4s;
-    }
-
-    .course:hover::after{opacity:1}
-    .course:hover{transform:translateY(-10px)}
-
-    .tag{
-      display:inline-block;
-      padding:5px 14px;
-      border-radius:30px;
-      font-size:12px;
-      background:rgba(34,211,238,.15);
-      color:#67e8f9;
-      margin-bottom:14px;
-    }
-
-    .course h3{margin:8px 0 12px}
-    .course p{color:var(--muted);font-size:.95rem}
-
-    /* COURSE DETAIL */
-    #detail{
-      margin-top:70px;
-      background:linear-gradient(180deg,#0b1022,#020617);
-      border-radius:22px;
-      padding:40px;
-      border:1px solid rgba(255,255,255,.08);
-      display:none;
-    }
-    #detail ul{padding-left:18px}
-    #detail li{margin:8px 0;color:var(--muted)}
-
-    iframe{
-      width:100%;
-      height:360px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.1);
-    }
-    .logo-title{
-  text-align: center; /* centers logo & title */
-  margin-top: 40px;
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
 }
 
-.institute-logo{
-  width: 150px;       /* adjust as needed */
-  height: auto;
-  margin-bottom: 20px; /* space between logo and title */
+/* GENERAL STYLES */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
 }
 
+/* NAVBAR */
+nav{
+  position:sticky;top:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 28px;
+  backdrop-filter:blur(12px);
+  background:rgba(2,6,23,.75);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
+nav a:hover{color:var(--accent2)}
 
-    footer{
-      margin-top:100px;
-      padding:50px 20px;
-      text-align:center;
-      color:#9ca3af;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+/* HEADER WITH MAP BACKGROUND */
+header{
+  position: relative;
+  padding: 110px 20px 90px;
+  text-align:center;
+  overflow: hidden;
+}
 
-    .social-links{
+header::before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: url('https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/map.png') no-repeat center/cover;
+  filter: brightness(0.25);
+  z-index:0;
+}
+
+header > *{
+  position: relative;
+  z-index:1;
+}
+
+header h1{
+  font-size:3rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:14px;
+}
+header p{max-width:760px;margin:auto;color:var(--muted);font-size:1.05rem}
+
+/* SOCIAL LINKS IN HEADER */
+.social-links{
   margin-top:30px;
   display:flex;
   justify-content:center;
   gap:18px;
 }
-
 .social-links a{
   width:44px;
   height:44px;
@@ -168,14 +90,127 @@
   transition:.3s ease;
   border:1px solid rgba(255,255,255,.12);
 }
-
 .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   transform:translateY(-4px);
 }
 
-  </style>
+/* SECTIONS */
+section{
+  padding:80px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+#courses{
+  background: rgba(18,24,43,0.9);
+  border-radius:22px;
+}
+
+h2{
+  font-size:2rem;
+  margin-bottom:14px;
+  background:linear-gradient(90deg,#a5b4fc,#67e8f9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sub{color:var(--muted);margin-bottom:40px}
+
+/* COURSES GRID */
+.courses{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+
+@media(max-width:900px){
+  .courses{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .courses{grid-template-columns:1fr}
+}
+
+.course{
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:20px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+  transition:.35s;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+
+.course::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent,rgba(99,102,241,.25),transparent);
+  opacity:0;transition:.4s;
+}
+
+.course:hover::after{opacity:1}
+.course:hover{transform:translateY(-10px)}
+
+.tag{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:30px;
+  font-size:12px;
+  background:rgba(34,211,238,.15);
+  color:#67e8f9;
+  margin-bottom:14px;
+}
+
+.course h3{margin:8px 0 12px}
+.course p{color:var(--muted);font-size:.95rem}
+
+/* COURSE DETAIL */
+#detail{
+  margin-top:70px;
+  background:linear-gradient(180deg,#0b1022,#020617);
+  border-radius:22px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.08);
+  display:none;
+}
+#detail ul{padding-left:18px}
+#detail li{margin:8px 0;color:var(--muted)}
+
+iframe{
+  width:100%;
+  height:360px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.logo-title{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.institute-logo{
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:100px;
+  padding:50px 20px;
+  text-align:center;
+  color:#e5e7eb;
+  background:#12182b;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-radius:12px 12px 0 0;
+}
+
+footer .social-links{
+  margin-bottom:25px;
+}
+</style>
 </head>
 <body>
 
@@ -189,30 +224,25 @@
 
 <header>
   <div class="logo-title">
-  <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo">
-  <h1>Valued Bytes Tech Institute</h1>
-</div>
-
-  
+    <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo">
+    <h1>Valued Bytes Tech Institute</h1>
+  </div>
   <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development and AI‑driven skills.</p>
 
-<div class="social-links">
-  <a href="https://www.facebook.com/ValuedBytesTech" target="_blank" aria-label="Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://www.instagram.com/valuedbytesinst" target="_blank" aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://www.youtube.com/@ValuedBytes" target="_blank" aria-label="YouTube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  
-  <a href="https://wa.me/923227826078" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-
-  
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://wa.me/923227826078" target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 </header>
 
 <section id="courses">
@@ -248,9 +278,8 @@
   </div>
 </section>
 
-
 <footer>
-  <div class="social-links" style="margin-bottom:25px">
+  <div class="social-links">
     <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -260,23 +289,22 @@
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
 
-
 <script>
-  const data={
-    basic:['Typing mastery','Windows & file system','MS Word / Excel / PowerPoint','Internet & email','Intro to AI tools'],
-    graphic:['Design fundamentals','Adobe Photoshop','Adobe Illustrator','Canva','Portfolio projects'],
-    video:['Premiere Pro interface','Cuts & transitions','Audio & effects','Shorts & reels','YouTube publishing'],
-    web:['HTML5','CSS3','JavaScript','React basics','GitHub hosting'],
-    excel:['Excel formulas','Pivot tables','Data cleaning','Power BI dashboards','Final project'],
-    ai:['AI concepts','ChatGPT & assistants','Image & video AI','Productivity workflows','Ethical use']
-  }
+const data={
+  basic:['Typing mastery','Windows & file system','MS Word / Excel / PowerPoint','Internet & email','Intro to AI tools'],
+  graphic:['Design fundamentals','Adobe Photoshop','Adobe Illustrator','Canva','Portfolio projects'],
+  video:['Premiere Pro interface','Cuts & transitions','Audio & effects','Shorts & reels','YouTube publishing'],
+  web:['HTML5','CSS3','JavaScript','React basics','GitHub hosting'],
+  excel:['Excel formulas','Pivot tables','Data cleaning','Power BI dashboards','Final project'],
+  ai:['AI concepts','ChatGPT & assistants','Image & video AI','Productivity workflows','Ethical use']
+}
 
-  function openCourse(key){
-    const box=document.getElementById('detail')
-    box.style.display='block'
-    box.innerHTML=`<h3>${key.toUpperCase()} COURSE OUTLINE</h3><ul>${data[key].map(i=>`<li>${i}</li>`).join('')}</ul>`
-    box.scrollIntoView({behavior:'smooth'})
-  }
+function openCourse(key){
+  const box=document.getElementById('detail')
+  box.style.display='block'
+  box.innerHTML=`<h3>${key.toUpperCase()} COURSE OUTLINE</h3><ul>${data[key].map(i=>`<li>${i}</li>`).join('')}</ul>`
+  box.scrollIntoView({behavior:'smooth'})
+}
 </script>
 
 </body>
