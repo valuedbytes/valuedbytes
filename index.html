@@ -11,11 +11,11 @@
 <style>
 :root{
   --bg:#0b0f1a;
-  --card:#ffffff; /* card bg off-white */
+  --card:#12182b;
   --accent:#22d3ee;
   --accent2:#6366f1;
-  --text:#111827; /* text for off-white bg */
-  --muted:#4b5563; /* slightly darker muted text */
+  --text:#e5e7eb;
+  --muted:#9ca3af;
 }
 
 /* GENERAL STYLES */
@@ -32,25 +32,35 @@ nav{
   position:sticky;top:0;z-index:20;
   display:flex;justify-content:space-between;align-items:center;
   padding:14px 28px;
-  background:#f3f4f6; /* off-white navbar */
-  border-bottom:1px solid rgba(0,0,0,.1);
+  backdrop-filter:blur(12px);
+  background:rgba(2,6,23,.75);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-nav a{
-  color:#111827; /* dark text for visibility */
-  text-decoration:none;
-  margin-left:20px;
-  font-weight:500;
-  transition:0.3s ease;
-}
-nav a:hover{
-  color:var(--accent2);
+nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
+nav a:hover{color:var(--accent2)}
+
+/* HEADER WITH MAP BACKGROUND */
+header{
+  position: relative;
+  padding: 110px 20px 90px;
+  text-align:center;
+  overflow: hidden;
 }
 
-/* HEADER (unchanged) */
-header{
-  padding:110px 20px 90px;
-  text-align:center;
+header::before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: url('https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/map.png') no-repeat center/cover;
+  filter: brightness(0.25);
+  z-index:0;
 }
+
+header > *{
+  position: relative;
+  z-index:1;
+}
+
 header h1{
   font-size:3rem;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
@@ -58,7 +68,7 @@ header h1{
   -webkit-text-fill-color:transparent;
   margin-bottom:14px;
 }
-header p{max-width:760px;margin:auto;color:#d1d5db;font-size:1.05rem}
+header p{max-width:760px;margin:auto;color:var(--muted);font-size:1.05rem}
 
 /* SOCIAL LINKS IN HEADER */
 .social-links{
@@ -74,15 +84,15 @@ header p{max-width:760px;margin:auto;color:#d1d5db;font-size:1.05rem}
   align-items:center;
   justify-content:center;
   border-radius:50%;
-  background:rgba(34,211,238,.15);
+  background:rgba(255,255,255,.08);
   color:var(--accent);
   font-size:18px;
   transition:.3s ease;
-  border:1px solid rgba(0,0,0,.1);
+  border:1px solid rgba(255,255,255,.12);
 }
 .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;
+  color:#020617;
   transform:translateY(-4px);
 }
 
@@ -91,37 +101,59 @@ section{
   padding:80px 20px;
   max-width:1200px;
   margin:auto;
-  border-radius:12px;
 }
+
+#courses{
+  background: rgba(18,24,43,0.9);
+  border-radius:22px;
+}
+
+h2{
+  font-size:2rem;
+  margin-bottom:14px;
+  background:linear-gradient(90deg,#a5b4fc,#67e8f9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sub{color:var(--muted);margin-bottom:40px}
 
 /* COURSES GRID */
 .courses{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:26px;
-  background:#f3f4f6; /* off-white background for course section */
-  padding:40px;
-  border-radius:12px;
 }
-@media(max-width:900px){.courses{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.courses{grid-template-columns:1fr}}
+
+@media(max-width:900px){
+  .courses{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .courses{grid-template-columns:1fr}
+}
 
 .course{
-  background:#ffffff;
+  background:linear-gradient(180deg,#12182b,#0b1022);
   border-radius:20px;
   padding:30px;
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
   transition:.35s;
   cursor:pointer;
-  text-decoration:none;
-  color:#111827; /* dark text for visibility */
+  position:relative;
+  overflow:hidden;
 }
-.course:hover{
-  transform:translateY(-6px);
-  box-shadow:0 14px 35px rgba(0,0,0,.15);
+
+.course::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent,rgba(99,102,241,.25),transparent);
+  opacity:0;transition:.4s;
 }
-.course .tag{
+
+.course:hover::after{opacity:1}
+.course:hover{transform:translateY(-10px)}
+
+.tag{
   display:inline-block;
   padding:5px 14px;
   border-radius:30px;
@@ -130,49 +162,54 @@ section{
   color:#67e8f9;
   margin-bottom:14px;
 }
-.course h3{margin:8px 0 12px}
-.course p{color:#4b5563;font-size:.95rem}
 
-/* VIDEO SECTION (unchanged) */
+.course h3{margin:8px 0 12px}
+.course p{color:var(--muted);font-size:.95rem}
+
+/* COURSE DETAIL */
+#detail{
+  margin-top:70px;
+  background:linear-gradient(180deg,#0b1022,#020617);
+  border-radius:22px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.08);
+  display:none;
+}
+#detail ul{padding-left:18px}
+#detail li{margin:8px 0;color:var(--muted)}
+
 iframe{
   width:100%;
   height:360px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,.1);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.logo-title{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.institute-logo{
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /* FOOTER */
 footer{
-  margin-top:60px;
-  padding:40px 20px;
+  margin-top:100px;
+  padding:50px 20px;
   text-align:center;
-  color:#111827; /* dark text */
-  background:#f3f4f6; /* off-white footer */
-  border-top:1px solid rgba(0,0,0,.1);
+  color:#e5e7eb;
+  background:#12182b;
+  border-top:1px solid rgba(255,255,255,.08);
   border-radius:12px 12px 0 0;
 }
-footer .social-links a:hover{
-  color:#fff;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  transform:translateY(-4px);
-}
 
-/* VIEW ALL VIDEOS LINK */
-.view-all{
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:8px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#fff;
-  text-decoration:none;
-  font-weight:500;
-  transition:0.3s ease;
+footer .social-links{
+  margin-bottom:25px;
 }
-.view-all:hover{
-  transform:translateY(-3px);
-  box-shadow:0 6px 12px rgba(0,0,0,.15);
-}
-
 </style>
 </head>
 <body>
@@ -181,7 +218,7 @@ footer .social-links a:hover{
   <strong>Valued Bytes</strong>
   <div>
     <a href="#courses">Courses</a>
-    <a href="#youtube">Videos</a>
+    <a href="#youtube">YouTube</a>
   </div>
 </nav>
 
@@ -190,28 +227,38 @@ footer .social-links a:hover{
     <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo">
     <h1>Valued Bytes Tech Institute</h1>
   </div>
-  <p>Empowering students in Chiniot with modern computer, design, development, and AI-driven skills.</p>
+  <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development and AI‑driven skills.</p>
 
   <div class="social-links">
-    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/valuedbytesinst" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@ValuedBytes" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://wa.me/923227826078" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://wa.me/923227826078" target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
 </header>
 
 <section id="courses">
   <h2>Professional Courses</h2>
-  <p class="sub">Click a course to explore its outline</p>
+  <p class="sub">Click a course to view its complete outline</p>
 
   <div class="courses">
-    <a class="course" href="basic.html"><span class="tag">Beginner</span><h3>Essential Computer Skills</h3><p>Computer fundamentals, Office tools & internet.</p></a>
-    <a class="course" href="graphic.html"><span class="tag">Creative</span><h3>Graphic Designing</h3><p>Photoshop, Illustrator, Canva & design sense.</p></a>
-    <a class="course" href="video.html"><span class="tag">Media</span><h3>Video Editing</h3><p>Premiere Pro, reels & YouTube workflow.</p></a>
-    <a class="course" href="web.html"><span class="tag">Development</span><h3>Web Development</h3><p>HTML, CSS, JavaScript & React basics.</p></a>
-    <a class="course" href="excel.html"><span class="tag">Analytics</span><h3>Excel & Power BI</h3><p>Data analysis, dashboards & reports.</p></a>
-    <a class="course" href="ai.html"><span class="tag">Future Skill</span><h3>AI Productivity</h3><p>AI tools for study, work & freelancing.</p></a>
+    <div class="course" onclick="openCourse('basic')"><span class="tag">Beginner</span><h3>Essential Computer Skills</h3><p>Computer fundamentals, Office tools & internet.</p></div>
+    <div class="course" onclick="openCourse('graphic')"><span class="tag">Creative</span><h3>Graphic Designing</h3><p>Photoshop, Illustrator, Canva & design sense.</p></div>
+    <div class="course" onclick="openCourse('video')"><span class="tag">Media</span><h3>Video Editing</h3><p>Premiere Pro, reels & YouTube workflow.</p></div>
+    <div class="course" onclick="openCourse('web')"><span class="tag">Development</span><h3>Web Development</h3><p>HTML, CSS, JavaScript & React basics.</p></div>
+    <div class="course" onclick="openCourse('excel')"><span class="tag">Analytics</span><h3>Excel & Power BI</h3><p>Data analysis, dashboards & reports.</p></div>
+    <div class="course" onclick="openCourse('ai')"><span class="tag">Future Skill</span><h3>AI Productivity</h3><p>AI tools for study, work & freelancing.</p></div>
   </div>
+
+  <div id="detail"></div>
 </section>
 
 <section id="youtube">
@@ -220,11 +267,14 @@ footer .social-links a:hover{
 
   <iframe
     src="https://www.youtube.com/embed/videoseries?list=PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2"
-    allowfullscreen>
+    allowfullscreen
+    style="width:100%;height:420px;border-radius:22px;border:1px solid rgba(255,255,255,.1)">
   </iframe>
 
   <div style="margin-top:30px">
-    <a class="view-all" href="videos.html">View all videos →</a>
+    <a href="videos.html" style="color:#67e8f9;text-decoration:none;font-weight:500">
+      View all videos →
+    </a>
   </div>
 </section>
 
@@ -235,8 +285,27 @@ footer .social-links a:hover{
     <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
+
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
+
+<script>
+const data={
+  basic:['Typing mastery','Windows & file system','MS Word / Excel / PowerPoint','Internet & email','Intro to AI tools'],
+  graphic:['Design fundamentals','Adobe Photoshop','Adobe Illustrator','Canva','Portfolio projects'],
+  video:['Premiere Pro interface','Cuts & transitions','Audio & effects','Shorts & reels','YouTube publishing'],
+  web:['HTML5','CSS3','JavaScript','React basics','GitHub hosting'],
+  excel:['Excel formulas','Pivot tables','Data cleaning','Power BI dashboards','Final project'],
+  ai:['AI concepts','ChatGPT & assistants','Image & video AI','Productivity workflows','Ethical use']
+}
+
+function openCourse(key){
+  const box=document.getElementById('detail')
+  box.style.display='block'
+  box.innerHTML=`<h3>${key.toUpperCase()} COURSE OUTLINE</h3><ul>${data[key].map(i=>`<li>${i}</li>`).join('')}</ul>`
+  box.scrollIntoView({behavior:'smooth'})
+}
+</script>
 
 </body>
 </html>
