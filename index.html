@@ -210,6 +210,14 @@ footer{
 footer .social-links{
   margin-bottom:25px;
 }
+.course-img {
+  width: 100%;
+  height: 150px; /* fixed height for all cards */
+  object-fit: cover; /* ensures images fill area without stretching */
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+  
 </style>
 </head>
 <body>
@@ -250,13 +258,49 @@ footer .social-links{
   <p class="sub">Click a course to view its complete outline</p>
 
   <div class="courses">
-    <div class="course" onclick="openCourse('basic')"><span class="tag">Beginner</span><h3>Essential Computer Skills</h3><p>Computer fundamentals, Office tools & internet.</p></div>
-    <div class="course" onclick="openCourse('graphic')"><span class="tag">Creative</span><h3>Graphic Designing</h3><p>Photoshop, Illustrator, Canva & design sense.</p></div>
-    <div class="course" onclick="openCourse('video')"><span class="tag">Media</span><h3>Video Editing</h3><p>Premiere Pro, reels & YouTube workflow.</p></div>
-    <div class="course" onclick="openCourse('web')"><span class="tag">Development</span><h3>Web Development</h3><p>HTML, CSS, JavaScript & React basics.</p></div>
-    <div class="course" onclick="openCourse('excel')"><span class="tag">Analytics</span><h3>Excel & Power BI</h3><p>Data analysis, dashboards & reports.</p></div>
-    <div class="course" onclick="openCourse('ai')"><span class="tag">Future Skill</span><h3>AI Productivity</h3><p>AI tools for study, work & freelancing.</p></div>
+  <div class="course" onclick="openCourse('basic')">
+    <img src="https://via.placeholder.com/300x150.png?text=Computer+Skills" alt="Essential Computer Skills" class="course-img">
+    <span class="tag">Beginner</span>
+    <h3>Essential Computer Skills</h3>
+    <p>Computer fundamentals, Office tools & internet.</p>
   </div>
+
+  <div class="course" onclick="openCourse('graphic')">
+    <img src="https://via.placeholder.com/300x150.png?text=Graphic+Design" alt="Graphic Designing" class="course-img">
+    <span class="tag">Creative</span>
+    <h3>Graphic Designing</h3>
+    <p>Photoshop, Illustrator, Canva & design sense.</p>
+  </div>
+
+  <div class="course" onclick="openCourse('video')">
+    <img src="https://via.placeholder.com/300x150.png?text=Video+Editing" alt="Video Editing" class="course-img">
+    <span class="tag">Media</span>
+    <h3>Video Editing</h3>
+    <p>Premiere Pro, reels & YouTube workflow.</p>
+  </div>
+
+  <div class="course" onclick="openCourse('web')">
+    <img src="https://via.placeholder.com/300x150.png?text=Web+Development" alt="Web Development" class="course-img">
+    <span class="tag">Development</span>
+    <h3>Web Development</h3>
+    <p>HTML, CSS, JavaScript & React basics.</p>
+  </div>
+
+  <div class="course" onclick="openCourse('excel')">
+    <img src="https://via.placeholder.com/300x150.png?text=Excel+%26+Power+BI" alt="Excel & Power BI" class="course-img">
+    <span class="tag">Analytics</span>
+    <h3>Excel & Power BI</h3>
+    <p>Data analysis, dashboards & reports.</p>
+  </div>
+
+  <div class="course" onclick="openCourse('ai')">
+    <img src="https://via.placeholder.com/300x150.png?text=AI+Productivity" alt="AI Productivity" class="course-img">
+    <span class="tag">Future Skill</span>
+    <h3>AI Productivity</h3>
+    <p>AI tools for study, work & freelancing.</p>
+  </div>
+</div>
+
 
   <div id="detail"></div>
 </section>
