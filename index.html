@@ -6,6 +6,8 @@
   <title>Valued Bytes Tech Institute</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
   <style>
     :root{
@@ -145,6 +147,34 @@
       color:#9ca3af;
       border-top:1px solid rgba(255,255,255,.08);
     }
+
+    .social-links{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+
+.social-links a{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:var(--accent);
+  font-size:18px;
+  transition:.3s ease;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.social-links a:hover{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  transform:translateY(-4px);
+}
+
   </style>
 </head>
 <body>
@@ -165,6 +195,26 @@
 
   
   <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development and AI‑driven skills.</p>
+
+<div class="social-links">
+  <a href="https://www.facebook.com/yourpage" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.youtube.com/@yourchannel" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://www.linkedin.com/company/yourpage" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="https://wa.me/923XXXXXXXXX" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+  
 </header>
 
 <section id="courses">
@@ -202,8 +252,16 @@
 
 
 <footer>
+  <div class="social-links" style="margin-bottom:25px">
+    <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
+
 
 <script>
   const data={
