@@ -34,17 +34,15 @@ body{
   color:var(--text);
 }
 
-
 /* NAVBAR */
-/* NAVBAR FIXED AT TOP */
 nav{
-  position: fixed; /* stays on top */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center container */
   align-items: center;
   padding: 14px 28px;
   backdrop-filter: blur(12px);
@@ -55,8 +53,8 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  width:100%;
   max-width:1200px;
-  margin:auto;
 }
 .logo{
   font-size:1.6rem;
@@ -83,7 +81,7 @@ nav{
 
 /* MOBILE RESPONSIVE */
 @media(max-width:768px){
-  .logo{font-size:1.2rem;} /* smaller logo on mobile */
+  .logo{font-size:1.2rem;}
   .nav-links{
     position:absolute;
     top:60px;
@@ -96,10 +94,9 @@ nav{
   }
   .nav-links.active{display:flex;}
   .nav-links li{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
-  .nav-links li a{color:#e5e7eb;font-size:18px;} /* links visible on dark background */
-  .menu-toggle{display:block;} /* show hamburger */
+  .nav-links li a{color:#e5e7eb;font-size:18px;}
+  .menu-toggle{display:block;}
 }
-
 
 /* HEADER */
 header{
@@ -213,10 +210,9 @@ footer a:hover{color:#6366f1;}
   </div>
 </nav>
 
-
 <header>
   <div class="logo-title">
-    <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo" style="width:200px;height:auto;">
+    <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo" style="width:120px;height:auto;">
     <h1>Valued Bytes Tech Institute</h1>
   </div>
   <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development and AI‑driven skills.</p>
