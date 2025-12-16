@@ -38,10 +38,27 @@ nav a{
   margin-left:18px;
 }
 
+/* ANNOUNCEMENTS */
+.announcements{
+  background:#12182b;
+  padding:10px 20px;
+  overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.announcements p{
+  display:inline-block;
+  white-space:nowrap;
+  animation:scroll 15s linear infinite;
+}
+@keyframes scroll{
+  0%{transform:translateX(100%)}
+  100%{transform:translateX(-100%)}
+}
+
 /* HEADER */
 .header{
   text-align:center;
-  padding:80px 20px 40px;
+  padding:60px 20px 20px;
 }
 .header h1{
   font-size:2.6rem;
@@ -56,9 +73,9 @@ nav a{
 }
 
 /* FORM CARD */
-form-wrapper{
+.form-wrapper{
   max-width:700px;
-  margin:60px auto;
+  margin:40px auto;
   padding:40px;
   background:linear-gradient(180deg,#12182b,#0b1022);
   border-radius:20px;
@@ -119,6 +136,7 @@ footer a{color:#67e8f9;text-decoration:none;margin:0 5px;}
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <strong>Valued Bytes</strong>
   <div>
@@ -129,11 +147,22 @@ footer a{color:#67e8f9;text-decoration:none;margin:0 5px;}
   </div>
 </nav>
 
+<!-- ANNOUNCEMENTS -->
+<div class="announcements">
+  <p>
+    🔔 New Graphic Design Batch starts 20 Dec &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    🔔 Early bird discount for Video Editing course &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    🔔 AI Productivity workshops now open for registration
+  </p>
+</div>
+
+<!-- HEADER -->
 <div class="header">
   <h1>Admission Form</h1>
   <p>Fill in your details and submit to enroll in our professional courses.</p>
 </div>
 
+<!-- FORM -->
 <section class="form-wrapper">
   <form id="admissionForm">
     <input id="name" placeholder="Student Name" required>
@@ -151,6 +180,7 @@ footer a{color:#67e8f9;text-decoration:none;margin:0 5px;}
   </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="social-links">
     <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -165,8 +195,10 @@ footer a{color:#67e8f9;text-decoration:none;margin:0 5px;}
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
 
+<!-- ENROLL FLOAT -->
 <a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course" class="enroll-float" target="_blank">Enroll Now</a>
 
+<!-- JS FORM -->
 <script>
 document.getElementById("admissionForm").addEventListener("submit", function(e){
   e.preventDefault();
