@@ -9,6 +9,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <meta name="description" content="Valued Bytes Tech Institute in Chiniot offering computer courses, graphic designing, video editing, web development, Excel, Power BI and AI skills.">
 <meta name="keywords" content="computer institute Chiniot, graphic designing course, video editing course, web development Chiniot">
 <meta name="author" content="Valued Bytes Tech Institute">
@@ -74,6 +75,7 @@ nav{
     flex-direction:column;
     background:#12182b;
     display:none;
+    z-index:9999; /* dropdown overlays everything */
   }
   .nav-links.active{
     display:flex;
@@ -88,14 +90,13 @@ nav{
   }
 }
 
-/* HEADER WITH MAP BACKGROUND */
+/* HEADER */
 header{
   position: relative;
   padding: 110px 20px 90px;
   text-align:center;
   overflow: hidden;
 }
-
 header::before{
   content:"";
   position: absolute;
@@ -104,12 +105,10 @@ header::before{
   filter: brightness(0.25);
   z-index:0;
 }
-
 header > *{
   position: relative;
   z-index:1;
 }
-
 header h1{
   font-size:3rem;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
@@ -119,7 +118,7 @@ header h1{
 }
 header p{max-width:760px;margin:auto;color:var(--muted);font-size:1.05rem}
 
-/* SOCIAL LINKS IN HEADER */
+/* SOCIAL LINKS */
 .social-links{
   margin-top:30px;
   display:flex;
@@ -152,34 +151,49 @@ section{
   margin:auto;
 }
 
-#courses{
-  background: rgba(18,24,43,0.9);
-  border-radius:22px;
+/* ANNOUNCEMENTS */
+#announcements{
+  padding:70px 20px;
+  max-width:1200px;
+  margin:auto;
 }
-
-h2{
-  font-size:2rem;
-  margin-bottom:14px;
-  background:linear-gradient(90deg,#a5b4fc,#67e8f9);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.announce-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
-.sub{color:var(--muted);margin-bottom:40px}
+@media(max-width:900px){.announce-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.announce-grid{grid-template-columns:1fr}}
+.announce-card{
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:18px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+  transition:.3s ease;
+}
+.announce-card:hover{transform:translateY(-8px);}
+.badge{
+  display:inline-block;
+  padding:4px 12px;
+  font-size:12px;
+  border-radius:20px;
+  background:rgba(99,102,241,.2);
+  color:#a5b4fc;
+  margin-bottom:12px;
+}
+.announce-card h3{margin:6px 0 10px;}
+.announce-card p{color:var(--muted);font-size:.95rem;}
+.highlight{border:1px solid var(--accent);background:linear-gradient(180deg,#0b122a,#020617);}
 
-/* COURSES GRID */
+/* COURSES */
 .courses{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:26px;
 }
-
-@media(max-width:900px){
-  .courses{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .courses{grid-template-columns:1fr}
-}
-
+@media(max-width:900px){.courses{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.courses{grid-template-columns:1fr}}
 .course{
   background:linear-gradient(180deg,#12182b,#0b1022);
   border-radius:20px;
@@ -191,17 +205,14 @@ h2{
   position:relative;
   overflow:hidden;
 }
-
 .course::after{
   content:"";
   position:absolute;inset:0;
   background:linear-gradient(120deg,transparent,rgba(99,102,241,.25),transparent);
   opacity:0;transition:.4s;
 }
-
 .course:hover::after{opacity:1}
 .course:hover{transform:translateY(-10px)}
-
 .tag{
   display:inline-block;
   padding:5px 14px;
@@ -211,67 +222,15 @@ h2{
   color:#67e8f9;
   margin-bottom:14px;
 }
-
-
-  #announcements{
-  padding:70px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.announce-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-@media(max-width:900px){
-  .announce-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .announce-grid{grid-template-columns:1fr}
-}
-
-.announce-card{
-  background:linear-gradient(180deg,#12182b,#0b1022);
-  border-radius:18px;
-  padding:26px;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 18px 40px rgba(0,0,0,.4);
-  transition:.3s ease;
-}
-
-.announce-card:hover{
-  transform:translateY(-8px);
-}
-
-.badge{
-  display:inline-block;
-  padding:4px 12px;
-  font-size:12px;
-  border-radius:20px;
-  background:rgba(99,102,241,.2);
-  color:#a5b4fc;
-  margin-bottom:12px;
-}
-
-.announce-card h3{
-  margin:6px 0 10px;
-}
-
-.announce-card p{
-  color:var(--muted);
-  font-size:.95rem;
-}
-
-.highlight{
-  border:1px solid var(--accent);
-  background:linear-gradient(180deg,#0b122a,#020617);
-}
-
-
 .course h3{margin:8px 0 12px}
 .course p{color:var(--muted);font-size:.95rem}
+.course-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
 
 /* COURSE DETAIL */
 #detail{
@@ -285,22 +244,12 @@ h2{
 #detail ul{padding-left:18px}
 #detail li{margin:8px 0;color:var(--muted)}
 
+/* YOUTUBE */
 iframe{
   width:100%;
   height:360px;
   border-radius:22px;
   border:1px solid rgba(255,255,255,.1);
-}
-
-.logo-title{
-  text-align: center;
-  margin-top: 40px;
-}
-
-.institute-logo{
-  width: 150px;
-  height: auto;
-  margin-bottom: 20px;
 }
 
 /* FOOTER */
@@ -321,14 +270,21 @@ footer a{
   transition:.3s;
 }
 footer a:hover{color:#6366f1;}
-.course-img {
-  width: 100%;
-  height: 150px; /* fixed height for all cards */
-  object-fit: cover; /* ensures images fill area without stretching */
-  border-radius: 15px;
-  margin-bottom: 15px;
+
+/* FLOAT BUTTON */
+.enroll-float{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  color:#020617;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  z-index:999;
 }
-  
 </style>
 </head>
 <body>
@@ -337,7 +293,7 @@ footer a:hover{color:#6366f1;}
   <div class="nav-container">
     <strong class="logo">Valued Bytes</strong>
     <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="#courses">Courses</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -345,7 +301,6 @@ footer a:hover{color:#6366f1;}
     </ul>
   </div>
 </nav>
-
 
 <header>
   <div class="logo-title">
@@ -355,38 +310,28 @@ footer a:hover{color:#6366f1;}
   <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development and AI‑driven skills.</p>
 
   <div class="social-links">
-    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/valuedbytesinst" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@ValuedBytes" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://wa.me/923227826078" target="_blank" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </header>
 
+<!-- ANNOUNCEMENTS -->
 <section id="announcements">
   <h2>Announcements & Updates</h2>
   <p class="sub">Latest news, new batches & special offerings</p>
-
   <div class="announce-grid">
     <div class="announce-card highlight">
       <span class="badge">New Batch</span>
       <h3>Essential Computer Skills Course</h3>
       <p>Admissions open for January 2025 batch. Limited seats available.</p>
     </div>
-
     <div class="announce-card">
       <span class="badge">Offer</span>
       <h3>Graphic Designing</h3>
       <p>Flat 20% discount for early registrations this month.</p>
     </div>
-
     <div class="announce-card">
       <span class="badge">New</span>
       <h3>AI Productivity Course</h3>
@@ -395,76 +340,62 @@ footer a:hover{color:#6366f1;}
   </div>
 </section>
 
-  
+<!-- COURSES -->
 <section id="courses">
   <h2>Professional Courses</h2>
   <p class="sub">Click a course to view its complete outline</p>
-
   <div class="courses">
-  <div class="course" onclick="openCourse('basic')">
-    <img src="basic.png" alt="Essential Computer Skills" class="course-img">
-    <span class="tag">Beginner</span>
-    <h3>Essential Computer Skills</h3>
-    <p>Computer fundamentals, Office tools & internet.</p>
+    <div class="course" onclick="openCourse('basic')">
+      <img src="basic.png" alt="Essential Computer Skills" class="course-img">
+      <span class="tag">Beginner</span>
+      <h3>Essential Computer Skills</h3>
+      <p>Computer fundamentals, Office tools & internet.</p>
+    </div>
+    <div class="course" onclick="openCourse('graphic')">
+      <img src="gfx.png" alt="Graphic Designing" class="course-img">
+      <span class="tag">Creative</span>
+      <h3>Graphic Designing</h3>
+      <p>Photoshop, Illustrator, Canva & design sense.</p>
+    </div>
+    <div class="course" onclick="openCourse('video')">
+      <img src="video.png" alt="Video Editing" class="course-img">
+      <span class="tag">Media</span>
+      <h3>Video Editing</h3>
+      <p>Premiere Pro, reels & YouTube workflow.</p>
+    </div>
+    <div class="course" onclick="openCourse('web')">
+      <img src="web.png" alt="Web Development" class="course-img">
+      <span class="tag">Development</span>
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript & React basics.</p>
+    </div>
+    <div class="course" onclick="openCourse('excel')">
+      <img src="xl.png" alt="Excel & Power BI" class="course-img">
+      <span class="tag">Analytics</span>
+      <h3>Excel & Power BI</h3>
+      <p>Data analysis, dashboards & reports.</p>
+    </div>
+    <div class="course" onclick="openCourse('ai')">
+      <img src="ai.png" alt="AI Productivity" class="course-img">
+      <span class="tag">Future Skill</span>
+      <h3>AI Productivity</h3>
+      <p>AI tools for study, work & freelancing.</p>
+    </div>
   </div>
-
-  <div class="course" onclick="openCourse('graphic')">
-    <img src="gfx.png" alt="Graphic Designing" class="course-img">
-    <span class="tag">Creative</span>
-    <h3>Graphic Designing</h3>
-    <p>Photoshop, Illustrator, Canva & design sense.</p>
-  </div>
-
-  <div class="course" onclick="openCourse('video')">
-    <img src="video.png" alt="Video Editing" class="course-img">
-    <span class="tag">Media</span>
-    <h3>Video Editing</h3>
-    <p>Premiere Pro, reels & YouTube workflow.</p>
-  </div>
-
-  <div class="course" onclick="openCourse('web')">
-    <img src="web.png" alt="Web Development" class="course-img">
-    <span class="tag">Development</span>
-    <h3>Web Development</h3>
-    <p>HTML, CSS, JavaScript & React basics.</p>
-  </div>
-
-  <div class="course" onclick="openCourse('excel')">
-    <img src="xl.png" alt="Excel & Power BI" class="course-img">
-    <span class="tag">Analytics</span>
-    <h3>Excel & Power BI</h3>
-    <p>Data analysis, dashboards & reports.</p>
-  </div>
-
-  <div class="course" onclick="openCourse('ai')">
-    <img src="ai.png" alt="AI Productivity" class="course-img">
-    <span class="tag">Future Skill</span>
-    <h3>AI Productivity</h3>
-    <p>AI tools for study, work & freelancing.</p>
-  </div>
-</div>
-
-
   <div id="detail"></div>
 </section>
 
+<!-- YOUTUBE -->
 <section id="youtube">
   <h2>Latest From Our YouTube</h2>
   <p class="sub">Auto-updated classes, shorts & tutorials</p>
-
-  <iframe
-    src="https://www.youtube.com/embed/videoseries?list=PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2"
-    allowfullscreen
-    style="width:100%;height:420px;border-radius:22px;border:1px solid rgba(255,255,255,.1)">
-  </iframe>
-
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2" allowfullscreen></iframe>
   <div style="margin-top:30px">
-    <a href="videos.html" style="color:#67e8f9;text-decoration:none;font-weight:500">
-      View all videos →
-    </a>
+    <a href="videos.html" style="color:#67e8f9;text-decoration:none;font-weight:500">View all videos →</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="social-links">
     <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -472,25 +403,27 @@ footer a:hover{color:#6366f1;}
     <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
-
   <p>
     <a href="contact.html" style="color:#67e8f9;text-decoration:none">Contact Us</a> · 
     <a href="admission.html" style="color:#67e8f9;text-decoration:none">Admissions</a>
   </p>
-
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
 
+<!-- FLOAT BUTTON -->
+<a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course" class="enroll-float" target="_blank">Enroll Now</a>
 
+<!-- JS -->
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
 
-// Hamburger menu toggle
-const menuToggle = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 });
-  
+
 const data={
   basic:['Typing mastery','Windows & file system','MS Word / Excel / PowerPoint','Internet & email','Intro to AI tools'],
   graphic:['Design fundamentals','Adobe Photoshop','Adobe Illustrator','Canva','Portfolio projects'],
@@ -507,26 +440,6 @@ function openCourse(key){
   box.scrollIntoView({behavior:'smooth'})
 }
 </script>
-<a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course"
-   class="enroll-float" target="_blank">
-  Enroll Now
-</a>
-
-<style>
-.enroll-float{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:linear-gradient(135deg,#22d3ee,#6366f1);
-  color:#020617;
-  padding:14px 22px;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 12px 30px rgba(0,0,0,.4);
-  z-index:999;
-}
-</style>
 
 </body>
 </html>
