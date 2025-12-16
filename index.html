@@ -483,6 +483,14 @@ footer a:hover{color:#6366f1;}
 
 
 <script>
+
+// Hamburger menu toggle
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+  
 const data={
   basic:['Typing mastery','Windows & file system','MS Word / Excel / PowerPoint','Internet & email','Intro to AI tools'],
   graphic:['Design fundamentals','Adobe Photoshop','Adobe Illustrator','Canva','Portfolio projects'],
