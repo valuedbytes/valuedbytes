@@ -163,6 +163,64 @@ h2{
   margin-bottom:14px;
 }
 
+
+  #announcements{
+  padding:70px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.announce-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+@media(max-width:900px){
+  .announce-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .announce-grid{grid-template-columns:1fr}
+}
+
+.announce-card{
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:18px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+  transition:.3s ease;
+}
+
+.announce-card:hover{
+  transform:translateY(-8px);
+}
+
+.badge{
+  display:inline-block;
+  padding:4px 12px;
+  font-size:12px;
+  border-radius:20px;
+  background:rgba(99,102,241,.2);
+  color:#a5b4fc;
+  margin-bottom:12px;
+}
+
+.announce-card h3{
+  margin:6px 0 10px;
+}
+
+.announce-card p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.highlight{
+  border:1px solid var(--accent);
+  background:linear-gradient(180deg,#0b122a,#020617);
+}
+
+
 .course h3{margin:8px 0 12px}
 .course p{color:var(--muted);font-size:.95rem}
 
@@ -253,6 +311,32 @@ footer .social-links{
   </div>
 </header>
 
+<section id="announcements">
+  <h2>Announcements & Updates</h2>
+  <p class="sub">Latest news, new batches & special offerings</p>
+
+  <div class="announce-grid">
+    <div class="announce-card highlight">
+      <span class="badge">New Batch</span>
+      <h3>Basic Computer Course</h3>
+      <p>Admissions open for January 2025 batch. Limited seats available.</p>
+    </div>
+
+    <div class="announce-card">
+      <span class="badge">Offer</span>
+      <h3>Graphic Designing</h3>
+      <p>Flat 20% discount for early registrations this month.</p>
+    </div>
+
+    <div class="announce-card">
+      <span class="badge">New</span>
+      <h3>AI Productivity Course</h3>
+      <p>Learn AI tools for study, office & freelancing.</p>
+    </div>
+  </div>
+</section>
+
+  
 <section id="courses">
   <h2>Professional Courses</h2>
   <p class="sub">Click a course to view its complete outline</p>
