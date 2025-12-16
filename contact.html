@@ -18,7 +18,8 @@
   --muted:#9ca3af;
 }
 
-*{box-sizing:border-box}
+/* GENERAL */
+*{box-sizing:border-box;}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -26,17 +27,62 @@ body{
   color:var(--text);
 }
 
-/* NAV */
+/* NAVBAR */
 nav{
-  position:sticky;top:0;z-index:20;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 28px;
-  backdrop-filter:blur(12px);
   background:linear-gradient(45deg,var(--accent),var(--accent2));
-  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:12px 20px;
+  font-family:'Poppins',sans-serif;
+  position:sticky; top:0; z-index:999;
 }
-nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
-nav a:hover{color:var(--accent2)}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:auto;
+}
+.logo{
+  font-size:1.6rem;
+  color:#020617;
+  font-weight:bold;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#020617;
+  transition:.3s;
+}
+.nav-links li a:hover{color:#6366f1;}
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#020617;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .logo{font-size:1.2rem;} /* smaller logo on mobile */
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+    z-index:9999;
+  }
+  .nav-links.active{display:flex;}
+  .nav-links li{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav-links li a{color:#e5e7eb;font-size:18px;} /* visible on dark bg */
+  .menu-toggle{display:block;}
+}
 
 /* HEADER */
 .header{
@@ -174,20 +220,37 @@ footer{
   background:#12182b;
   color:var(--muted);
 }
+
+/* ENROLL FLOAT BUTTON */
+.enroll-float{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  color:#020617;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  z-index:999;
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <strong>Valued Bytes</strong>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="#courses">Courses</a>
-    <a href="contact.html">Contact</a>
-    <a href="admission.html">Enroll</a>
+  <div class="nav-container">
+    <strong class="logo">Valued Bytes</strong>
+    <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+    </ul>
   </div>
 </nav>
-
 
 <div class="header">
   <h1>Contact Us</h1>
@@ -234,7 +297,7 @@ footer{
 
 </section>
 
-<!-- EXACT MAP LOCATION (EDIT ADDRESS IF NEEDED) -->
+<!-- EXACT MAP LOCATION -->
 <div class="map">
   <iframe 
     src="https://www.google.com/maps?q=Valued%20Bytes%20Tech%20Institute%20Chiniot&output=embed"
@@ -258,48 +321,38 @@ footer{
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
 
-
 <!-- FLOATING WHATSAPP -->
 <a class="whatsapp-float" href="https://wa.me/923227826078" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
-
-  const text = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
-  const url = `https://wa.me/923227826078?text=${text}`;
-
-  document.getElementById("successMsg").style.display = "block";
-  setTimeout(()=>window.open(url,"_blank"),700);
-});
-</script>
 <a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course"
    class="enroll-float" target="_blank">
   Enroll Now
 </a>
 
-<style>
-.enroll-float{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:linear-gradient(135deg,#22d3ee,#6366f1);
-  color:#020617;
-  padding:14px 22px;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 12px 30px rgba(0,0,0,.4);
-  z-index:999;
-}
-</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+  const text = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+  const url = `https://wa.me/923227826078?text=${text}`;
+  document.getElementById("successMsg").style.display = "block";
+  setTimeout(()=>window.open(url,"_blank"),700);
+});
+</script>
 
 </body>
 </html>
