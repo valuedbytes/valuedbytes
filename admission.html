@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions | Valued Bytes Tech Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:#e5e7eb;
+}
+section{
+  max-width:700px;
+  margin:80px auto;
+  padding:40px;
+  background:#12182b;
+  border-radius:20px;
+}
+input, select{
+  width:100%;
+  padding:14px;
+  margin-bottom:18px;
+  border-radius:12px;
+  border:none;
+  background:#020617;
+  color:#e5e7eb;
+}
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<section>
+  <h2>Admission Form</h2>
+  <p>Fill details and submit via WhatsApp</p>
+
+  <form onsubmit="sendWhatsApp(event)">
+    <input id="name" placeholder="Student Name" required>
+    <input id="phone" placeholder="Phone Number" required>
+    <select id="course">
+      <option>Basic Computer</option>
+      <option>Graphic Designing</option>
+      <option>Video Editing</option>
+      <option>Web Development</option>
+      <option>Excel & Power BI</option>
+      <option>AI Productivity</option>
+    </select>
+    <button type="submit">Submit Admission</button>
+  </form>
+</section>
+
+<script>
+function sendWhatsApp(e){
+  e.preventDefault();
+  const msg = `Admission Request%0AName: ${name.value}%0APhone: ${phone.value}%0ACourse: ${course.value}`;
+  window.open(`https://wa.me/923227826078?text=${msg}`,'_blank');
+}
+</script>
+
+</body>
+</html>
