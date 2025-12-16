@@ -41,7 +41,7 @@ nav a{
   margin-left:18px;
 }
 
-/* PAGE HEADER */
+/* HEADER */
 .header{
   text-align:center;
   padding:80px 20px 40px;
@@ -58,7 +58,7 @@ nav a{
   margin:auto;
 }
 
-/* CONTACT SECTION */
+/* CONTACT */
 .contact-wrapper{
   max-width:1200px;
   margin:auto;
@@ -67,7 +67,6 @@ nav a{
   grid-template-columns:1fr 1fr;
   gap:40px;
 }
-
 @media(max-width:900px){
   .contact-wrapper{grid-template-columns:1fr}
 }
@@ -80,7 +79,6 @@ nav a{
   box-shadow:0 20px 45px rgba(0,0,0,.45);
 }
 
-/* INFO */
 .info-item{
   display:flex;
   gap:16px;
@@ -89,7 +87,6 @@ nav a{
 .info-item i{
   font-size:20px;
   color:var(--accent);
-  margin-top:4px;
 }
 .info-item p{
   margin:0;
@@ -105,7 +102,6 @@ form input, form textarea{
   border:1px solid rgba(255,255,255,.1);
   background:#020617;
   color:var(--text);
-  font-family:inherit;
 }
 form textarea{resize:none;height:120px}
 
@@ -121,9 +117,26 @@ form button{
   cursor:pointer;
 }
 
+/* SUCCESS MESSAGE */
+.success{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(34,211,238,.15);
+  color:#67e8f9;
+  text-align:center;
+  animation:fade .6s ease;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 /* MAP */
 .map{
-  margin-top:40px;
+  margin:40px auto 0;
+  max-width:1200px;
   border-radius:22px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.1);
@@ -134,31 +147,31 @@ iframe{
   border:none;
 }
 
-/* SOCIAL */
-.social{
-  margin-top:30px;
-  display:flex;
-  gap:16px;
-}
-.social a{
-  width:44px;
-  height:44px;
+/* FLOATING WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:58px;
+  height:58px;
+  background:#25d366;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  color:var(--accent);
+  color:#fff;
+  font-size:28px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  z-index:999;
   transition:.3s;
 }
-.social a:hover{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#020617;
+.whatsapp-float:hover{
+  transform:scale(1.1);
 }
 
 /* FOOTER */
 footer{
-  margin-top:80px;
+  margin-top:60px;
   padding:40px 20px;
   text-align:center;
   background:#12182b;
@@ -178,14 +191,13 @@ footer{
 
 <div class="header">
   <h1>Contact Us</h1>
-  <p>Have questions? Want to enroll? Reach out to Valued Bytes Tech Institute — we’re happy to help.</p>
+  <p>Admissions, courses, or guidance — we’re just one message away.</p>
 </div>
 
 <section class="contact-wrapper">
 
-  <!-- LEFT INFO -->
   <div class="card">
-    <h2>Institute Information</h2>
+    <h2>Institute Details</h2>
 
     <div class="info-item">
       <i class="fas fa-location-dot"></i>
@@ -204,35 +216,28 @@ footer{
 
     <div class="info-item">
       <i class="fas fa-clock"></i>
-      <p>Monday – Saturday<br>10:00 AM – 7:00 PM</p>
-    </div>
-
-    <div class="social">
-      <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <p>Mon – Sat<br>10:00 AM – 7:00 PM</p>
     </div>
   </div>
 
-  <!-- RIGHT FORM -->
   <div class="card">
-    <h2>Send Us a Message</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
+    <h2>Send Message</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="text" id="subject" placeholder="Subject">
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send via WhatsApp</button>
+      <div class="success" id="successMsg">Message sent successfully ✔</div>
     </form>
   </div>
 
 </section>
 
-<!-- MAP (FREE GOOGLE MAP EMBED) -->
+<!-- EXACT MAP LOCATION (EDIT ADDRESS IF NEEDED) -->
 <div class="map">
   <iframe 
-    src="https://www.google.com/maps?q=Chiniot%20Pakistan&output=embed"
+    src="https://www.google.com/maps?q=Valued%20Bytes%20Tech%20Institute%20Chiniot&output=embed"
     loading="lazy">
   </iframe>
 </div>
@@ -240,6 +245,28 @@ footer{
 <footer>
   © 2025 Valued Bytes Tech Institute · Chiniot
 </footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/923227826078" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  const text = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+  const url = `https://wa.me/923227826078?text=${text}`;
+
+  document.getElementById("successMsg").style.display = "block";
+  setTimeout(()=>window.open(url,"_blank"),700);
+});
+</script>
 
 </body>
 </html>
