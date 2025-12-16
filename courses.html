@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valued Bytes Tech Institute - Course Outlines</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<meta name="description" content="Detailed course outlines of Valued Bytes Tech Institute in Chiniot. Learn computer skills, graphics, video editing, web development, Excel, Power BI and AI.">
+<meta name="keywords" content="computer institute Chiniot, graphic designing course, video editing course, web development Chiniot">
+<meta name="author" content="Valued Bytes Tech Institute">
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+/* GENERAL */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding-top:70px; 
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
+}
+
+/* NAVBAR */
+nav{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 14px 28px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1200px;
+}
+.logo{
+  font-size:1.6rem;
+  color:#020617;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#020617;
+  transition:.3s;
+}
+.nav-links li a:hover{color:#6366f1;}
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#020617;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .logo{font-size:1.2rem;}
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+    z-index:9999;
+  }
+  .nav-links.active{display:flex;}
+  .nav-links li{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav-links li a{color:#e5e7eb;font-size:18px;}
+  .menu-toggle{display:block;}
+}
+
+/* HEADER */
+header{
+  position: relative;
+  padding: 90px 20px 70px;
+  text-align:center;
+  overflow: hidden;
+}
+header::before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: url('https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/map.png') no-repeat center/cover;
+  filter: brightness(0.25);
+  z-index:0;
+}
+header > *{position: relative; z-index:1;}
+header h1{
+  font-size:2.5rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:14px;
+}
+header p{max-width:760px;margin:auto;color:var(--muted);font-size:1rem;}
+
+/* SOCIAL LINKS */
+.social-links{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+.social-links a{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:var(--accent);
+  font-size:18px;
+  transition:.3s ease;
+  border:1px solid rgba(255,255,255,.12);
+}
+.social-links a:hover{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  transform:translateY(-4px);
+}
+
+/* COURSE LINKS ROW */
+.course-links{
+  position: sticky;
+  top:70px;
+  background:var(--bg);
+  display:flex;
+  gap:10px;
+  padding:12px;
+  z-index:900;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  overflow-x:auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.course-links::-webkit-scrollbar{
+  height:8px;
+}
+.course-links::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.05);
+  border-radius:4px;
+}
+.course-links::-webkit-scrollbar-thumb{
+  background: var(--accent2);
+  border-radius:4px;
+}
+.course-links a{
+  color:var(--accent);
+  font-weight:600;
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:6px;
+  flex-shrink:0;
+  white-space:nowrap;
+  transition:.3s;
+}
+.course-links a.active,
+.course-links a:hover{
+  background:var(--accent2);
+  color:#020617;
+}
+
+/* COURSES SECTION */
+section{padding:70px 20px; max-width:1200px; margin:auto;}
+h2{font-size:2rem;margin-bottom:14px;background:linear-gradient(90deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:var(--muted);margin-bottom:40px;}
+
+/* COURSE DETAIL BOX */
+.course-detail{
+  margin-top:20px;
+  background:linear-gradient(180deg,#0b1022,#020617);
+  border-radius:22px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.course-detail h3{
+  margin-bottom:12px;
+}
+.course-detail ul{
+  padding-left:20px;
+  margin-bottom:12px;
+}
+.course-detail li{
+  margin:6px 0;
+  color:var(--muted);
+}
+
+/* DEMO CLASS BUTTON */
+.demo-btn{
+  display:inline-block;
+  padding:10px 16px;
+  margin-top:10px;
+  font-weight:600;
+  border-radius:8px;
+  text-decoration:none;
+  color:#020617;
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  transition:.3s;
+}
+.demo-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* FAQ & Testimonials */
+.faq, .testimonials{
+  margin-top:50px;
+  background:var(--card);
+  border-radius:18px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.faq h3, .testimonials h3{
+  margin-bottom:14px;
+}
+
+/* FOOTER */
+footer{margin-top:50px;padding:50px 20px;text-align:center;color:#e5e7eb;background:#12182b;border-top:1px solid rgba(255,255,255,.08);border-radius:12px 12px 0 0;}
+footer a{margin:0 8px;color:#22d3ee;text-decoration:none;font-size:18px;transition:.3s;}
+footer a:hover{color:#6366f1;}
+
+/* FLOAT BUTTON */
+.enroll-float{position:fixed;bottom:90px;right:20px;background:linear-gradient(135deg,#22d3ee,#6366f1);color:#020617;padding:14px 22px;border-radius:30px;font-weight:600;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.4);z-index:999;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <strong class="logo">Valued Bytes</strong>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+
+<header>
+  <div class="logo-title">
+    <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo" style="width:120px;height:auto;">
+    <h1>Course Outlines</h1>
+  </div>
+  <p>Explore all professional courses offered at Valued Bytes Tech Institute in Chiniot, with easy-to-understand outlines for beginners and parents alike.</p>
+</header>
+
+<!-- COURSE LINKS ROW -->
+<div class="course-links" id="course-links">
+  <a href="#basic" class="active">Essential Computer Skills</a>
+  <a href="#graphics">Graphics Designing</a>
+  <a href="#video">Video Editing</a>
+  <a href="#web">Web Development</a>
+  <a href="#kids">Special Course for Kids</a>
+  <a href="#excel">Excel & Power BI</a>
+</div>
+
+<!-- COURSES DETAILS -->
+<section id="courses">
+
+<!-- Essential Computer Skills -->
+<div class="course-detail" id="basic">
+  <h3>Essential Computer Skills</h3>
+  <p><strong>Duration:</strong> 3 months, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> None, suitable for absolute beginners</p>
+  <ul>
+    <li>English and Urdu typing mastery</li>
+    <li>Computer & Internet basics</li>
+    <li>MS Word (Create brochures, CVs, certificates, applications)</li>
+    <li>MS Excel & PowerPoint (Basic office usage)</li>
+    <li>Google online tools</li>
+    <li>Using AI in daily life for productivity</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Essential%20Computer%20Skills%20Demo%20Class" class="demo-btn" id="basic-btn">Register for Demo Class - <strong>15 Dec 2025</strong></a>
+</div>
+
+<!-- Graphics Designing -->
+<div class="course-detail" id="graphics">
+  <h3>Graphics Designing</h3>
+  <p><strong>Duration:</strong> 2 months, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> Basic computer skills recommended</p>
+  <ul>
+    <li>Adobe Photoshop (Create posters, social media graphics)</li>
+    <li>Adobe Illustrator (Logo, vector design basics)</li>
+    <li>Adobe InDesign (Brochures, flyers layout)</li>
+    <li>Understanding color, shapes & layout for beginners</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Graphics%20Designing%20Demo%20Class" class="demo-btn" id="graphics-btn">Register for Demo Class - <strong>18 Dec 2025</strong></a>
+</div>
+
+<!-- Video Editing -->
+<div class="course-detail" id="video">
+  <h3>Video Editing</h3>
+  <p><strong>Duration:</strong> 2 months, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> Basic computer skills recommended</p>
+  <ul>
+    <li>Adobe Premiere Pro (Editing videos, reels, YouTube workflow)</li>
+    <li>Adobe After Effects (Animation & effects basics)</li>
+    <li>Adding audio & sound effects</li>
+    <li>Exporting videos for different platforms</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Video%20Editing%20Demo%20Class" class="demo-btn" id="video-btn">Register for Demo Class - <strong>20 Dec 2025</strong></a>
+</div>
+
+<!-- Web Development -->
+<div class="course-detail" id="web">
+  <h3>Web Development</h3>
+  <p><strong>Duration:</strong> 3 months, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> Basic computer & internet usage</p>
+  <ul>
+    <li>HTML, CSS, JavaScript basics</li>
+    <li>MERN stack introduction</li>
+    <li>Building small projects & websites</li>
+    <li>Deploying websites on GitHub</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Web%20Development%20Demo%20Class" class="demo-btn" id="web-btn">Register for Demo Class - <strong>22 Dec 2025</strong></a>
+</div>
+
+<!-- Special Course for Kids -->
+<div class="course-detail" id="kids">
+  <h3>Special Course for Kids</h3>
+  <p><strong>Duration:</strong> 1 month, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> None, suitable for kids age 6–12</p>
+  <ul>
+    <li>Introduction to computers & safe internet usage</li>
+    <li>Fun with coding & simple apps</li>
+    <li>Basic digital creativity</li>
+    <li>Building curiosity & logical thinking skills</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Kids%20Demo%20Class" class="demo-btn" id="kids-btn">Register for Demo Class - <strong>19 Dec 2025</strong></a>
+</div>
+
+<!-- Excel & Power BI -->
+<div class="course-detail" id="excel">
+  <h3>Excel & Power BI</h3>
+  <p><strong>Duration:</strong> 2 months, 2 hours per day, 5 days a week</p>
+  <p><strong>Pre-requisites:</strong> Basic computer & Excel familiarity recommended</p>
+  <ul>
+    <li>MS Excel formulas & data handling</li>
+    <li>Pivot tables & charts</li>
+    <li>Power BI dashboards for business reports</li>
+    <li>Hands-on project for real-life business scenarios</li>
+  </ul>
+  <a href="https://wa.me/923227826078?text=I%20want%20to%20register%20for%20Excel%20&%20Power%20BI%20Demo%20Class" class="demo-btn" id="excel-btn">Register for Demo Class - <strong>21 Dec 2025</strong></a>
+</div>
+
+</section>
+
+<!-- FAQ -->
+<div class="faq">
+  <h3>FAQ - For Beginners</h3>
+  <p><strong>Q:</strong> Do I need a laptop to join? <br><strong>A:</strong> A basic computer or laptop is recommended, but we can guide beginners on available options.</p>
+  <p><strong>Q:</strong> I don’t know any software, can I still join? <br><strong>A:</strong> Yes! All courses start from basics.</p>
+  <p><strong>Q:</strong> Are these courses suitable for children? <br><strong>A:</strong> We have a special course designed for kids age 6–12.</p>
+</div>
+
+<!-- Testimonials -->
+<div class="testimonials">
+  <h3>Student Testimonials</h3>
+  <p>"I never knew I could create my own CV and certificates, now I do all by myself!" – Ayesha, 2025 batch</p>
+  <p>"Kids course helped my son understand computers in a fun way." – Parent, 2025 batch</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>
+    <a href="contact.html" style="color:#67e8f9;text-decoration:none">Contact Us</a> · 
+    <a href="admission.html" style="color:#67e8f9;text-decoration:none">Admissions</a>
+  </p>
+  © 2025 Valued Bytes Tech Institute · Chiniot
+</footer>
+
+<!-- FLOAT BUTTON -->
+<a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course" class="enroll-float" target="_blank">Enroll Now</a>
+
+<!-- JS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  const links = document.querySelectorAll('.course-links a');
+  const sections = document.querySelectorAll('.course-detail');
+
+  function activateLinkOnScroll() {
+    let fromTop = window.scrollY + 80; // offset for sticky links
+    links.forEach(link=>{
+      let section = document.querySelector(link.getAttribute('href'));
+      if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
+        links.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', activateLinkOnScroll);
+
+  links.forEach(link=>{
+    link.addEventListener('click', e=>{
+      e.preventDefault();
+      let target = document.querySelector(link.getAttribute('href'));
+      window.scrollTo({
+        top: target.offsetTop - 65, // offset for sticky row
+        behavior:'smooth'
+      });
+    });
+  });
+
+  // Demo button seats logic (example: toggle full seats)
+  const demoButtons = document.querySelectorAll('.demo-btn');
+  const seatsAvailable = { // example
+    'basic-btn':true,
+    'graphics-btn':true,
+    'video-btn':false,
+    'web-btn':true,
+    'kids-btn':true,
+    'excel-btn':true
+  };
+  demoButtons.forEach(btn=>{
+    if(!seatsAvailable[btn.id]){
+      btn.textContent="Seats Full";
+      btn.style.background='gray';
+      btn.href='javascript:void(0)';
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
