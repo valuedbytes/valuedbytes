@@ -28,18 +28,15 @@ body{
 
 /* NAV */
 nav{
+  position:sticky;top:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
   padding:14px 28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  backdrop-filter:blur(12px);
   background:linear-gradient(45deg,var(--accent),var(--accent2));
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-nav a{
-  color:#020617;
-  font-weight:600;
-  text-decoration:none;
-  margin-left:18px;
-}
+nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
+nav a:hover{color:var(--accent2)}
 
 /* HEADER */
 .header{
