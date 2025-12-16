@@ -4,55 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admissions | Valued Bytes Tech Institute</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+*{box-sizing:border-box;}
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
   background:radial-gradient(circle at top,#111827,#020617);
-  color:#e5e7eb;
+  color:var(--text);
 }
-section{
+
+/* NAVBAR */
+nav{
+  padding:14px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(45deg,var(--accent),var(--accent2));
+}
+nav a{
+  color:#020617;
+  font-weight:600;
+  text-decoration:none;
+  margin-left:18px;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+.header h1{
+  font-size:2.6rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.header p{
+  color:var(--muted);
   max-width:700px;
-  margin:80px auto;
-  padding:40px;
-  background:#12182b;
-  border-radius:20px;
+  margin:auto;
 }
-input, select{
+
+/* FORM CARD */
+form-wrapper{
+  max-width:700px;
+  margin:60px auto;
+  padding:40px;
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.08);
+}
+form input, form select{
   width:100%;
   padding:14px;
   margin-bottom:18px;
   border-radius:12px;
-  border:none;
+  border:1px solid rgba(255,255,255,.1);
   background:#020617;
   color:#e5e7eb;
 }
-button{
+form button{
   width:100%;
   padding:14px;
   border:none;
   border-radius:14px;
-  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
   font-weight:600;
   cursor:pointer;
+  color:#020617;
+  font-size:16px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:60px;
+  padding:40px 20px;
+  text-align:center;
+  background:#12182b;
+  color:var(--muted);
+}
+footer a{color:#67e8f9;text-decoration:none;margin:0 5px;}
+
+/* FLOATING ENROLL */
+.enroll-float{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  color:#020617;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  z-index:999;
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  .header h1{font-size:2.2rem;}
 }
 </style>
 </head>
-
 <body>
 
-<section>
-  <h2>Admission Form</h2>
-  <p>Fill details and submit via WhatsApp</p>
+<nav>
+  <strong>Valued Bytes</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="contact.html">Contact</a>
+    <a href="admission.html" style="font-weight:700">Enroll</a>
+  </div>
+</nav>
 
-  <form onsubmit="sendWhatsApp(event)">
+<div class="header">
+  <h1>Admission Form</h1>
+  <p>Fill in your details and submit to enroll in our professional courses.</p>
+</div>
+
+<section class="form-wrapper">
+  <form id="admissionForm">
     <input id="name" placeholder="Student Name" required>
     <input id="phone" placeholder="Phone Number" required>
+    <input id="email" type="email" placeholder="Email" required>
     <select id="course">
-      <option>Basic Computer</option>
+      <option>Essential Computer Skills</option>
       <option>Graphic Designing</option>
       <option>Video Editing</option>
       <option>Web Development</option>
@@ -63,12 +151,33 @@ button{
   </form>
 </section>
 
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>
+    <a href="contact.html">Contact Us</a> · 
+    <a href="admission.html">Admissions</a>
+  </p>
+  © 2025 Valued Bytes Tech Institute · Chiniot
+</footer>
+
+<a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course" class="enroll-float" target="_blank">Enroll Now</a>
+
 <script>
-function sendWhatsApp(e){
+document.getElementById("admissionForm").addEventListener("submit", function(e){
   e.preventDefault();
-  const msg = `Admission Request%0AName: ${name.value}%0APhone: ${phone.value}%0ACourse: ${course.value}`;
-  window.open(`https://wa.me/923227826078?text=${msg}`,'_blank');
-}
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const course = document.getElementById("course").value;
+
+  const text = `Admission Request%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ACourse: ${course}`;
+  window.open(`https://wa.me/923227826078?text=${text}`,'_blank');
+});
 </script>
 
 </body>
