@@ -34,15 +34,59 @@ body{
 
 /* NAVBAR */
 nav{
-  position:sticky;top:0;z-index:20;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 28px;
-  backdrop-filter:blur(12px);
-  background:linear-gradient(45deg,var(--accent),var(--accent2));
-  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(45deg,#22d3ee,#6366f1);
+  font-family:'Poppins',sans-serif;
+  padding:14px 20px;
 }
-nav a{color:var(--text);text-decoration:none;margin-left:20px;font-weight:500}
-nav a:hover{color:var(--accent2)}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:auto;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#020617;
+  transition:.3s;
+}
+.nav-links li a:hover{color:#6366f1;}
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#020617;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+  }
+  .nav-links.active{
+    display:flex;
+  }
+  .nav-links li{
+    text-align:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .menu-toggle{
+    display:block;
+  }
+}
 
 /* HEADER WITH MAP BACKGROUND */
 header{
@@ -269,10 +313,14 @@ footer{
   border-top:1px solid rgba(255,255,255,.08);
   border-radius:12px 12px 0 0;
 }
-
-footer .social-links{
-  margin-bottom:25px;
+footer a{
+  margin:0 8px;
+  color:#22d3ee;
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
 }
+footer a:hover{color:#6366f1;}
 .course-img {
   width: 100%;
   height: 150px; /* fixed height for all cards */
