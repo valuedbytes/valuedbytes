@@ -5,12 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Learning Hub | Valued Bytes Tech</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
-body{margin:0;font-family:Poppins,sans-serif;background:#020617;color:#e5e7eb}
-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;backdrop-filter:blur(12px);background:rgba(2,6,23,.75);border-bottom:1px solid rgba(255,255,255,.08);}
-nav a{color:#e5e7eb;text-decoration:none;margin-left:20px;font-weight:500}
-nav a:hover{color:#67e8f9}
-.container{max-width:1300px;margin:auto;padding:30px 20px;display:grid;grid-template-columns:2.3fr 1fr;gap:30px;}
+:root{
+  --bg:#020617;
+  --text:#e5e7eb;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --muted:#9ca3af;
+}
+body{margin:0;font-family:Poppins,sans-serif;background:var(--bg);color:var(--text);}
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 28px;
+  backdrop-filter:blur(12px);
+  background:linear-gradient(45deg,var(--accent),var(--accent2));
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+nav .logo{font-weight:600;font-size:1.5rem;color:#020617;}
+nav .nav-links{display:flex;gap:20px;}
+nav .nav-links a{color:#020617;text-decoration:none;font-weight:500;transition:.3s;}
+nav .nav-links a:hover{color:#6366f1;}
+nav .menu-toggle{display:none;font-size:24px;cursor:pointer;color:#020617;}
+/* Mobile */
+@media(max-width:768px){
+  nav .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+  }
+  nav .nav-links.active{display:flex;}
+  nav .nav-links a{color:var(--text);padding:14px 0;text-align:center;}
+  nav .menu-toggle{display:block;}
+}
+
+/* MAIN CONTENT */
+.container{
+  max-width:1300px;
+  margin:100px auto 50px;
+  padding:30px 20px;
+  display:grid;
+  grid-template-columns:2.3fr 1fr;
+  gap:30px;
+}
 #player{width:100%;height:460px;border-radius:18px;border:1px solid rgba(255,255,255,.1);}
 #video-desc{margin-top:12px;color:#cbd5f5;font-size:.95rem;line-height:1.4;opacity:0;transition:opacity .5s;}
 .list{display:flex;flex-direction:column;gap:12px;overflow-y:auto;max-height:500px;padding-right:6px;}
@@ -19,19 +68,40 @@ nav a:hover{color:#67e8f9}
 .item span{font-size:.9rem;color:#cbd5f5;}
 .more-videos{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
 .more-videos img{width:100%;border-radius:12px;object-fit:cover;cursor:pointer;}
-@media(max-width:900px){.container{grid-template-columns:1fr}#player{height:300px}.list{max-height:none;flex-direction:row;overflow-x:auto;gap:14px}.list::-webkit-scrollbar{display:none}.item{flex-direction:column;align-items:center}.more-videos{grid-template-columns:1fr}}
+/* MOBILE */
+@media(max-width:900px){
+  .container{grid-template-columns:1fr;}
+  #player{height:300px;}
+  .list{max-height:none;flex-direction:row;overflow-x:auto;gap:14px;padding-bottom:10px;}
+  .list::-webkit-scrollbar{display:none;}
+  .item{flex-direction:column;align-items:center;}
+  .more-videos{grid-template-columns:1fr;}
+}
+
+/* FOOTER */
+footer{
+  margin-top:50px;
+  padding:40px 20px;
+  text-align:center;
+  color:var(--text);
+  background:#12182b;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+footer a{margin:0 8px;color:var(--accent);text-decoration:none;font-size:18px;transition:.3s;}
+footer a:hover{color:var(--accent2);}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav>
-  <strong>Valued Bytes</strong>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="videos.html">Learning Hub</a>
-    <a href="index.html#courses">Courses</a>
-  </div>
+  <strong class="logo">Valued Bytes</strong>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="videos.html">Learning Hub</a></li>
+    <li><a href="index.html#courses">Courses</a></li>
+  </ul>
+  <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
 </nav>
 
 <!-- MAIN CONTENT -->
@@ -45,7 +115,30 @@ nav a:hover{color:#67e8f9}
 
 <div class="more-videos" id="more"></div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>
+    <a href="contact.html">Contact Us</a> · 
+    <a href="admission.html">Admissions</a>
+  </p>
+  © 2025 Valued Bytes Tech Institute · Chiniot
+</footer>
+
 <script>
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', ()=>{ navLinks.classList.toggle('active'); });
+});
+
+// YouTube playlist load
 const PLAYLIST_ID = 'PL4jIiDTSpGRjf2GpDht6udJ4CepN4MTM2';
 const API_KEY = 'AIzaSyBlWB2plVJ4RhK94qjLwUZ75X9WNH-Ks20';
 
@@ -54,7 +147,7 @@ async function loadVideos(){
   const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`);
   const data = await res.json();
   const videos = data.items;
-  if(videos.length==0) return;
+  if(!videos || videos.length==0) return;
 
   const player = document.getElementById('player');
   const sidebar = document.getElementById('sidebar');
@@ -65,33 +158,29 @@ async function loadVideos(){
     const id = v.snippet.resourceId.videoId;
     const thumb = v.snippet.thumbnails.high.url;
     const title = v.snippet.title;
-    const desc = v.snippet.description.length > 200 ? v.snippet.description.slice(0,200)+'...' : v.snippet.description;
+    const desc = v.snippet.description.length>200?v.snippet.description.slice(0,200)+'...':v.snippet.description;
 
     function playVideo(){
       player.src = `https://www.youtube.com/embed/${id}`;
-      descDiv.style.opacity = 0;
-      setTimeout(()=>{descDiv.textContent = desc; descDiv.style.opacity=1}, 200);
+      descDiv.style.opacity=0;
+      setTimeout(()=>{descDiv.textContent=desc;descDiv.style.opacity=1},200);
     }
 
     if(i<6){
-      const div = document.createElement('div');
+      const div=document.createElement('div');
       div.className='item';
       div.innerHTML=`<img src="${thumb}"><span>${title}</span>`;
       div.onclick = playVideo;
       sidebar.appendChild(div);
     } else {
-      const img = document.createElement('img');
-      img.src = thumb;
-      img.title = title;
-      img.onclick = playVideo;
+      const img=document.createElement('img');
+      img.src=thumb;
+      img.title=title;
+      img.onclick=playVideo;
       more.appendChild(img);
     }
 
-    if(i===0){
-      player.src = `https://www.youtube.com/embed/${id}`;
-      descDiv.textContent = desc;
-      descDiv.style.opacity=1;
-    }
+    if(i===0){player.src=`https://www.youtube.com/embed/${id}`;descDiv.textContent=desc;descDiv.style.opacity=1;}
   });
 }
 
