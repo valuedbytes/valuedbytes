@@ -183,6 +183,13 @@ h2{font-size:2rem;margin-bottom:14px;background:linear-gradient(90deg,#a5b4fc,#6
 #detail ul{padding-left:18px;}
 #detail li{margin:8px 0;color:var(--muted);}
 
+.course-link {
+  display: block; /* make the <a> act like a block/div */
+  text-decoration: none;
+  color: inherit;
+}
+
+  
 /* YOUTUBE */
 iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,255,.1);}
 
@@ -355,7 +362,7 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
   <h2>Professional Courses</h2>
   <p class="sub">Click a course to view its complete outline</p>
 
-<a href="basic.html" style="text-decoration:none; color:inherit;">
+<a href="basic.html" class="course-link">
   <div class="course">
     <img src="basic.png" alt="Essential Computer Skills" class="course-img">
     <span class="tag">Beginner</span>
@@ -363,6 +370,7 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
     <p>Computer fundamentals, Office tools & internet.</p>
   </div>
 </a>
+
 
   
     <div class="course" onclick="openCourse('graphic')">
