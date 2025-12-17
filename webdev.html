@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Essential Computer Skills | Valued Bytes Tech Institute</title>
+<title>Web Development | Valued Bytes Tech Institute</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -103,7 +103,7 @@ section{
   max-width:1200px;
   margin:auto;
   padding:60px 20px;
-text-align:left;
+  text-align:left;
 }
 h2{
   font-size:2rem;
@@ -113,10 +113,41 @@ h2{
 }
 .sub{color:var(--muted);margin-bottom:25px}
 
-/* BULLET LIST */
+/* COLLAPSIBLE */
+.collapsible {
+  background-color: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.collapsible:hover {
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+}
+.active-collapsible {
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+}
+.content-collapsible {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: var(--card);
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 15px;
+}
 .bullet-list{
   max-width:950px;
-  margin:auto;
+  margin:10px auto 20px;
   padding-left:20px;
 }
 .bullet-list li{
@@ -126,7 +157,6 @@ h2{
 }
 
 /* FOOTER */
-/* FOOTER REDESIGN */
 .footer-container{
   max-width:1200px;
   margin:auto;
@@ -136,15 +166,12 @@ h2{
   gap:30px;
   color:var(--text);
 }
-
-/* SOCIAL LINKS (original style) */
 .footer-container .social-links{
   display:flex;
   justify-content:center;
   gap:18px;
   margin-bottom:20px;
 }
-
 .footer-container .social-links a{
   width:44px;
   height:44px;
@@ -158,47 +185,38 @@ h2{
   transition:.3s ease;
   border:1px solid rgba(255,255,255,.12);
 }
-
 .footer-container .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   transform:translateY(-4px);
 }
-
-/* LINKS SECTIONS */
 .footer-links-container{
   display:flex;
-  justify-content:center; /* center horizontally */
+  justify-content:center;
   align-items:flex-start;
-  gap:60px; /* space between sections */
+  gap:60px;
   text-align:left;
   position:relative;
 }
-
-/* Vertical separator */
 .footer-separator{
   width:1px;
   background:rgba(255,255,255,0.2);
   margin:0 30px;
 }
-
 .footer-links h4{
   font-size:1.1rem;
   margin-bottom:12px;
   color:var(--accent2);
   text-align:left;
 }
-
 .footer-links ul{
   list-style:none;
   padding:0;
   margin:0;
 }
-
 .footer-links ul li{
   margin:6px 0;
 }
-
 .footer-links ul li a{
   color:var(--text);
   text-decoration:none;
@@ -206,31 +224,46 @@ h2{
   display:block;
   text-align:left;
 }
-
 .footer-links ul li a:hover{
   color:var(--accent);
 }
-
-/* COPYRIGHT */
 .footer-copy{
   text-align:center;
   margin-top:20px;
   color:var(--muted);
   font-size:.9rem;
 }
-
-/* MOBILE FOOTER */
 @media(max-width:768px){
   .footer-links-container{
     flex-direction:column;
     gap:20px;
   }
   .footer-separator{
-    display:none; /* hide vertical line on mobile */
+    display:none;
   }
 }
 
-/* FLOAT */
+.section-links{
+  text-align:center;
+  margin:20px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.section-links a{
+  padding:10px 18px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:25px;
+  transition:.3s;
+}
+.section-links a:hover{
+  transform:translateY(-3px);
+}
+
 .enroll-float{
   position:fixed;
   bottom:90px;
@@ -244,7 +277,6 @@ h2{
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -261,42 +293,36 @@ h2{
 </nav>
 
 <header>
-  <h1>🎬 Video Editing Course – Complete Outline</h1>
-<p>From Beginner to Professional Video Editor</p>
+  <h1>🌐 Web Development Course (Frontend + Backend) – MERN Stack</h1>
+  <p>Become a Full-Stack Web Developer from Scratch</p>
 
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
+  <div class="demo-box">
+    <div id="demoDate"></div>
+    <div id="seatStatus"></div>
+    <div id="courseDuration"></div>
 
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
+    <a id="registerBtn" class="register-btn" target="_blank">
+      Register for Demo Class
+    </a>
+  </div>
+</header>
+
+<!-- SECTION LINKS / QUICK NAV -->
+<div class="section-links">
+  <a href="#learn">What You Will Learn</a>
+  <a href="#eligibility">Who Should Learn</a>
+  <a href="#outcome">What You Can Do</a>
+  <a href="#highlights">Course Highlights</a>
 </div>
 
-<h1>🌐 Web Development Course (Frontend + Backend) – MERN Stack</h1>
-<p>Become a Full-Stack Web Developer from Scratch</p>
-
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
-
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
 
 <!-- WHAT YOU WILL LEARN -->
-<section>
+<section id="learn">
   <h2>What You Will Learn</h2>
   <p class="sub">Practical full-stack web development skills from scratch</p>
 
-  <div class="content">
-
-    <h3>🖥️ Web Development Foundations</h3>
+  <button class="collapsible">🖥️ Web Development Foundations</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Understanding websites & how they work</li>
       <li>Difference between frontend & backend</li>
@@ -306,8 +332,10 @@ h2{
       <li>Using browsers & developer tools</li>
       <li>Problem-solving mindset for developers</li>
     </ul>
+  </div>
 
-    <h3>🖌️ Frontend Development – HTML & CSS</h3>
+  <button class="collapsible">🖌️ Frontend Development – HTML & CSS</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Structuring web pages using HTML5</li>
       <li>Styling pages with CSS3</li>
@@ -317,8 +345,10 @@ h2{
       <li>Embedding images, videos & links</li>
       <li>Real-life mini projects: personal website, portfolio page</li>
     </ul>
+  </div>
 
-    <h3>✨ JavaScript – Making Websites Interactive</h3>
+  <button class="collapsible">✨ JavaScript – Making Websites Interactive</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Basics of JavaScript syntax</li>
       <li>Variables, loops, and functions</li>
@@ -328,8 +358,10 @@ h2{
       <li>Working with arrays & objects</li>
       <li>Mini projects: To-do app, calculator, interactive gallery</li>
     </ul>
+  </div>
 
-    <h3>⚛️ React – Modern Frontend Framework</h3>
+  <button class="collapsible">⚛️ React – Modern Frontend Framework</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Understanding components & props</li>
       <li>State management basics</li>
@@ -339,8 +371,10 @@ h2{
       <li>Styling React components</li>
       <li>Project: Portfolio website, small web app</li>
     </ul>
+  </div>
 
-    <h3>🗄️ Backend Development – Node.js & Express</h3>
+  <button class="collapsible">🗄️ Backend Development – Node.js & Express</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Understanding server & client communication</li>
       <li>Setting up Node.js & Express server</li>
@@ -350,8 +384,10 @@ h2{
       <li>Middleware & error handling</li>
       <li>Connecting frontend with backend</li>
     </ul>
+  </div>
 
-    <h3>🗃️ Database – MongoDB</h3>
+  <button class="collapsible">🗃️ Database – MongoDB</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Introduction to NoSQL & MongoDB</li>
       <li>Creating collections & documents</li>
@@ -360,8 +396,10 @@ h2{
       <li>Handling user data & storing securely</li>
       <li>Mini project: Simple blog or user management system</li>
     </ul>
+  </div>
 
-    <h3>🤖 AI & Productivity Tools for Developers</h3>
+  <button class="collapsible">🤖 AI & Productivity Tools for Developers</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>AI-assisted coding (ChatGPT, code completion)</li>
       <li>Debugging & code optimization using AI</li>
@@ -369,8 +407,10 @@ h2{
       <li>Best practices for productivity</li>
       <li>Ethical & responsible use of AI in coding</li>
     </ul>
+  </div>
 
-    <h3>🧩 Projects & Portfolio</h3>
+  <button class="collapsible">🧩 Projects & Portfolio</button>
+  <div class="content-collapsible">
     <ul class="bullet-list">
       <li>Real-world web application projects</li>
       <li>Full-stack projects with MERN stack</li>
@@ -379,12 +419,12 @@ h2{
       <li>Portfolio showcasing frontend & backend skills</li>
       <li>Preparation for freelancing & job opportunities</li>
     </ul>
-
   </div>
+
 </section>
 
 <!-- ELIGIBILITY -->
-<section>
+<section id="eligibility"> 
   <h2>Who Should Learn This Course?</h2>
   <ul class="bullet-list">
     <li>Students & beginners with no coding experience</li>
@@ -396,7 +436,7 @@ h2{
 </section>
 
 <!-- OUTCOME -->
-<section>
+<section id="outcome"> 
   <h2>What You Can Do After This Course</h2>
   <ul class="bullet-list">
     <li>Build professional websites from scratch</li>
@@ -409,7 +449,7 @@ h2{
 </section>
 
 <!-- COURSE HIGHLIGHTS -->
-<section>
+<section id="highlights">
   <h2>Course Highlights</h2>
   <ul class="bullet-list">
     <li>Beginner-friendly & practical teaching</li>
@@ -421,12 +461,9 @@ h2{
   </ul>
 </section>
 
-
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-container">
-
-    <!-- Social Links -->
     <div class="social-links">
       <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -434,10 +471,7 @@ h2{
       <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <!-- Links Section -->
     <div class="footer-links-container">
-
-      <!-- Main Pages Links -->
       <div class="footer-links">
         <h4>Main Pages</h4>
         <ul>
@@ -448,10 +482,8 @@ h2{
         </ul>
       </div>
 
-      <!-- Separator (vertical line) -->
       <div class="footer-separator"></div>
 
-      <!-- Course Outlines Links -->
       <div class="footer-links">
         <h4>Course Outlines</h4>
         <ul>
@@ -463,41 +495,31 @@ h2{
           <li><a href="social.html">Social Media Mastery & AI Tools</a></li>
         </ul>
       </div>
-
     </div>
 
     <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
-
   </div>
 </footer>
-
 
 <a href="https://wa.me/923227826078" class="enroll-float">
   Enroll via WhatsApp
 </a>
 
-<!-- ADMIN CONTROL SCRIPT -->
 <script>
-/* ========= ADMIN CONTROLS ========= */
+/* Demo seats logic */
 const demoConfig = {
   demoDate: "10 January 2025 (Friday)",
   totalSeats: 25,
   bookedSeats: 24,
   courseDuration: "⏳ Course Duration: 2 Months (5 Days / Week)"
 };
-
-/* ========= SYSTEM LOGIC ========= */
 const seatsLeft = demoConfig.totalSeats - demoConfig.bookedSeats;
-
 document.getElementById("demoDate").innerHTML =
   `📅 <strong>Demo Class:</strong> ${demoConfig.demoDate}`;
-
 document.getElementById("courseDuration").innerHTML =
   demoConfig.courseDuration;
-
 const seatStatus = document.getElementById("seatStatus");
 const registerBtn = document.getElementById("registerBtn");
-
 if (seatsLeft > 0) {
   seatStatus.innerHTML = `✅ Seats Available: <strong>${seatsLeft}</strong>`;
   seatStatus.style.color = "#86efac";
@@ -511,7 +533,21 @@ if (seatsLeft > 0) {
   registerBtn.innerText = "Registration Closed";
 }
 
-/* MOBILE MENU */
+/* Collapsible logic */
+const coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active-collapsible");
+    const content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+
+/* Navbar mobile toggle */
 document.getElementById("menu").onclick = () => {
   document.getElementById("nav-links").classList.toggle("active");
 };
