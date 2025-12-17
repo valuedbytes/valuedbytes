@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Essential Computer Skills | Valued Bytes Tech Institute</title>
+<title>Kids Tech Education | Valued Bytes Tech Institute</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -17,8 +17,7 @@
   --text:#e5e7eb;
   --muted:#9ca3af;
 }
-
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
   margin:0;
   padding-top:70px;
@@ -57,7 +56,7 @@ nav{
 
 /* HEADER */
 header{
-  padding:80px 20px 60px;
+  padding:80px 20px 20px;
   text-align:center;
 }
 header h1{
@@ -72,10 +71,31 @@ header p{
   color:var(--muted);
 }
 
+/* SECTION LINKS */
+.section-links{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.section-links a{
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:10px 18px;
+  border-radius:25px;
+  color:#020617;
+  font-weight:600;
+  transition:.3s;
+}
+.section-links a:hover{
+  transform:translateY(-3px);
+}
+
 /* DEMO BOX */
 .demo-box{
   max-width:900px;
-  margin:40px auto;
+  margin:20px auto 40px;
   padding:28px;
   border-radius:22px;
   background:linear-gradient(180deg,#12182b,#0b1022);
@@ -103,7 +123,7 @@ section{
   max-width:1200px;
   margin:auto;
   padding:60px 20px;
-text-align:left;
+  text-align:left;
 }
 h2{
   font-size:2rem;
@@ -126,7 +146,6 @@ h2{
 }
 
 /* FOOTER */
-/* FOOTER REDESIGN */
 .footer-container{
   max-width:1200px;
   margin:auto;
@@ -136,15 +155,12 @@ h2{
   gap:30px;
   color:var(--text);
 }
-
-/* SOCIAL LINKS (original style) */
 .footer-container .social-links{
   display:flex;
   justify-content:center;
   gap:18px;
   margin-bottom:20px;
 }
-
 .footer-container .social-links a{
   width:44px;
   height:44px;
@@ -158,47 +174,38 @@ h2{
   transition:.3s ease;
   border:1px solid rgba(255,255,255,.12);
 }
-
 .footer-container .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   transform:translateY(-4px);
 }
-
-/* LINKS SECTIONS */
 .footer-links-container{
   display:flex;
-  justify-content:center; /* center horizontally */
+  justify-content:center;
   align-items:flex-start;
-  gap:60px; /* space between sections */
+  gap:60px;
   text-align:left;
   position:relative;
 }
-
-/* Vertical separator */
 .footer-separator{
   width:1px;
   background:rgba(255,255,255,0.2);
   margin:0 30px;
 }
-
 .footer-links h4{
   font-size:1.1rem;
   margin-bottom:12px;
   color:var(--accent2);
   text-align:left;
 }
-
 .footer-links ul{
   list-style:none;
   padding:0;
   margin:0;
 }
-
 .footer-links ul li{
   margin:6px 0;
 }
-
 .footer-links ul li a{
   color:var(--text);
   text-decoration:none;
@@ -206,30 +213,22 @@ h2{
   display:block;
   text-align:left;
 }
-
 .footer-links ul li a:hover{
   color:var(--accent);
 }
-
-/* COPYRIGHT */
 .footer-copy{
   text-align:center;
   margin-top:20px;
   color:var(--muted);
   font-size:.9rem;
 }
-
-/* MOBILE FOOTER */
 @media(max-width:768px){
   .footer-links-container{
     flex-direction:column;
     gap:20px;
   }
-  .footer-separator{
-    display:none; /* hide vertical line on mobile */
-  }
+  .footer-separator{display:none;}
 }
-
 
 /* FLOAT */
 .enroll-float{
@@ -262,48 +261,41 @@ h2{
 </nav>
 
 <header>
-  <h1>🎬 Video Editing Course – Complete Outline</h1>
-<p>From Beginner to Professional Video Editor</p>
+  <h1>🧒 Basic Computer & Tech Education for Kids (Ages 6–12)</h1>
+  <p>Building Smart Tech Habits in a Fun & Safe Environment</p>
 
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
+  <!-- Section Links -->
+  <div class="section-links">
+    <a href="#what-you-will-learn">What Kids Will Learn</a>
+    <a href="#eligibility">Who Should Learn</a>
+    <a href="#outcome">Course Outcome</a>
+    <a href="#highlights">Course Highlights</a>
+  </div>
 
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
+  <!-- DEMO INFO -->
+  <div class="demo-box">
+    <div id="demoDate"></div>
+    <div id="seatStatus"></div>
+    <div id="courseDuration"></div>
 
-<!-- WHAT YOU WILL LEARN -->
-<h1>🧒 Basic Computer & Tech Course for Kids (Ages 6–12)</h1>
-<p>Building Smart Tech Habits in a Safe & Fun Learning Environment</p>
-
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
-
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
+    <a id="registerBtn" class="register-btn" target="_blank">
+      Register for Demo Class
+    </a>
+  </div>
+</header>
 
 <!-- WHAT YOU WILL LEARN -->
-<section>
+<section id="what-you-will-learn">
   <h2>What Kids Will Learn</h2>
   <p class="sub">Essential computer skills, digital safety & healthy tech habits</p>
 
   <div class="content">
-
     <h3>🖥️ Computer Basics (Kid-Friendly)</h3>
     <ul class="bullet-list">
       <li>What a computer is and how it works</li>
       <li>Parts of a computer (monitor, CPU, mouse, keyboard)</li>
-      <li>How to safely turn a computer on & off</li>
-      <li>Using mouse & keyboard with confidence</li>
+      <li>Safe turning on & off</li>
+      <li>Using mouse & keyboard confidently</li>
       <li>Understanding screen, icons & buttons</li>
     </ul>
 
@@ -325,10 +317,10 @@ h2{
 
     <h3>🌐 Internet Basics & Online Safety</h3>
     <ul class="bullet-list">
-      <li>What the internet is (simple explanation)</li>
+      <li>What the internet is</li>
       <li>Using browser safely</li>
       <li>Good vs bad websites (basic awareness)</li>
-      <li>Do’s & Don’ts of online behavior</li>
+      <li>Do’s & Don’ts online</li>
       <li>Screen time balance & healthy habits</li>
     </ul>
 
@@ -337,34 +329,33 @@ h2{
       <li>Writing small stories in Word</li>
       <li>Making colorful presentations</li>
       <li>Simple drawings & designs</li>
-      <li>Using templates in a smart way</li>
+      <li>Using templates smartly</li>
     </ul>
 
     <h3>🤖 Intro to AI & Smart Tools (Very Basic)</h3>
     <ul class="bullet-list">
-      <li>What AI is (real-life examples)</li>
-      <li>Using AI tools safely with guidance</li>
+      <li>What AI is (examples)</li>
+      <li>Using AI tools safely</li>
       <li>Learning, not copying</li>
-      <li>Understanding right & wrong use of technology</li>
+      <li>Understanding right & wrong use of tech</li>
     </ul>
 
-    <h3>🎮 Logic, Thinking & Confidence Building</h3>
+    <h3>🎮 Logic, Thinking & Confidence</h3>
     <ul class="bullet-list">
       <li>Educational games for thinking skills</li>
       <li>Problem-solving activities</li>
       <li>Improving focus & patience</li>
       <li>Confidence in using technology</li>
     </ul>
-
   </div>
 </section>
 
 <!-- ELIGIBILITY -->
-<section>
-  <h2>Who Is This Course For?</h2>
+<section id="eligibility">
+  <h2>Who Should Learn This Course?</h2>
   <ul class="bullet-list">
     <li>Kids aged 6 to 12 years</li>
-    <li>School students (primary & middle level)</li>
+    <li>School students (primary & middle)</li>
     <li>Beginners with no computer background</li>
     <li>Kids needing productive screen time</li>
     <li>Parents looking for safe tech education</li>
@@ -372,7 +363,7 @@ h2{
 </section>
 
 <!-- OUTCOME -->
-<section>
+<section id="outcome">
   <h2>What Kids Can Do After This Course</h2>
   <ul class="bullet-list">
     <li>Use computer confidently & responsibly</li>
@@ -384,7 +375,7 @@ h2{
 </section>
 
 <!-- COURSE HIGHLIGHTS -->
-<section>
+<section id="highlights">
   <h2>Course Highlights</h2>
   <ul class="bullet-list">
     <li>Kid-friendly & easy teaching style</li>
@@ -396,12 +387,8 @@ h2{
   </ul>
 </section>
 
-
-
 <footer>
   <div class="footer-container">
-
-    <!-- Social Links -->
     <div class="social-links">
       <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -409,10 +396,7 @@ h2{
       <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <!-- Links Section -->
     <div class="footer-links-container">
-
-      <!-- Main Pages Links -->
       <div class="footer-links">
         <h4>Main Pages</h4>
         <ul>
@@ -422,11 +406,7 @@ h2{
           <li><a href="about.html">About Us</a></li>
         </ul>
       </div>
-
-      <!-- Separator (vertical line) -->
       <div class="footer-separator"></div>
-
-      <!-- Course Outlines Links -->
       <div class="footer-links">
         <h4>Course Outlines</h4>
         <ul>
@@ -438,20 +418,13 @@ h2{
           <li><a href="social.html">Social Media Mastery & AI Tools</a></li>
         </ul>
       </div>
-
     </div>
-
     <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
-
   </div>
 </footer>
 
+<a href="https://wa.me/923227826078" class="enroll-float">Enroll via WhatsApp</a>
 
-<a href="https://wa.me/923227826078" class="enroll-float">
-  Enroll via WhatsApp
-</a>
-
-<!-- ADMIN CONTROL SCRIPT -->
 <script>
 /* ========= ADMIN CONTROLS ========= */
 const demoConfig = {
@@ -461,14 +434,11 @@ const demoConfig = {
   courseDuration: "⏳ Course Duration: 2 Months (5 Days / Week)"
 };
 
-/* ========= SYSTEM LOGIC ========= */
 const seatsLeft = demoConfig.totalSeats - demoConfig.bookedSeats;
 
 document.getElementById("demoDate").innerHTML =
   `📅 <strong>Demo Class:</strong> ${demoConfig.demoDate}`;
-
-document.getElementById("courseDuration").innerHTML =
-  demoConfig.courseDuration;
+document.getElementById("courseDuration").innerHTML = demoConfig.courseDuration;
 
 const seatStatus = document.getElementById("seatStatus");
 const registerBtn = document.getElementById("registerBtn");
@@ -479,8 +449,7 @@ if (seatsLeft > 0) {
   registerBtn.href =
     "https://wa.me/923227826078?text=I%20want%20to%20register%20for%20demo%20class";
 } else {
-  seatStatus.innerHTML =
-    "❌ Seats are full — Please wait for next demo class";
+  seatStatus.innerHTML = "❌ Seats are full — Please wait for next demo class";
   seatStatus.style.color = "#fca5a5";
   registerBtn.classList.add("disabled");
   registerBtn.innerText = "Registration Closed";
