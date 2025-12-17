@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Essential Computer Skills | Valued Bytes Tech Institute</title>
+<title>Graphic Designing | Valued Bytes Tech Institute</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -19,6 +19,7 @@
 }
 
 *{box-sizing:border-box}
+html {scroll-behavior: smooth;}
 body{
   margin:0;
   padding-top:70px;
@@ -72,10 +73,35 @@ header p{
   color:var(--muted);
 }
 
+/* COURSE DROPDOWN + SECTION JUMP BUTTONS */
+.course-nav{
+  max-width:900px;
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.course-nav select,
+.course-nav button{
+  padding:10px 18px;
+  border-radius:8px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  transition:.3s;
+}
+.course-nav select:hover,
+.course-nav button:hover{
+  transform:translateY(-2px);
+}
+
 /* DEMO BOX */
 .demo-box{
   max-width:900px;
-  margin:40px auto;
+  margin:20px auto 40px;
   padding:28px;
   border-radius:22px;
   background:linear-gradient(180deg,#12182b,#0b1022);
@@ -125,7 +151,6 @@ h2{
 }
 
 /* FOOTER */
-/* FOOTER REDESIGN */
 .footer-container{
   max-width:1200px;
   margin:auto;
@@ -135,15 +160,12 @@ h2{
   gap:30px;
   color:var(--text);
 }
-
-/* SOCIAL LINKS (original style) */
 .footer-container .social-links{
   display:flex;
   justify-content:center;
   gap:18px;
   margin-bottom:20px;
 }
-
 .footer-container .social-links a{
   width:44px;
   height:44px;
@@ -157,47 +179,38 @@ h2{
   transition:.3s ease;
   border:1px solid rgba(255,255,255,.12);
 }
-
 .footer-container .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   transform:translateY(-4px);
 }
-
-/* LINKS SECTIONS */
 .footer-links-container{
   display:flex;
-  justify-content:center; /* center horizontally */
+  justify-content:center;
   align-items:flex-start;
-  gap:60px; /* space between sections */
+  gap:60px;
   text-align:left;
   position:relative;
 }
-
-/* Vertical separator */
 .footer-separator{
   width:1px;
   background:rgba(255,255,255,0.2);
   margin:0 30px;
 }
-
 .footer-links h4{
   font-size:1.1rem;
   margin-bottom:12px;
   color:var(--accent2);
   text-align:left;
 }
-
 .footer-links ul{
   list-style:none;
   padding:0;
   margin:0;
 }
-
 .footer-links ul li{
   margin:6px 0;
 }
-
 .footer-links ul li a{
   color:var(--text);
   text-decoration:none;
@@ -205,30 +218,22 @@ h2{
   display:block;
   text-align:left;
 }
-
 .footer-links ul li a:hover{
   color:var(--accent);
 }
-
-/* COPYRIGHT */
 .footer-copy{
   text-align:center;
   margin-top:20px;
   color:var(--muted);
   font-size:.9rem;
 }
-
-/* MOBILE FOOTER */
 @media(max-width:768px){
   .footer-links-container{
     flex-direction:column;
     gap:20px;
   }
-  .footer-separator{
-    display:none; /* hide vertical line on mobile */
-  }
+  .footer-separator{display:none;}
 }
-
 
 /* FLOAT */
 .enroll-float{
@@ -255,290 +260,151 @@ h2{
       <li><a href="index.html#courses">Courses</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="admission.html">Enroll</a></li>
+      <li><a href="about.html">About Us</a></li>
     </ul>
     <div class="menu-toggle" id="menu"><i class="fas fa-bars"></i></div>
   </div>
 </nav>
 
 <header>
-  <h1>🎨 Graphic Designing Course – Complete Outline</h1>
-  <p>From Beginner to Professional Designer.</p>
+  <h1>Graphic Designing Course</h1>
+  <p>Learn professional graphic designing using tools like Photoshop, Illustrator, Canva, and AI tools for creative projects.</p>
 </header>
 
-<!-- DEMO INFO -->
+<!-- COURSE DROPDOWN + SECTION JUMPS -->
+<div class="course-nav">
+  <select id="courseSelect">
+    <option value="">Select Course Outline</option>
+    <option value="basic.html">Essential Computer Skills</option>
+    <option value="graphics.html">Graphic Designing</option>
+    <option value="webdev.html">Web Development (Full Stack)</option>
+    <option value="videoedit.html">Professional Video Editing</option>
+    <option value="kids.html">Basic Computer Education for Kids</option>
+    <option value="social.html">Social Media Mastery & AI Tools</option>
+  </select>
+
+  <button onclick="scrollToSection('learn')">What You Will Learn</button>
+  <button onclick="scrollToSection('who')">Who Should Learn</button>
+  <button onclick="scrollToSection('outcome')">What You Can Do After</button>
+</div>
+
+<!-- DEMO BOX -->
 <div class="demo-box">
   <div id="demoDate"></div>
   <div id="seatStatus"></div>
   <div id="courseDuration"></div>
-
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
+  <a id="registerBtn" class="register-btn" target="_blank">Register for Demo Class</a>
 </div>
 
 <!-- WHAT YOU WILL LEARN -->
-
-
-<section>
+<section id="learn">
   <h2>What You Will Learn</h2>
-  <p class="sub">Real-life, practical computer Graphic skills </p>
+  <p class="sub">Master tools and techniques to create stunning graphics</p>
 
   <div class="content">
-
-    <h3>🖥️ Graphic Design Foundations</h3>
+    <h3>🎨 Adobe Photoshop</h3>
     <ul class="bullet-list">
-      <li>Understanding what graphic design is</li>
-      <li>How design is used in real life & business</li>
-      <li>Color sense & font understanding (basic level)</li>
-      <li>Image quality, size & formats explained simply</li>
-      <li>Working like a professional designer</li>
-      <li>Building creative thinking & visual sense</li>
-      
+      <li>Photo editing and retouching</li>
+      <li>Layer management and masks</li>
+      <li>Using filters, effects, and color grading</li>
+      <li>Creating posters, banners, and social media graphics</li>
     </ul>
 
-    <h3>🖌️ Adobe Photoshop – Image Editing & Design</h3>
+    <h3>🖊️ Adobe Illustrator</h3>
     <ul class="bullet-list">
-      <li>Photo editing & retouching</li>
-      <li>Background removal & replacement</li>
-      <li>Color correction & photo enhancement</li>
-      <li>Designing social media posts</li>
-      <li>Creating posters & banners</li>
-<li>YouTube thumbnails design</li>
-<li>Visiting cards & flyers</li>
-<li>Image resizing for web & print</li>
-<li>Exporting designs correctly</li>
-
+      <li>Vector design fundamentals</li>
+      <li>Logo, icon, and illustration creation</li>
+      <li>Typography and shape manipulation</li>
+      <li>Working with artboards and exporting assets</li>
     </ul>
 
-    <h3>✏️ Adobe Illustrator – Vector & Logo Design</h3>
+    <h3>📄 Adobe InDesign & Canva</h3>
     <ul class="bullet-list">
-      <li>Understanding vector graphics</li>
-      <li>Logo designing from scratch</li>
-      <li>Icon & symbol design</li>
-      <li>Visiting card & letterhead design</li>
-      <li>Social media creatives</li>
-      <li>Working with shapes & colors</li>
-      <li>Designing for printing & branding</li>
-<li>Exporting logos in proper formats</li>
+      <li>Designing flyers, brochures, and booklets</li>
+      <li>Template usage and customization</li>
+      <li>Layouts and grids for print and digital</li>
+      <li>Exporting designs for print & social media</li>
     </ul>
 
-    <h3>Adobe InDesign – Professional Layouts</h3>
+    <h3>🤖 AI Design Tools</h3>
     <ul class="bullet-list">
-      <li>Magazine & Brochure Designing</li>
-<li>Multi-page Document Handling</li>
-<li>Book & Course Material Layout</li>
-<li>Certificate & Report Designing</li>
-<li>Proper Text & Image Alignment</li>
-<li>Print-ready Document Setup</li>
-<li>Exporting PDF for Print & Sharing</li>
-
+      <li>AI-assisted design generation</li>
+      <li>Color and style suggestions using AI</li>
+      <li>Quick content creation for social media</li>
+      <li>Combining AI tools with traditional design skills</li>
     </ul>
-
-    <h3>🧩 Canva – Fast & Smart Designing</h3>
-    <ul class="bullet-list">
-      <li>Designing Without Complex Tools</li>
-<li>Social Media Posts & Stories</li>
-<li>Posters, Banners & Advertisements</li>
-<li>Presentations & Certificates</li>
-<li>Resume & Portfolio Designs</li>
-<li>Using Ready-made Templates Smartly</li>
-<li>Designing from Mobile & Computer</li>
-    </ul>
-
-    <h3>🤖 AI Tools for Graphic Designers</h3>
-    <ul class="bullet-list">
-      <li>Understanding AI in Design (Simple Way)</li>
-<li>Creating Design Ideas Using AI</li>
-<li>AI Image Generation</li>
-<li>Background Removal Using AI</li>
-<li>Color & Layout Suggestions with AI</li>
-<li>Speeding Up Design Work Using AI</li>
-<li>Smart & Ethical Use of AI Tools</li>
-
-    </ul>
-
-    <h3>Practical Projects & Portfolio</h3>
-    <ul class="bullet-list">
-      <li>Real-world Design Projects</li>
-<li>Social Media Design Sets</li>
-<li>Branding Mini Projects</li>
-<li>Client-style Assignments</li>
-<li>Portfolio Building</li>
-<li>Design Presentation Skills</li>
-<li>Freelancing Basics Guidance</li>
-
-    </ul>
-
   </div>
 </section>
 
-<!-- ELIGIBILITY -->
-<section>
+<!-- WHO SHOULD LEARN -->
+<section id="who">
   <h2>Who Should Learn This Course?</h2>
   <ul class="bullet-list">
-    <li>School, College & University Students</li>
-<li>Beginners with No Design Background</li>
-<li>Job Seekers</li>
-<li>Business Owners & Shopkeepers</li>
-<li>Social Media Handlers</li>
-<li>Freelancers in the Making</li>
-<li>Anyone Interested in Creativity</li>
-
+    <li>Students and fresh graduates interested in design</li>
+    <li>Small business owners wanting to create graphics</li>
+    <li>Social media content creators</li>
+    <li>Marketing and branding professionals</li>
+    <li>Beginners aiming to start a freelance design career</li>
   </ul>
 </section>
 
 <!-- OUTCOME -->
-<section>
+<section id="outcome">
   <h2>What You Can Do After This Course</h2>
   <ul class="bullet-list">
-    <li>Design Professional Graphics Confidently</li>
-<li>Create Logos, Posters & Social Media Designs</li>
-<li>
-  Work As:
-  <ul>
-    <li>Graphic Designer</li>
-    <li>Social Media Designer</li>
-    <li>Freelance Designer</li>
-    <li>Office / Marketing Designer</li>
-  </ul>
-</li>
-<li>Start Freelancing or Support Your Own Business</li>
-<li>Build a Strong Design Portfolio</li>
-
+    <li>Create professional graphics for social media, websites, and print</li>
+    <li>Design logos, banners, brochures, and presentations</li>
+    <li>Work as a freelance graphic designer</li>
+    <li>Use AI tools to speed up your creative process</li>
+    <li>Build a strong portfolio for clients or job applications</li>
   </ul>
 </section>
 
-<section>
-  <h2>Course Highlights</h2>
-  <ul class="bullet-list">
-    <li>Beginner-friendly Teaching</li>
-<li>100% Practical Work</li>
-<li>Real-life Projects</li>
-<li>Portfolio Support</li>
-<li>Certificate After Completion</li>
-<li>Demo Class Available</li>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
 
-  </ul>
-</li>
-<li>Start Freelancing or Support Your Own Business</li>
-<li>Build a Strong Design Portfolio</li>
+    <div class="social-links">
+      <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
-  </ul>
-</section>
+    <div class="footer-links-container">
+      <div class="footer-links">
+        <h4>Main Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admission.html">Enroll</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
 
+      <div class="footer-separator"></div>
 
-/* FOOTER REDESIGN */
-.footer-container{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:30px;
-  color:var(--text);
-}
+      <div class="footer-links">
+        <h4>Course Outlines</h4>
+        <ul>
+          <li><a href="basic.html">Essential Computer Skills</a></li>
+          <li><a href="graphics.html">Graphic Designing</a></li>
+          <li><a href="webdev.html">Web Development (Full Stack)</a></li>
+          <li><a href="videoedit.html">Professional Video Editing</a></li>
+          <li><a href="kids.html">Basic Computer Education for Kids</a></li>
+          <li><a href="social.html">Social Media Mastery & AI Tools</a></li>
+        </ul>
+      </div>
+    </div>
 
-/* SOCIAL LINKS (original style) */
-.footer-container .social-links{
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  margin-bottom:20px;
-}
+    <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
+  </div>
+</footer>
 
-.footer-container .social-links a{
-  width:44px;
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  color:var(--accent);
-  font-size:18px;
-  transition:.3s ease;
-  border:1px solid rgba(255,255,255,.12);
-}
+<a href="https://wa.me/923227826078" class="enroll-float">Enroll via WhatsApp</a>
 
-.footer-container .social-links a:hover{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#020617;
-  transform:translateY(-4px);
-}
-
-/* LINKS SECTIONS */
-.footer-links-container{
-  display:flex;
-  justify-content:center; /* center horizontally */
-  align-items:flex-start;
-  gap:60px; /* space between sections */
-  text-align:left;
-  position:relative;
-}
-
-/* Vertical separator */
-.footer-separator{
-  width:1px;
-  background:rgba(255,255,255,0.2);
-  margin:0 30px;
-}
-
-.footer-links h4{
-  font-size:1.1rem;
-  margin-bottom:12px;
-  color:var(--accent2);
-  text-align:left;
-}
-
-.footer-links ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-
-.footer-links ul li{
-  margin:6px 0;
-}
-
-.footer-links ul li a{
-  color:var(--text);
-  text-decoration:none;
-  transition:.3s;
-  display:block;
-  text-align:left;
-}
-
-.footer-links ul li a:hover{
-  color:var(--accent);
-}
-
-/* COPYRIGHT */
-.footer-copy{
-  text-align:center;
-  margin-top:20px;
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-/* MOBILE FOOTER */
-@media(max-width:768px){
-  .footer-links-container{
-    flex-direction:column;
-    gap:20px;
-  }
-  .footer-separator{
-    display:none; /* hide vertical line on mobile */
-  }
-}
-
-
-<a href="https://wa.me/923227826078" class="enroll-float">
-  Enroll via WhatsApp
-</a>
-
-<!-- ADMIN CONTROL SCRIPT -->
 <script>
-/* ========= ADMIN CONTROLS ========= */
+/* DEMO BOX LOGIC */
 const demoConfig = {
   demoDate: "10 January 2025 (Friday)",
   totalSeats: 25,
@@ -546,26 +412,18 @@ const demoConfig = {
   courseDuration: "⏳ Course Duration: 2 Months (5 Days / Week)"
 };
 
-/* ========= SYSTEM LOGIC ========= */
 const seatsLeft = demoConfig.totalSeats - demoConfig.bookedSeats;
-
 document.getElementById("demoDate").innerHTML =
   `📅 <strong>Demo Class:</strong> ${demoConfig.demoDate}`;
-
-document.getElementById("courseDuration").innerHTML =
-  demoConfig.courseDuration;
-
+document.getElementById("courseDuration").innerHTML = demoConfig.courseDuration;
 const seatStatus = document.getElementById("seatStatus");
 const registerBtn = document.getElementById("registerBtn");
-
 if (seatsLeft > 0) {
   seatStatus.innerHTML = `✅ Seats Available: <strong>${seatsLeft}</strong>`;
   seatStatus.style.color = "#86efac";
-  registerBtn.href =
-    "https://wa.me/923227826078?text=I%20want%20to%20register%20for%20demo%20class";
+  registerBtn.href = "https://wa.me/923227826078?text=I%20want%20to%20register%20for%20demo%20class";
 } else {
-  seatStatus.innerHTML =
-    "❌ Seats are full — Please wait for next demo class";
+  seatStatus.innerHTML = "❌ Seats are full — Please wait for next demo class";
   seatStatus.style.color = "#fca5a5";
   registerBtn.classList.add("disabled");
   registerBtn.innerText = "Registration Closed";
@@ -575,6 +433,16 @@ if (seatsLeft > 0) {
 document.getElementById("menu").onclick = () => {
   document.getElementById("nav-links").classList.toggle("active");
 };
+
+/* COURSE DROPDOWN */
+document.getElementById("courseSelect").onchange = function(){
+  if(this.value) window.location.href = this.value;
+};
+
+/* SECTION SCROLL */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
