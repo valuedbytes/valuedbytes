@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essential Computer Skills | Valued Bytes Tech Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;justify-content:center;align-items:center;
+  padding:14px 28px;
+  backdrop-filter:blur(12px);
+  background:linear-gradient(45deg,var(--accent),var(--accent2));
+}
+.nav-container{
+  max-width:1200px;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo{font-size:1.5rem;color:#020617;font-weight:700}
+.nav-links{list-style:none;display:flex;gap:20px}
+.nav-links a{text-decoration:none;font-weight:600;color:#020617}
+.menu-toggle{display:none;font-size:24px;color:#020617}
+
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;top:60px;left:0;width:100%;
+    flex-direction:column;background:#12182b;display:none
+  }
+  .nav-links.active{display:flex}
+  .nav-links li{text-align:center;padding:14px 0}
+  .nav-links a{color:#fff}
+  .menu-toggle{display:block}
+}
+
+/* HEADER */
+header{
+  padding:80px 20px 60px;
+  text-align:center;
+}
+header h1{
+  font-size:2.6rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+header p{
+  max-width:850px;
+  margin:auto;
+  color:var(--muted);
+}
+
+/* DEMO BOX */
+.demo-box{
+  max-width:900px;
+  margin:40px auto;
+  padding:28px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border:1px solid rgba(255,255,255,.1);
+  text-align:center;
+}
+.demo-box div{margin:10px 0}
+.register-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 28px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+.register-btn.disabled{
+  pointer-events:none;
+  opacity:.5;
+}
+
+/* SECTION */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
+}
+h2{
+  font-size:2rem;
+  background:linear-gradient(90deg,#a5b4fc,#67e8f9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sub{color:var(--muted);margin-bottom:25px}
+
+/* BULLET LIST */
+.bullet-list{
+  max-width:950px;
+  margin:auto;
+  padding-left:20px;
+}
+.bullet-list li{
+  margin:10px 0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+  padding:40px 20px;
+  text-align:center;
+  background:#12182b;
+  margin-top:80px;
+}
+footer a{color:#67e8f9;text-decoration:none;margin:0 10px}
+
+/* FLOAT */
+.enroll-float{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">Valued Bytes</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+
+<header>
+  <h1>🎬 Video Editing Course – Complete Outline</h1>
+<p>From Beginner to Professional Video Editor</p>
+
+<!-- DEMO INFO -->
+<div class="demo-box">
+  <div id="demoDate"></div>
+  <div id="seatStatus"></div>
+  <div id="courseDuration"></div>
+
+  <a id="registerBtn" class="register-btn" target="_blank">
+    Register for Demo Class
+  </a>
+</div>
+
+<!-- WHAT YOU WILL LEARN -->
+<section>
+  <h2>What You Will Learn</h2>
+  <p class="sub">Real-life, practical video editing skills</p>
+
+  <div class="content">
+
+    <h3>🖥️ Video Editing Foundations</h3>
+    <ul class="bullet-list">
+      <li>Understanding what video editing is</li>
+      <li>How videos are used in real life & business</li>
+      <li>Basic video types (reels, vlogs, ads, shorts)</li>
+      <li>Understanding video resolution & formats</li>
+      <li>Frame rate explained in simple words</li>
+      <li>Developing creative storytelling sense</li>
+    </ul>
+
+    <h3>🎞️ Adobe Premiere Pro – Professional Video Editing</h3>
+    <ul class="bullet-list">
+      <li>Interface understanding (no confusion)</li>
+      <li>Importing & organizing video clips</li>
+      <li>Cutting, trimming & joining videos</li>
+      <li>Adding text, titles & lower thirds</li>
+      <li>Smooth transitions & effects</li>
+      <li>Color correction & color grading basics</li>
+      <li>Audio editing & background music</li>
+      <li>Exporting videos for YouTube & social media</li>
+    </ul>
+
+    <h3>✨ Adobe After Effects – Motion Graphics & Effects</h3>
+    <ul class="bullet-list">
+      <li>Understanding motion graphics</li>
+      <li>Creating animated text & titles</li>
+      <li>Logo animation</li>
+      <li>Visual effects basics</li>
+      <li>Green screen (chroma key)</li>
+      <li>Smooth motion & transitions</li>
+      <li>Intro & outro animations</li>
+      <li>Exporting animations correctly</li>
+    </ul>
+
+    <h3>🧩 Canva – Quick Video Creation</h3>
+    <ul class="bullet-list">
+      <li>Creating videos using templates</li>
+      <li>Social media reels & shorts</li>
+      <li>Promotional & ad videos</li>
+      <li>Presentation videos</li>
+      <li>Adding music, text & animations</li>
+      <li>Editing videos from mobile & computer</li>
+    </ul>
+
+    <h3>🤖 AI Tools for Video Editing</h3>
+    <ul class="bullet-list">
+      <li>Understanding AI in video editing</li>
+      <li>Auto subtitles & captions</li>
+      <li>AI background removal</li>
+      <li>AI video ideas & scripts</li>
+      <li>AI voice generation</li>
+      <li>Speeding up editing work using AI</li>
+      <li>Ethical and smart use of AI tools</li>
+    </ul>
+
+    <h3>🎥 Practical Projects & Portfolio</h3>
+    <ul class="bullet-list">
+      <li>Real-world video editing projects</li>
+      <li>Social media reels & shorts</li>
+      <li>YouTube video editing</li>
+      <li>Promotional & business videos</li>
+      <li>Client-style assignments</li>
+      <li>Building a professional portfolio</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section>
+  <h2>Who Should Learn This Course?</h2>
+  <ul class="bullet-list">
+    <li>School, College & University Students</li>
+    <li>Beginners with No Editing Experience</li>
+    <li>Content Creators & Vloggers</li>
+    <li>Social Media Managers</li>
+    <li>Business Owners</li>
+    <li>Freelancers in the Making</li>
+    <li>Anyone Interested in Video Creation</li>
+  </ul>
+</section>
+
+<!-- OUTCOME -->
+<section>
+  <h2>What You Can Do After This Course</h2>
+  <ul class="bullet-list">
+    <li>Edit Professional Videos Confidently</li>
+    <li>Create Reels, Shorts & YouTube Videos</li>
+    <li>
+      Work As:
+      <ul>
+        <li>Video Editor</li>
+        <li>Motion Graphics Editor</li>
+        <li>Social Media Video Creator</li>
+      </ul>
+    </li>
+    <li>Start Freelancing or Content Creation</li>
+    <li>Support Business & Marketing Needs</li>
+  </ul>
+</section>
+
+<!-- COURSE HIGHLIGHTS -->
+<section>
+  <h2>Course Highlights</h2>
+  <ul class="bullet-list">
+    <li>Beginner-friendly Teaching</li>
+    <li>100% Practical Training</li>
+    <li>Real-life Projects</li>
+    <li>Portfolio Support</li>
+    <li>Certificate After Completion</li>
+    <li>Demo Class Available</li>
+  </ul>
+</section>
+
+
+<footer>
+  © 2025 Valued Bytes Tech Institute · Chiniot  
+  <br>
+  <a href="https://wa.me/923227826078">WhatsApp</a>
+</footer>
+
+<a href="https://wa.me/923227826078" class="enroll-float">
+  Enroll via WhatsApp
+</a>
+
+<!-- ADMIN CONTROL SCRIPT -->
+<script>
+/* ========= ADMIN CONTROLS ========= */
+const demoConfig = {
+  demoDate: "10 January 2025 (Friday)",
+  totalSeats: 25,
+  bookedSeats: 24,
+  courseDuration: "⏳ Course Duration: 2 Months (5 Days / Week)"
+};
+
+/* ========= SYSTEM LOGIC ========= */
+const seatsLeft = demoConfig.totalSeats - demoConfig.bookedSeats;
+
+document.getElementById("demoDate").innerHTML =
+  `📅 <strong>Demo Class:</strong> ${demoConfig.demoDate}`;
+
+document.getElementById("courseDuration").innerHTML =
+  demoConfig.courseDuration;
+
+const seatStatus = document.getElementById("seatStatus");
+const registerBtn = document.getElementById("registerBtn");
+
+if (seatsLeft > 0) {
+  seatStatus.innerHTML = `✅ Seats Available: <strong>${seatsLeft}</strong>`;
+  seatStatus.style.color = "#86efac";
+  registerBtn.href =
+    "https://wa.me/923227826078?text=I%20want%20to%20register%20for%20demo%20class";
+} else {
+  seatStatus.innerHTML =
+    "❌ Seats are full — Please wait for next demo class";
+  seatStatus.style.color = "#fca5a5";
+  registerBtn.classList.add("disabled");
+  registerBtn.innerText = "Registration Closed";
+}
+
+/* MOBILE MENU */
+document.getElementById("menu").onclick = () => {
+  document.getElementById("nav-links").classList.toggle("active");
+};
+</script>
+
+</body>
+</html>
