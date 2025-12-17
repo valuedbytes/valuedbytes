@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | Valued Bytes Tech Institute</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico.png" type="image/png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+/* GENERAL */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
+}
+
+/* NAVBAR */
+nav{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 28px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1200px;
+}
+.logo{
+  font-size:1.6rem;
+  color:#020617;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#020617;
+  transition:.3s;
+}
+.nav-links li a:hover{color:#6366f1;}
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#020617;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .logo{font-size:1.2rem;}
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+    z-index:9999;
+  }
+  .nav-links.active{display:flex;}
+  .nav-links li{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav-links li a{color:#e5e7eb;font-size:18px;}
+  .menu-toggle{display:block;}
+}
+
+/* HEADER */
+header{
+  position: relative;
+  padding: 90px 20px 50px;
+  text-align:center;
+  overflow: hidden;
+}
+header::before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: url('https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/map.png') no-repeat center/cover;
+  filter: brightness(0.25);
+  z-index:0;
+}
+header > *{position: relative; z-index:1;}
+header h1{
+  font-size:2.5rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:14px;
+}
+header p{max-width:760px;margin:auto;color:var(--muted);font-size:1rem;}
+
+/* TEAM SECTION */
+section{padding:70px 20px; max-width:1200px; margin:auto;}
+h2{font-size:2rem;margin-bottom:14px;background:linear-gradient(90deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:var(--muted);margin-bottom:40px;}
+
+.team-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  justify-content:center;
+}
+.team-member{
+  background:var(--card);
+  border-radius:18px;
+  padding:20px;
+  flex:1 1 280px;
+  max-width:320px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+  transition:.3s;
+}
+.team-member:hover{transform:translateY(-8px);}
+.team-member img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:12px;
+  border:2px solid var(--accent);
+}
+.team-member h3{margin:10px 0 6px;}
+.team-member p{color:var(--muted); font-size:0.95rem; line-height:1.5;}
+.team-member .message{
+  margin-top:12px;
+  font-style:italic;
+  color:#a5b4fc;
+}
+
+/* FOOTER */
+footer{margin-top:100px;padding:50px 20px;text-align:center;color:#e5e7eb;background:#12182b;border-top:1px solid rgba(255,255,255,.08);border-radius:12px 12px 0 0;}
+footer a{margin:0 8px;color:#22d3ee;text-decoration:none;font-size:18px;transition:.3s;}
+footer a:hover{color:#6366f1;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <strong class="logo">Valued Bytes</strong>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="course_outline.html">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+
+<header>
+  <div class="logo-title">
+    <img src="logoround.png" alt="Valued Bytes Logo" style="width:120px;height:auto;">
+    <h1>About Us</h1>
+  </div>
+  <p>Valued Bytes Tech Institute empowers students in Chiniot with modern computer, design, development, and AI skills. Meet our team dedicated to grooming the next generation of tech-savvy professionals.</p>
+</header>
+
+<!-- TEAM SECTION -->
+<section id="team">
+  <h2>Our Team</h2>
+  <p class="sub">Professional guidance from experienced educators and tech specialists</p>
+  <div class="team-grid">
+    <!-- Ali Hasan -->
+    <div class="team-member">
+      <img src="ali-hasan.jpg" alt="Ali Hasan">
+      <h3>Ali Hasan</h3>
+      <p>Settled in USA, Ali Hasan holds a prominent designation at Valued Bytes Tech Institute and guides our academic strategies.</p>
+      <p class="message">"Education is the bridge to opportunity, and we are here to build it for Chiniot students."</p>
+    </div>
+
+    <!-- Shaukat Munir -->
+    <div class="team-member">
+      <img src="shaukat-munir.jpg" alt="Shaukat Munir">
+      <h3>Shaukat Munir</h3>
+      <p>Chief Director, Valued Bytes Tech Institute, overseeing all courses, student engagement, and curriculum planning.</p>
+      <p class="message">"Our mission is to make technology accessible and practical for everyone in Chiniot."</p>
+    </div>
+
+    <!-- Waqar Ahmad Qureshi -->
+    <div class="team-member">
+      <img src="waqar-ahmad.jpg" alt="Waqar Ahmad Qureshi">
+      <h3>Waqar Ahmad Qureshi</h3>
+      <p>Settled in USA, Web Developer assisting in grooming students and guiding web development and technical projects.</p>
+      <p class="message">"Hands-on practice and proper guidance create confident tech learners."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>
+    <a href="contact.html">Contact Us</a> · 
+    <a href="admission.html">Admissions</a>
+  </p>
+  © 2025 Valued Bytes Tech Institute · Chiniot
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
