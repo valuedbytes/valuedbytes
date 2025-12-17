@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Essential Computer Skills | Valued Bytes Tech Institute</title>
+<title>Social Media & AI Productivity | Valued Bytes Tech Institute</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,7 +18,7 @@
   --muted:#9ca3af;
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
   margin:0;
   padding-top:70px;
@@ -57,7 +57,7 @@ nav{
 
 /* HEADER */
 header{
-  padding:80px 20px 60px;
+  padding:80px 20px 20px;
   text-align:center;
 }
 header h1{
@@ -72,10 +72,31 @@ header p{
   color:var(--muted);
 }
 
+/* SECTION LINKS (Table of Contents) */
+.section-links{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.section-links a{
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:10px 18px;
+  border-radius:25px;
+  color:#020617;
+  font-weight:600;
+  transition:.3s;
+}
+.section-links a:hover{
+  transform:translateY(-3px);
+}
+
 /* DEMO BOX */
 .demo-box{
   max-width:900px;
-  margin:40px auto;
+  margin:20px auto 40px;
   padding:28px;
   border-radius:22px;
   background:linear-gradient(180deg,#12182b,#0b1022);
@@ -103,7 +124,7 @@ section{
   max-width:1200px;
   margin:auto;
   padding:60px 20px;
-text-align:left;
+  text-align:left;
 }
 h2{
   font-size:2rem;
@@ -126,7 +147,6 @@ h2{
 }
 
 /* FOOTER */
-/* FOOTER REDESIGN */
 .footer-container{
   max-width:1200px;
   margin:auto;
@@ -136,15 +156,12 @@ h2{
   gap:30px;
   color:var(--text);
 }
-
-/* SOCIAL LINKS (original style) */
 .footer-container .social-links{
   display:flex;
   justify-content:center;
   gap:18px;
   margin-bottom:20px;
 }
-
 .footer-container .social-links a{
   width:44px;
   height:44px;
@@ -158,47 +175,38 @@ h2{
   transition:.3s ease;
   border:1px solid rgba(255,255,255,.12);
 }
-
 .footer-container .social-links a:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   transform:translateY(-4px);
 }
-
-/* LINKS SECTIONS */
 .footer-links-container{
   display:flex;
-  justify-content:center; /* center horizontally */
+  justify-content:center;
   align-items:flex-start;
-  gap:60px; /* space between sections */
+  gap:60px;
   text-align:left;
   position:relative;
 }
-
-/* Vertical separator */
 .footer-separator{
   width:1px;
   background:rgba(255,255,255,0.2);
   margin:0 30px;
 }
-
 .footer-links h4{
   font-size:1.1rem;
   margin-bottom:12px;
   color:var(--accent2);
   text-align:left;
 }
-
 .footer-links ul{
   list-style:none;
   padding:0;
   margin:0;
 }
-
 .footer-links ul li{
   margin:6px 0;
 }
-
 .footer-links ul li a{
   color:var(--text);
   text-decoration:none;
@@ -206,30 +214,22 @@ h2{
   display:block;
   text-align:left;
 }
-
 .footer-links ul li a:hover{
   color:var(--accent);
 }
-
-/* COPYRIGHT */
 .footer-copy{
   text-align:center;
   margin-top:20px;
   color:var(--muted);
   font-size:.9rem;
 }
-
-/* MOBILE FOOTER */
 @media(max-width:768px){
   .footer-links-container{
     flex-direction:column;
     gap:20px;
   }
-  .footer-separator{
-    display:none; /* hide vertical line on mobile */
-  }
+  .footer-separator{display:none;}
 }
-
 
 /* FLOAT */
 .enroll-float{
@@ -262,55 +262,34 @@ h2{
 </nav>
 
 <header>
-  <h1>🎬 Video Editing Course – Complete Outline</h1>
-<p>From Beginner to Professional Video Editor</p>
+  <h1>📱 Social Media Mastery & AI Productivity Tools Course</h1>
+  <p>Grow Your Online Presence and Boost Productivity with AI</p>
 
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
+  <!-- Section Links -->
+  <div class="section-links">
+    <a href="#what-you-will-learn">What You Will Learn</a>
+    <a href="#eligibility">Who Should Learn</a>
+    <a href="#outcome">Course Outcome</a>
+    <a href="#highlights">Course Highlights</a>
+  </div>
 
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
+  <!-- DEMO INFO -->
+  <div class="demo-box">
+    <div id="demoDate"></div>
+    <div id="seatStatus"></div>
+    <div id="courseDuration"></div>
 
-<h1>🌐 Web Development Course (Frontend + Backend) – MERN Stack</h1>
-<p>Become a Full-Stack Web Developer from Scratch</p>
-
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
-
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
-
-<h1>📱 Social Media Mastery & AI Productivity Tools Course</h1>
-<p>Grow Your Online Presence and Boost Productivity with AI</p>
-
-<!-- DEMO INFO -->
-<div class="demo-box">
-  <div id="demoDate"></div>
-  <div id="seatStatus"></div>
-  <div id="courseDuration"></div>
-
-  <a id="registerBtn" class="register-btn" target="_blank">
-    Register for Demo Class
-  </a>
-</div>
+    <a id="registerBtn" class="register-btn" target="_blank">
+      Register for Demo Class
+    </a>
+  </div>
+</header>
 
 <!-- WHAT YOU WILL LEARN -->
-<section>
+<section id="what-you-will-learn">
   <h2>What You Will Learn</h2>
   <p class="sub">Practical social media skills & AI productivity techniques</p>
-
   <div class="content">
-
     <h3>🖥️ Social Media Foundations</h3>
     <ul class="bullet-list">
       <li>Understanding social media platforms (Facebook, Instagram, YouTube, TikTok, LinkedIn)</li>
@@ -363,12 +342,11 @@ h2{
       <li>Using AI tools for real-life social media tasks</li>
       <li>Building a portfolio for clients or freelance work</li>
     </ul>
-
   </div>
 </section>
 
 <!-- ELIGIBILITY -->
-<section>
+<section id="eligibility">
   <h2>Who Should Learn This Course?</h2>
   <ul class="bullet-list">
     <li>Students & beginners interested in social media</li>
@@ -380,7 +358,7 @@ h2{
 </section>
 
 <!-- OUTCOME -->
-<section>
+<section id="outcome">
   <h2>What You Can Do After This Course</h2>
   <ul class="bullet-list">
     <li>Grow social media accounts professionally</li>
@@ -400,7 +378,7 @@ h2{
 </section>
 
 <!-- COURSE HIGHLIGHTS -->
-<section>
+<section id="highlights">
   <h2>Course Highlights</h2>
   <ul class="bullet-list">
     <li>Beginner-friendly & practical teaching</li>
@@ -411,8 +389,6 @@ h2{
     <li>Demo class available</li>
   </ul>
 </section>
-
-
 
 <footer>
   <div class="footer-container">
@@ -427,8 +403,6 @@ h2{
 
     <!-- Links Section -->
     <div class="footer-links-container">
-
-      <!-- Main Pages Links -->
       <div class="footer-links">
         <h4>Main Pages</h4>
         <ul>
@@ -438,11 +412,7 @@ h2{
           <li><a href="about.html">About Us</a></li>
         </ul>
       </div>
-
-      <!-- Separator (vertical line) -->
       <div class="footer-separator"></div>
-
-      <!-- Course Outlines Links -->
       <div class="footer-links">
         <h4>Course Outlines</h4>
         <ul>
@@ -454,20 +424,16 @@ h2{
           <li><a href="social.html">Social Media Mastery & AI Tools</a></li>
         </ul>
       </div>
-
     </div>
 
     <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
-
   </div>
 </footer>
-
 
 <a href="https://wa.me/923227826078" class="enroll-float">
   Enroll via WhatsApp
 </a>
 
-<!-- ADMIN CONTROL SCRIPT -->
 <script>
 /* ========= ADMIN CONTROLS ========= */
 const demoConfig = {
@@ -477,14 +443,11 @@ const demoConfig = {
   courseDuration: "⏳ Course Duration: 2 Months (5 Days / Week)"
 };
 
-/* ========= SYSTEM LOGIC ========= */
 const seatsLeft = demoConfig.totalSeats - demoConfig.bookedSeats;
 
 document.getElementById("demoDate").innerHTML =
   `📅 <strong>Demo Class:</strong> ${demoConfig.demoDate}`;
-
-document.getElementById("courseDuration").innerHTML =
-  demoConfig.courseDuration;
+document.getElementById("courseDuration").innerHTML = demoConfig.courseDuration;
 
 const seatStatus = document.getElementById("seatStatus");
 const registerBtn = document.getElementById("registerBtn");
@@ -495,8 +458,7 @@ if (seatsLeft > 0) {
   registerBtn.href =
     "https://wa.me/923227826078?text=I%20want%20to%20register%20for%20demo%20class";
 } else {
-  seatStatus.innerHTML =
-    "❌ Seats are full — Please wait for next demo class";
+  seatStatus.innerHTML = "❌ Seats are full — Please wait for next demo class";
   seatStatus.style.color = "#fca5a5";
   registerBtn.classList.add("disabled");
   registerBtn.innerText = "Registration Closed";
