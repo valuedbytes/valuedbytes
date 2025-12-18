@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses | Valued Bytes Tech Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --bg:#020617;
+  --card:#12182b;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:Poppins,sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
+}
+
+/* NAVBAR (EXACT LOGIC) */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;justify-content:center;
+  padding:14px 28px;
+  background:linear-gradient(45deg,var(--accent),var(--accent2));
+}
+.nav-container{
+  max-width:1200px;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+.logo{
+  text-decoration:none;
+  font-size:1.5rem;
+  font-weight:700;
+  color:#020617;
+}
+
+
+.nav-links{list-style:none;display:flex;gap:20px}
+.nav-links a{color:#020617;font-weight:600;text-decoration:none}
+.menu-toggle{display:none;font-size:24px;color:#020617}
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;top:60px;left:0;width:100%;
+    background:#12182b;flex-direction:column;display:none
+  }
+  .nav-links.active{display:flex}
+  .nav-links a{color:#fff}
+  .menu-toggle{display:block}
+}
+
+/* HEADER */
+header{text-align:center;padding:40px 20px}
+header h1{
+  font-size:2.4rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+header p{color:var(--muted)}
+
+/* COURSE SELECT */
+.course-nav{text-align:center;margin-bottom:30px}
+.course-nav select{
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+}
+
+/* DEMO BOX */
+.demo-box{
+  max-width:900px;margin:25px auto;padding:25px;
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:20px;text-align:center;
+}
+.demo-box div{margin:8px 0}
+.demo-btn{
+  display:inline-block;margin-top:15px;
+  padding:14px 26px;border-radius:30px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;text-decoration:none;font-weight:600;
+}
+.demo-btn.disabled{opacity:.5;pointer-events:none}
+
+/* ACCORDION */
+.accordion{
+  max-width:900px;margin:15px auto;
+  background:linear-gradient(180deg,#12182b,#0b1022);
+  border-radius:16px;overflow:hidden;
+}
+.accordion-header{
+  padding:16px 22px;
+  cursor:pointer;
+  font-weight:600;
+  display:flex;justify-content:space-between;
+}
+.accordion-content{max-height:0;overflow:hidden;transition:.4s}
+.accordion.open .accordion-content{max-height:3000px;padding:15px 22px}
+.accordion i{transition:.3s}
+
+/* SUB ACCORDION */
+.sub{margin:10px 0}
+.sub-header{
+  cursor:pointer;
+  display:flex;justify-content:space-between;
+  font-weight:500;
+}
+.sub-content{max-height:0;overflow:hidden;transition:.3s;padding-left:15px}
+.sub.open .sub-content{max-height:2000px;padding-top:8px}
+
+ul{padding-left:20px}
+li{margin:6px 0;color:var(--muted)}
+
+/* FOOTER */
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  color:var(--text);
+  border-top:1px solid grey;
+}
+.footer-container .social-links{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:20px;
+}
+.footer-container .social-links a{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:var(--accent);
+  font-size:18px;
+  transition:.3s ease;
+  border:1px solid rgba(255,255,255,.12);
+}
+.footer-container .social-links a:hover{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  transform:translateY(-4px);
+}
+.footer-links-container{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:60px;
+  text-align:left;
+  position:relative;
+}
+.footer-separator{
+  width:1px;
+  background:rgba(255,255,255,0.2);
+  margin:0 30px;
+}
+.footer-links h4{
+  font-size:1.1rem;
+  margin-bottom:12px;
+  color:var(--accent2);
+  text-align:left;
+}
+.footer-links ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.footer-links ul li{
+  margin:6px 0;
+}
+.footer-links ul li a{
+  color:var(--text);
+  text-decoration:none;
+  transition:.3s;
+  display:block;
+  text-align:left;
+}
+.footer-links ul li a:hover{
+  color:var(--accent);
+}
+.footer-copy{
+  text-align:center;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+@media(max-width:768px){
+  .footer-links-container{
+    flex-direction:column;
+    gap:20px;
+  }
+  .footer-separator{display:none;}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Valued Bytes</a>
+
+    <ul class="nav-links" id="navLinks">
+      
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="navLinks.classList.toggle('active')">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <h1 id="courseTitle">Select a Course</h1>
+  <p>Detail of selected course will appear below</p>
+</header>
+
+<!-- COURSE SELECT -->
+<div class="course-nav">
+  <select id="courseSelect">
+    <option value="">-- Select Course --</option>
+    <option value="c1">Essential Computer Skills</option>
+    <option value="c2">Graphic Designing</option>
+    <option value="c3">Web Development</option>
+    <option value="c4">Professional Video Editing</option>
+    <option value="c5">Kids Computer Education</option>
+    <option value="c6">Social Media & AI Tools</option>
+  </select>
+</div>
+
+<!-- DEMO BOX -->
+<div class="demo-box" id="demoBox" style="display:none">
+  <div id="demoDate"></div>
+  <div id="courseDuration"></div>
+  <div id="seatStatus"></div>
+  <a id="demoBtn" class="demo-btn" target="_blank">Register for Demo</a>
+</div>
+
+<!-- COURSE CONTENT -->
+<div id="courseContent"></div>
+
+<script>
+/* ================= ADMIN CONTROL PANEL ================= */
+
+const courses = {
+  c1: {
+    title: "Essential Computer Skills",
+    demoDate: "10 January 2025 (Friday)",
+    totalSeats: 25,
+    bookedSeats: 14,
+    duration: "2 Months (5 Days / Week)",
+    content: `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">Computer & Internet Basics <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+              <li>How to use a computer confidently (no fear)</li>
+      <li>Turning computer into a daily working tool</li>
+      <li>Understanding files, folders, USB and downloads</li>
+      <li>Safe use of internet & social media</li>
+      <li>Creating and managing email accounts</li>
+      <li>Online forms filling (admission, jobs, applications)</li>
+      <li>Online payments & digital safety basics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">⌨️ English & Urdu Typing<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+              <li>Fast English typing without looking at keyboard</li>
+      <li>Professional typing speed improvement</li>
+      <li>Urdu typing for letters, applications & posts</li>
+      <li>Writing clean and error-free text</li>
+      <li>Typing for exams, jobs and office work</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">📝 MS Word – Real Life Usage<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+              <li>Making professional CV / Resume</li>
+      <li>Writing job applications</li>
+      <li>Creating certificates</li>
+      <li>Making letters, notices & reports</li>
+      <li>Designing assignment & project files</li>
+      <li>Creating office documents with proper format</li>
+      <li>Saving & sharing documents correctly</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+			        <div class="sub">
+          <div class="sub-header">📊 MS Excel – Smart Calculations<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+               <li>Automatic total, average & percentage</li>
+      <li>Monthly expense & salary sheet</li>
+      <li>Student marks sheet with grades</li>
+      <li>Business sales & profit record</li>
+      <li>Attendance sheet</li>
+      <li>Huge calculations in seconds using formulas</li>
+      <li>Making smart tables anyone can understand</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🎤 MS PowerPoint – Confident Presentations<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+                <li>Creating beautiful slides</li>
+      <li>School, college & office presentations</li>
+      <li>Business ideas presentation</li>
+      <li>Teaching & training slides</li>
+      <li>Using images, text & animations properly</li>
+      <li>Presenting with confidence</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				<div class="sub">
+          <div class="sub-header">🌍 Google Online Tools<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Google Docs (online Word)</li>
+      <li>Google Sheets (online Excel)</li>
+      <li>Google Slides (online PowerPoint)</li>
+      <li>Google Drive for storage & sharing</li>
+      <li>Working from mobile & computer</li>
+      <li>Online collaboration with others</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+						<div class="sub">
+          <div class="sub-header">🤖 AI Tools & Daily Life AI Hacks<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>What is AI (simple explanation)</li>
+      <li>Using AI for study & homework</li>
+      <li>Writing emails, applications & CV using AI</li>
+      <li>Creating ideas for business & content</li>
+      <li>Solving problems faster with AI</li>
+      <li>AI for learning English</li>
+      <li>Smart and ethical use of AI</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+         <li>School, college and university students</li>
+    <li>Job seekers and fresh candidates</li>
+    <li>Office staff and teachers</li>
+    <li>Businessmen and shop owners</li>
+    <li>Housewives</li>
+    <li>Beginners with no computer knowledge</li>
+    <li>Anyone who wants to become digitally smart</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+         <li>Use a computer confidently without help</li>
+    <li>Create CVs, certificates and professional documents</li>
+    <li>Make presentations for study, office or business</li>
+    <li>Handle Excel calculations easily</li>
+    <li>Work with Google online tools</li>
+    <li>Use AI smartly in daily life</li>
+    <li>Apply for jobs and online opportunities</li>
+    <li>Work as Office Assistant, Computer Operator or Data Entry Operator</li>
+        </ul>
+      </div>
+    </div>`
+  },
+
+
+
+
+
+
+
+  /* ====== EMPTY TEMPLATES ====== */
+  c2:{title:"Graphic Designing",demoDate:"20 January 2025 (Thursday)",totalSeats:10,bookedSeats:9,duration:"3 Months (5 Days / Week)",content:
+ `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">🎨 Adobe Photoshop <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+            <li>Photo editing and retouching</li>
+      <li>Layer management and masks</li>
+      <li>Using filters, effects, and color grading</li>
+      <li>Creating posters, banners, and social media graphics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">🖊️ Adobe Illustrator<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+               <li>Vector design fundamentals</li>
+      <li>Logo, icon, and illustration creation</li>
+      <li>Typography and shape manipulation</li>
+      <li>Working with artboards and exporting assets</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">📄 Adobe InDesign & Canva<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+             <li>Designing flyers, brochures, and booklets</li>
+      <li>Template usage and customization</li>
+      <li>Layouts and grids for print and digital</li>
+      <li>Exporting designs for print & social media</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				        <div class="sub">
+          <div class="sub-header">🤖 AI Design Tools<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+           <li>AI-assisted design generation</li>
+      <li>Color and style suggestions using AI</li>
+      <li>Quick content creation for social media</li>
+      <li>Combining AI tools with traditional design skills</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+        <li>Students and fresh graduates interested in design</li>
+    <li>Small business owners wanting to create graphics</li>
+    <li>Social media content creators</li>
+    <li>Marketing and branding professionals</li>
+    <li>Beginners aiming to start a freelance design career</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+        <li>Create professional graphics for social media, websites, and print</li>
+    <li>Design logos, banners, brochures, and presentations</li>
+    <li>Work as a freelance graphic designer</li>
+    <li>Use AI tools to speed up your creative process</li>
+    <li>Build a strong portfolio for clients or job applications</li>
+        </ul>
+      </div>
+    </div>`},
+  
+
+
+
+
+
+
+
+  c3:{title:"Web Development",demoDate:"27 January 2025 (Thursday)",totalSeats:15,bookedSeats:0,duration:"5 Months (5 Days / Week) Full Stack",content: `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">🖥️ Web Development Foundations <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Understanding websites & how they work</li>
+      <li>Difference between frontend & backend</li>
+      <li>Introduction to full-stack development</li>
+      <li>Setting up development environment (VS Code, Node.js)</li>
+      <li>Understanding hosting, domains & deployment basics</li>
+      <li>Using browsers & developer tools</li>
+      <li>Problem-solving mindset for developers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">🖌️ Frontend Development – HTML & CSS<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Structuring web pages using HTML5</li>
+      <li>Styling pages with CSS3</li>
+      <li>Responsive design for mobile & desktop</li>
+      <li>Working with colors, fonts & layouts</li>
+      <li>Using Flexbox & Grid for modern designs</li>
+      <li>Embedding images, videos & links</li>
+      <li>Real-life mini projects: personal website, portfolio page</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">✨ JavaScript – Making Websites Interactive<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Basics of JavaScript syntax</li>
+      <li>Variables, loops, and functions</li>
+      <li>Handling user interactions & events</li>
+      <li>DOM manipulation (changing content dynamically)</li>
+      <li>Form validations & interactive components</li>
+      <li>Working with arrays & objects</li>
+      <li>Mini projects: To-do app, calculator, interactive gallery</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				        <div class="sub">
+          <div class="sub-header">⚛️ React – Modern Frontend Framework<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>Understanding components & props</li>
+      <li>State management basics</li>
+      <li>React hooks (useState, useEffect)</li>
+      <li>Building reusable components</li>
+      <li>Routing & navigation</li>
+      <li>Styling React components</li>
+      <li>Project: Portfolio website, small web app</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🗄️ Backend Development – Node.js & Express<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Understanding server & client communication</li>
+      <li>Setting up Node.js & Express server</li>
+      <li>Handling HTTP requests & responses</li>
+      <li>REST API basics</li>
+      <li>Creating routes & endpoints</li>
+      <li>Middleware & error handling</li>
+      <li>Connecting frontend with backend</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🗃️ Database – MongoDB<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Introduction to NoSQL & MongoDB</li>
+      <li>Creating collections & documents</li>
+      <li>CRUD operations (Create, Read, Update, Delete)</li>
+      <li>Connecting MongoDB with Node.js backend</li>
+      <li>Handling user data & storing securely</li>
+      <li>Mini project: Simple blog or user management system</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🤖 AI & Productivity Tools for Developers<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>AI-assisted coding (ChatGPT, code completion)</li>
+      <li>Debugging & code optimization using AI</li>
+      <li>Automating repetitive tasks with AI</li>
+      <li>Best practices for productivity</li>
+      <li>Ethical & responsible use of AI in coding</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		<div class="sub">
+          <div class="sub-header">🧩 Projects & Portfolio<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Real-world web application projects</li>
+      <li>Full-stack projects with MERN stack</li>
+      <li>Deployment to Netlify / Vercel / Heroku</li>
+      <li>Git & GitHub version control</li>
+      <li>Portfolio showcasing frontend & backend skills</li>
+      <li>Preparation for freelancing & job opportunities</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+     <li>Students & beginners with no coding experience</li>
+    <li>Job seekers aiming for web development</li>
+    <li>Entrepreneurs wanting to build their websites</li>
+    <li>Anyone interested in full-stack development</li>
+    <li>Freelancers looking for practical skills</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Build professional websites from scratch</li>
+    <li>Develop full-stack web applications</li>
+    <li>Work as a Frontend, Backend, or Full-Stack Developer</li>
+    <li>Freelance for clients worldwide</li>
+    <li>Deploy real projects & maintain them</li>
+    <li>Build a strong portfolio for career growth</li>
+        </ul>
+      </div>
+    </div>
+	
+	
+	<div class="accordion">
+      <div class="accordion-header">🚀 Course Highlights <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+     <li>Beginner-friendly & practical teaching</li>
+    <li>100% project-based learning</li>
+    <li>Real-life MERN stack applications</li>
+    <li>Portfolio-ready projects</li>
+    <li>Certificate after completion</li>
+    <li>Demo class available</li>
+        </ul>
+      </div>
+    </div>
+	`},
+  
+  
+  c4:{title:"Professional Video Editing",demoDate:"Not Planned",totalSeats:20,bookedSeats:20,duration:"2.5 Months (5 Days / Week)",content: `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">🖥️ Video Editing Foundations <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>Understanding what video editing is</li>
+      <li>Video types (reels, vlogs, ads, shorts)</li>
+      <li>Resolution, formats & frame rate basics</li>
+      <li>Creative storytelling development</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">🎞️ Adobe Premiere Pro<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>Interface & project setup</li>
+      <li>Cut, trim & join clips</li>
+      <li>Add text, titles & effects</li>
+      <li>Color correction & audio editing</li>
+      <li>Exporting for social media & YouTube</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">✨ Adobe After Effects<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>Motion graphics & visual effects</li>
+      <li>Logo & text animation</li>
+      <li>Green screen & smooth transitions</li>
+      <li>Intro & outro animations</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				        <div class="sub">
+          <div class="sub-header">🧩 Canva<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>Template-based video creation</li>
+      <li>Social media reels & shorts</li>
+      <li>Adding text, music & animations</li>
+      <li>Quick edits on mobile & PC</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🤖 AI Tools<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>AI subtitles & captions</li>
+      <li>Background removal</li>
+      <li>AI video ideas, scripts & voice</li>
+      <li>Speed up editing workflow</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🎥 Practical Projects<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+        <li>Social media & YouTube projects</li>
+      <li>Promotional & business videos</li>
+      <li>Client-style assignments & portfolio</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+	
+	
+		
+		
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Students, beginners & content creators</li>
+    <li>Social media managers & business owners</li>
+    <li>Anyone interested in video creation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Edit professional videos confidently</li>
+    <li>Create reels, shorts & YouTube content</li>
+    <li>Work as Video Editor / Motion Graphics / Social Media Creator</li>
+    <li>Start freelancing or content creation career</li>
+        </ul>
+      </div>
+    </div>
+	
+	
+	<div class="accordion">
+      <div class="accordion-header">🚀 Course Highlights <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+     <li>Beginner-friendly & practical teaching</li>
+    <li>100% project-based learning</li>
+    
+    <li>Portfolio-ready projects</li>
+    <li>Certificate after completion</li>
+    <li>Demo class available</li>
+        </ul>
+      </div>
+    </div>
+	`},
+  c5:{title:"🧒 Basic Computer & Tech Education for Kids (Ages 6–12)",demoDate:"February, 2026",totalSeats:0,bookedSeats:0,duration:"01 Month (04 Days a Week)",content: `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">🖥️ Computer Basics (Kid-Friendly) <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>What a computer is and how it works</li>
+      <li>Parts of a computer (monitor, CPU, mouse, keyboard)</li>
+      <li>Safe turning on & off</li>
+      <li>Using mouse & keyboard confidently</li>
+      <li>Understanding screen, icons & buttons</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">⌨️ Typing & Keyboard Skills<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Basic finger placement (fun way)</li>
+      <li>Typing simple words & sentences</li>
+      <li>Using spacebar, enter & backspace</li>
+      <li>Improving speed with practice games</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">📂 File & Folder Understanding<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>What files and folders are</li>
+      <li>Opening, saving & closing files</li>
+      <li>Keeping work organized properly</li>
+      <li>Understanding pictures, videos & documents</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				        <div class="sub">
+          <div class="sub-header">🌐 Internet Basics & Online Safety<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>What the internet is</li>
+      <li>Using browser safely</li>
+      <li>Good vs bad websites (basic awareness)</li>
+      <li>Do’s & Don’ts online</li>
+      <li>Screen time balance & healthy habits</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">📝 Fun Learning with Office & Creative Tools<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>Writing small stories in Word</li>
+      <li>Making colorful presentations</li>
+      <li>Simple drawings & designs</li>
+      <li>Using templates smartly</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🤖 Intro to AI & Smart Tools (Very Basic)<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>Educational games for thinking skills</li>
+      <li>Problem-solving activities</li>
+      <li>Improving focus & patience</li>
+      <li>Confidence in using technology</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+	
+	
+		
+		
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Kids aged 6 to 12 years</li>
+    <li>School students (primary & middle)</li>
+    <li>Beginners with no computer background</li>
+    <li>Kids needing productive screen time</li>
+    <li>Parents looking for safe tech education</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Use computer confidently & responsibly</li>
+    <li>Type basic text & create simple documents</li>
+    <li>Understand internet safety rules</li>
+    <li>Develop healthy tech habits</li>
+    <li>Use technology for learning, not wasting time</li>
+        </ul>
+      </div>
+    </div>
+	
+	
+	<div class="accordion">
+      <div class="accordion-header">🚀 Course Highlights <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Kid-friendly & easy teaching style</li>
+    <li>Fun + learning balanced approach</li>
+    <li>Safe & guided environment</li>
+    <li>Practical activities & games</li>
+    <li>Certificate after completion</li>
+    <li>Demo class available for parents</li>
+        </ul>
+      </div>
+    </div>
+	`},
+  c6:{title:"📱 Social Media Mastery & AI Productivity Tools Course",demoDate:"To be planned soon",totalSeats:0,bookedSeats:0,duration:"02 Months (05 Days a Week)",content: `
+    <div class="accordion">
+      <div class="accordion-header">📘 What You Will Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+
+        <div class="sub">
+          <div class="sub-header">🖥️ Social Media Foundations <i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+       <li>Understanding social media platforms (Facebook, Instagram, YouTube, TikTok, LinkedIn)</li>
+      <li>Choosing the right platform for your audience</li>
+      <li>Creating a professional social media profile</li>
+      <li>Digital branding basics</li>
+      <li>Online presence for individuals & businesses</li>
+      <li>Setting goals for growth & engagement</li>
+      <li>Safe & responsible social media use</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-header">🎨 Content Creation & Design<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Designing eye-catching posts & stories</li>
+      <li>Image editing for social media (Canva / Photoshop basics)</li>
+      <li>Video editing for reels, shorts & stories</li>
+      <li>Writing compelling captions & hashtags</li>
+      <li>Planning content calendar</li>
+      <li>Engaging your audience with polls & interactive posts</li>
+      <li>Creating visually consistent branding</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		        <div class="sub">
+          <div class="sub-header">📊 Social Media Strategy & Marketing<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Understanding analytics & insights</li>
+      <li>Scheduling posts for consistent growth</li>
+      <li>Paid campaigns basics (Facebook Ads, Instagram Ads)</li>
+      <li>Organic growth techniques</li>
+      <li>Audience targeting & engagement strategies</li>
+      <li>Competitor analysis & trend spotting</li>
+      <li>Evaluating results and improving performance</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+				        <div class="sub">
+          <div class="sub-header">🤖 AI Productivity Tools for Social Media<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Using AI for content ideas & captions</li>
+      <li>Automating posts & responses with AI tools</li>
+      <li>AI-assisted image & video generation</li>
+      <li>AI tools for analytics & trend monitoring</li>
+      <li>Writing emails, proposals & social media reports faster</li>
+      <li>Ethical & responsible use of AI for social media</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+		
+		<div class="sub">
+          <div class="sub-header">🧩 Projects & Practical Work<i class="fas fa-chevron-down"></i></div>
+          <div class="sub-content">
+            <ul>
+      <li>Creating social media pages/profiles</li>
+      <li>Designing posts, videos & stories</li>
+      <li>Scheduling content & tracking engagement</li>
+      <li>Mini campaigns for practice</li>
+      <li>Using AI tools for real-life social media tasks</li>
+      <li>Building a portfolio for clients or freelance work</li>
+            </ul>
+          </div>
+        </div>
+		
+		
+	
+		
+		
+	
+	
+		
+		
+		
+		
+
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">👥 Who Should Learn <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Students & beginners interested in social media</li>
+    <li>Content creators & influencers</li>
+    <li>Business owners & entrepreneurs</li>
+    <li>Marketing professionals & freelancers</li>
+    <li>Anyone wanting to grow online presence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🚀 What You Can Do After <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Grow social media accounts professionally</li>
+    <li>Create engaging content for any platform</li>
+    <li>
+      Work As:
+      <ul>
+        <li>Social Media Manager</li>
+        <li>Content Creator</li>
+        <li>Digital Marketing Freelancer</li>
+      </ul>
+    </li>
+    <li>Use AI tools for faster & smarter workflow</li>
+    <li>Start online business or freelance work</li>
+    <li>Build a portfolio showcasing social media skills</li>
+        </ul>
+      </div>
+    </div>
+	
+	
+	<div class="accordion">
+      <div class="accordion-header">🚀 Course Highlights <i class="fas fa-chevron-down"></i></div>
+      <div class="accordion-content">
+        <ul>
+    <li>Beginner-friendly & practical teaching</li>
+    <li>Hands-on content creation projects</li>
+    <li>AI tools integrated for productivity</li>
+    <li>Real-life social media campaigns</li>
+    <li>Certificate after completion</li>
+    <li>Demo class available</li>
+        </ul>
+      </div>
+    </div>
+	`},
+};
+
+/* ================= RENDER LOGIC ================= */
+
+const select = document.getElementById("courseSelect");
+select.onchange = () => {
+  const c = courses[select.value];
+  if(!c) return;
+
+  document.getElementById("courseTitle").innerText = c.title;
+  document.getElementById("courseContent").innerHTML = c.content;
+
+  const seatsLeft = c.totalSeats - c.bookedSeats;
+  document.getElementById("demoBox").style.display = "block";
+  document.getElementById("demoDate").innerHTML = `📅 Demo Class: ${c.demoDate}`;
+  document.getElementById("courseDuration").innerHTML = `⏳ Duration: ${c.duration}`;
+
+  const seatStatus = document.getElementById("seatStatus");
+  const btn = document.getElementById("demoBtn");
+
+  if(seatsLeft > 0){
+    seatStatus.innerHTML = `✅ Seats Available: ${seatsLeft}`;
+    seatStatus.style.color = "#86efac";
+    btn.classList.remove("disabled");
+    btn.href = "https://wa.me/923227826078";
+  }else{
+    seatStatus.innerHTML = "❌ Seats Full";
+    seatStatus.style.color = "#fca5a5";
+    btn.classList.add("disabled");
+  }
+
+  window.scrollTo({top:150,behavior:"smooth"});
+};
+
+/* ACCORDION INTERACTION */
+document.addEventListener("click",e=>{
+  if(e.target.closest(".accordion-header")){
+    e.target.closest(".accordion").classList.toggle("open");
+  }
+  if(e.target.closest(".sub-header")){
+    e.target.closest(".sub").classList.toggle("open");
+  }
+});
+</script>
+<footer>
+  <div class="footer-container">
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Links Section -->
+    <div class="footer-links-container">
+      <div class="footer-links">
+        <h4>Main Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admission.html">Enroll</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-separator"></div>
+      <div class="footer-links">
+        <h4>Course Outlines</h4>
+        <ul>
+          <li><a href="basic.html">Essential Computer Skills</a></li>
+          <li><a href="graphics.html">Graphic Designing</a></li>
+          <li><a href="webdev.html">Web Development (Full Stack)</a></li>
+          <li><a href="videoedit.html">Professional Video Editing</a></li>
+          <li><a href="kids.html">Basic Computer Education for Kids</a></li>
+          <li><a href="social.html">Social Media Mastery & AI Tools</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
+  </div>
+</footer>
+</body>
+</html>
