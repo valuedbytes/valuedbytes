@@ -1134,41 +1134,66 @@ const courses = {
 /* ================= RENDER LOGIC ================= */
 
 const select = document.getElementById("courseSelect");
+const titleEl = document.getElementById("courseTitle");
+const contentEl = document.getElementById("courseContent");
+const demoBox = document.getElementById("demoBox");
+const demoDateEl = document.getElementById("demoDate");
+const durationEl = document.getElementById("courseDuration");
+const seatStatusEl = document.getElementById("seatStatus");
+const demoBtn = document.getElementById("demoBtn");
+
 select.onchange = () => {
   const c = courses[select.value];
-  if(!c) return;
+  if (!c) return;
 
-  document.getElementById("courseTitle").innerText = c.title;
-  document.getElementById("courseContent").innerHTML = c.content;
+  titleEl.innerText = c.title;
+  contentEl.innerHTML = c.content;
+
+  demoBox.style.display = "block";
+  demoDateEl.innerHTML = `📅 Demo Class: ${c.demoDate}`;
+  durationEl.innerHTML = `⏳ Duration: ${c.duration}`;
 
   const seatsLeft = c.totalSeats - c.bookedSeats;
-  document.getElementById("demoBox").style.display = "block";
-  document.getElementById("demoDate").innerHTML = `📅 Demo Class: ${c.demoDate}`;
-  document.getElementById("courseDuration").innerHTML = `⏳ Duration: ${c.duration}`;
 
-  const seatStatus = document.getElementById("seatStatus");
-  const btn = document.getElementById("demoBtn");
-
-  if(seatsLeft > 0){
-    seatStatus.innerHTML = `✅ Seats Available: ${seatsLeft}`;
-    seatStatus.style.color = "#86efac";
-    btn.classList.remove("disabled");
-    btn.href = "https://wa.me/923227826078";
-  }else{
-    seatStatus.innerHTML = "❌ Seats Full";
-    seatStatus.style.color = "#fca5a5";
-    btn.classList.add("disabled");
+  if (seatsLeft > 0) {
+    seatStatusEl.innerHTML = `✅ Seats Available: ${seatsLeft}`;
+    seatStatusEl.style.color = "#86efac";
+    demoBtn.classList.remove("disabled");
+    demoBtn.href = "https://wa.me/923227826078";
+    demoBtn.innerText = "Register for Demo";
+  } else {
+    seatStatusEl.innerHTML = "❌ Seats Full";
+    seatStatusEl.style.color = "#fca5a5";
+    demoBtn.classList.add("disabled");
+    demoBtn.innerText = "Registration Closed";
   }
 
-  window.scrollTo({top:150,behavior:"smooth"});
+  window.scrollTo({ top: 150, behavior: "smooth" });
 };
 
-/* ACCORDION INTERACTION */
-document.addEventListener("click",e=>{
-  if(e.target.closest(".accordion-header")){
+/* ================= URL AUTO-LOAD ================= */
+
+function loadCourseById(courseId) {
+  if (courses[courseId]) {
+    select.value = courseId;
+    select.onchange();
+  }
+}
+
+const params = new URLSearchParams(window.location.search);
+const courseFromURL = params.get("course");
+
+if (courseFromURL) {
+  loadCourseById(courseFromURL);
+}
+
+/* ================= ACCORDION INTERACTION ================= */
+
+document.addEventListener("click", e => {
+  if (e.target.closest(".accordion-header")) {
     e.target.closest(".accordion").classList.toggle("open");
   }
-  if(e.target.closest(".sub-header")){
+  if (e.target.closest(".sub-header")) {
     e.target.closest(".sub").classList.toggle("open");
   }
 });
@@ -1214,4 +1239,5 @@ document.addEventListener("click",e=>{
 </footer>
 </body>
 </html>
+
 
