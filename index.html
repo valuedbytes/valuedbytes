@@ -294,6 +294,18 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
   font-size:.9rem;
 }
 
+  .demo-box {
+  width: 100%;
+  max-width: 100%;
+}
+
+.demo-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* MOBILE FOOTER */
 @media(max-width:768px){
   .footer-links-container{
@@ -352,7 +364,12 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
     
   </div>
 </header>
-<a href="courses.html?course=c1"><div style="width:100vh"><img src="democlass.jpg"></div></a>
+<a href="courses.html?course=c1" style="display:block;">
+  <div class="demo-box">
+    <img src="democlass.jpg" alt="Demo Class">
+  </div>
+</a>
+
 <!-- ANNOUNCEMENTS 
 <section id="announcements">
   <h2>Announcements & Updates</h2>
