@@ -318,87 +318,85 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 }
 
 
- .demo-box{
+.demo-box{
   width:100%;
-  margin:20px 0;
-  background:#0b0f1a;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 0 30px #22d3ee,0 0 60px #6366f1;
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  margin:30px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-.neon-container{
+.demo-container{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  align-items:center;
   gap:20px;
 }
 
-.neon-left{
+.demo-left, .demo-right{
   flex:1 1 300px;
-  color:#22d3ee;
-  text-shadow: 0 0 5px #22d3ee, 0 0 10px #6366f1;
+  color:var(--text);
 }
 
-.neon-left h2{
-  font-size:2rem;
-  margin:8px 0;
+.demo-left h2{
+  font-size:1.8rem;
+  margin-bottom:12px;
+  color:var(--accent);
 }
 
-.neon-left p{
-  margin:4px 0;
-  font-weight:500;
-  color:#e5e7eb;
-  text-shadow:none;
+.demo-left p{
+  margin:6px 0;
+  font-size:1rem;
+}
+
+.demo-left ul, .demo-right ul{
+  list-style:disc;
+  padding-left:20px;
+  margin:8px 0 12px;
+  color:var(--text);
 }
 
 .extra-info{
-  margin-top:10px;
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+  margin:10px 0;
 }
 
 .extra-info span{
-  background:rgba(34,211,238,0.15);
+  background:rgba(255,255,255,0.05);
   padding:6px 12px;
   border-radius:12px;
-  color:#67e8f9;
+  color:var(--accent);
   font-weight:500;
-}
-
-.neon-right{
-  flex:1 1 300px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.neon-point p{
-  margin:6px 0;
   font-size:0.95rem;
-  color:#e5e7eb;
-  text-shadow:0 0 5px #22d3ee,0 0 10px #6366f1;
 }
 
 .register-btn{
   display:inline-block;
   margin-top:12px;
   padding:12px 28px;
-  background:linear-gradient(135deg,#22d3ee,#6366f1);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#020617;
   font-weight:600;
-  border-radius:30px;
+  border-radius:25px;
   text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.5);
   transition:.3s;
 }
 
 .register-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 25px rgba(0,0,0,.6);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
+
+/* Responsive */
+@media(max-width:768px){
+  .demo-container{
+    flex-direction:column;
+  }
+}
+
 
 /* Responsive */
 @media(max-width:768px){
@@ -471,28 +469,40 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
     
   </div>
 </header>
-<section class="demo-box">
-  <div class="neon-container">
-    <div class="neon-left">
-      <div class="neon-icon">🖱️</div>
+
+
+  <section class="demo-box">
+  <div class="demo-container">
+    <div class="demo-left">
       <h2>Free Demo Class</h2>
-      <p>Essential Computer Skills</p>
+      <p><strong>Course:</strong> Essential Computer Skills</p>
       <p><strong>Date:</strong> 10 Jan 2026 | <strong>Mode:</strong> Physical / Online</p>
+      <p><strong>What you'll learn in this demo:</strong></p>
+      <ul>
+        <li>Typing mastery and keyboard shortcuts</li>
+        <li>Windows basics & file management</li>
+        <li>MS Word, Excel & PowerPoint introduction</li>
+        <li>Internet, email, and online research skills</li>
+        <li>Intro to AI tools for productivity</li>
+      </ul>
       <div class="extra-info">
         <span>Limited Seats: 20</span>
         <span>Bring Your Laptop</span>
       </div>
       <a href="courses.html?course=c1" class="register-btn">Register Now</a>
     </div>
-    <div class="neon-right">
-      <!-- Optional extra point block -->
-      <div class="neon-point">
-        <p>✅ Hands-on training included</p>
-        <p>✅ Learn typing, MS Office, internet & AI basics</p>
-      </div>
+    <div class="demo-right">
+      <p><strong>Additional benefits you’ll see:</strong></p>
+      <ul>
+        <li>Live hands-on practice</li>
+        <li>Q&A with instructor</li>
+        <li>Experience the class environment</li>
+        <li>Guidance for full course enrollment</li>
+      </ul>
     </div>
   </div>
 </section>
+
 
 
 
