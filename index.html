@@ -318,9 +318,13 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 }
 
 
-  .demo-box{
+ .demo-box{
   width:100%;
   margin:20px 0;
+  background:#0b0f1a;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 0 30px #22d3ee,0 0 60px #6366f1;
 }
 
 .neon-container{
@@ -329,10 +333,6 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
   justify-content:space-between;
   align-items:center;
   gap:20px;
-  background:#0b0f1a;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 0 25px #22d3ee,0 0 50px #6366f1;
 }
 
 .neon-left{
@@ -342,7 +342,7 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 }
 
 .neon-left h2{
-  font-size:1.8rem;
+  font-size:2rem;
   margin:8px 0;
 }
 
@@ -362,40 +362,55 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 
 .extra-info span{
   background:rgba(34,211,238,0.15);
-  padding:4px 10px;
-  border-radius:10px;
+  padding:6px 12px;
+  border-radius:12px;
   color:#67e8f9;
   font-weight:500;
 }
 
 .neon-right{
   flex:1 1 300px;
-  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
-.neon-right img{
-  max-width:100%;
-  border-radius:12px;
-  box-shadow:0 0 15px #22d3ee;
+.neon-point p{
+  margin:6px 0;
+  font-size:0.95rem;
+  color:#e5e7eb;
+  text-shadow:0 0 5px #22d3ee,0 0 10px #6366f1;
 }
 
 .register-btn{
   display:inline-block;
-  margin-top:10px;
-  padding:10px 22px;
+  margin-top:12px;
+  padding:12px 28px;
   background:linear-gradient(135deg,#22d3ee,#6366f1);
   color:#020617;
   font-weight:600;
-  border-radius:25px;
+  border-radius:30px;
   text-decoration:none;
-  box-shadow:0 6px 15px rgba(0,0,0,.4);
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
   transition:.3s;
 }
 
 .register-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 20px rgba(0,0,0,.5);
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px rgba(0,0,0,.6);
 }
+
+/* Responsive */
+@media(max-width:768px){
+  .neon-container{
+    flex-direction:column;
+    text-align:center;
+  }
+  .extra-info{
+    justify-content:center;
+  }
+}
+
 
 /* Responsive */
 @media(max-width:768px){
@@ -470,10 +485,15 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
       <a href="courses.html?course=c1" class="register-btn">Register Now</a>
     </div>
     <div class="neon-right">
-      <img src="democlass.jpg" alt="Demo Class">
+      <!-- Optional extra point block -->
+      <div class="neon-point">
+        <p>✅ Hands-on training included</p>
+        <p>✅ Learn typing, MS Office, internet & AI basics</p>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <!-- ANNOUNCEMENTS 
