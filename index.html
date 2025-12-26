@@ -320,75 +320,114 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 
 .demo-box{
   width:100%;
-  background:var(--card);
-  padding:25px;
-  border-radius:15px;
-  margin:30px 0;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg,#1f2937,#111827);
+  padding:30px;
+  border-radius:20px;
+  margin:40px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-box:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
 .demo-container{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  gap:20px;
+  gap:30px;
 }
 
 .demo-left, .demo-right{
   flex:1 1 300px;
-  color:var(--text);
+  color:#e5e7eb;
 }
 
 .demo-left h2{
-  font-size:1.8rem;
+  font-size:2rem;
+  background: linear-gradient(90deg,#22d3ee,#6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom:12px;
-  color:var(--accent);
 }
 
-.demo-left p{
-  margin:6px 0;
-  font-size:1rem;
+.demo-course{
+  font-weight:600;
+  font-size:1.1rem;
+  margin-bottom:6px;
+}
+
+.demo-date{
+  font-size:0.95rem;
+  color:#9ca3af;
+  margin-bottom:12px;
+}
+
+.demo-subtitle{
+  font-weight:600;
+  margin:12px 0 8px;
+  color:#67e8f9;
 }
 
 .demo-left ul, .demo-right ul{
   list-style:disc;
   padding-left:20px;
-  margin:8px 0 12px;
-  color:var(--text);
+  margin-bottom:12px;
 }
 
 .extra-info{
   display:flex;
-  gap:10px;
+  gap:12px;
   flex-wrap:wrap;
-  margin:10px 0;
+  margin:15px 0;
 }
 
 .extra-info span{
-  background:rgba(255,255,255,0.05);
-  padding:6px 12px;
-  border-radius:12px;
-  color:var(--accent);
+  background:linear-gradient(90deg,#22d3ee,#6366f1);
+  color:#020617;
   font-weight:500;
-  font-size:0.95rem;
+  padding:6px 14px;
+  border-radius:12px;
+  font-size:0.9rem;
 }
 
 .register-btn{
   display:inline-block;
-  margin-top:12px;
   padding:12px 28px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  background:linear-gradient(135deg,#22d3ee,#6366f1);
   color:#020617;
   font-weight:600;
-  border-radius:25px;
+  border-radius:30px;
   text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
   transition:.3s;
 }
 
 .register-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.5);
 }
+
+/* Right side benefits styling */
+.demo-right ul li{
+  margin-bottom:8px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .demo-container{
+    flex-direction:column;
+  }
+  .demo-left, .demo-right{
+    text-align:center;
+  }
+  .extra-info{
+    justify-content:center;
+  }
+}
+
 
 /* Responsive */
 @media(max-width:768px){
@@ -471,28 +510,34 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
 </header>
 
 
-  <section class="demo-box">
+ <section class="demo-box">
   <div class="demo-container">
+    <!-- Left Content -->
     <div class="demo-left">
-      <h2>Free Demo Class</h2>
-      <p><strong>Course:</strong> Essential Computer Skills</p>
-      <p><strong>Date:</strong> 10 Jan 2026 | <strong>Mode:</strong> Physical / Online</p>
-      <p><strong>What you'll learn in this demo:</strong></p>
+      <h2>🎓 Free Demo Class</h2>
+      <p class="demo-course">Essential Computer Skills</p>
+      <p class="demo-date"><strong>Date:</strong> 10 Jan 2026 | <strong>Mode:</strong> Physical / Online</p>
+
+      <p class="demo-subtitle">What you’ll learn in this demo:</p>
       <ul>
-        <li>Typing mastery and keyboard shortcuts</li>
-        <li>Windows basics & file management</li>
-        <li>MS Word, Excel & PowerPoint introduction</li>
-        <li>Internet, email, and online research skills</li>
+        <li>Typing mastery & keyboard shortcuts</li>
+        <li>Windows & file management</li>
+        <li>MS Word, Excel & PowerPoint basics</li>
+        <li>Internet, email & research skills</li>
         <li>Intro to AI tools for productivity</li>
       </ul>
+
       <div class="extra-info">
         <span>Limited Seats: 20</span>
         <span>Bring Your Laptop</span>
       </div>
+
       <a href="courses.html?course=c1" class="register-btn">Register Now</a>
     </div>
+
+    <!-- Right Content -->
     <div class="demo-right">
-      <p><strong>Additional benefits you’ll see:</strong></p>
+      <p class="demo-subtitle">Additional benefits:</p>
       <ul>
         <li>Live hands-on practice</li>
         <li>Q&A with instructor</li>
@@ -502,6 +547,7 @@ iframe{width:100%;height:360px;border-radius:22px;border:1px solid rgba(255,255,
     </div>
   </div>
 </section>
+
 
 
 
