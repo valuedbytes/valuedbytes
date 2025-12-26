@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valued Bytes Tech Institute - Demo & Courses</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico.png" type="image/png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<meta name="description" content="Valued Bytes Tech Institute in Chiniot offering computer courses, graphic designing, video editing, web development, Excel, Power BI and AI skills.">
+<meta name="keywords" content="computer institute Chiniot, graphic designing course, video editing course, web development Chiniot">
+<meta name="author" content="Valued Bytes Tech Institute">
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12182b;
+  --accent:#22d3ee;
+  --accent2:#6366f1;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+/* GENERAL */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding-top:70px; /* space for fixed navbar */
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#111827,#020617);
+  color:var(--text);
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 14px 28px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1200px;
+}
+.logo{
+  font-size:1.6rem;
+  color:#020617;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#020617;
+  transition:.3s;
+}
+.nav-links li a:hover{color:#6366f1;}
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#020617;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .logo{font-size:1.2rem;}
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:#12182b;
+    display:none;
+    z-index:9999;
+  }
+  .nav-links.active{display:flex;}
+  .nav-links li{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav-links li a{color:#e5e7eb;font-size:18px;}
+  .menu-toggle{display:block;}
+}
+
+/* HEADER */
+header{
+  position: relative;
+  padding: 90px 20px 70px;
+  text-align:center;
+  overflow: hidden;
+}
+header::before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: url('https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/map.png') no-repeat center/cover;
+  filter: brightness(0.25);
+  z-index:0;
+}
+header > *{position: relative; z-index:1;}
+header h1{
+  font-size:2.5rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:14px;
+}
+header p{max-width:760px;margin:auto;color:var(--muted);font-size:1rem;}
+
+/* SOCIAL LINKS */
+.social-links{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+.social-links a{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:var(--accent);
+  font-size:18px;
+  transition:.3s ease;
+  border:1px solid rgba(255,255,255,.12);
+}
+.social-links a:hover{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  transform:translateY(-4px);
+}
+
+/* SECTIONS */
+section{padding:70px 20px; max-width:1200px; margin:auto;}
+h2{font-size:2rem;margin-bottom:14px;background:linear-gradient(90deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:var(--muted);margin-bottom:40px;}
+
+/* COURSES / DEMO LAYOUT */
+.landing-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
+}
+.landing-card{
+  flex:1 1 400px;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.4);
+  transition:.3s;
+}
+.landing-card:hover{transform:translateY(-6px);}
+.demo-card{background:linear-gradient(135deg,#6366f1,#22d3ee); color:#fff;}
+.course-card{background:var(--card); color:var(--text);}
+.landing-card h3{margin-bottom:16px;}
+.landing-card ul{padding-left:20px; margin-bottom:20px;}
+.landing-card ul li{margin-bottom:8px;}
+.landing-card a.register-btn{display:inline-block; margin-top:10px; padding:14px 32px; background:#fff; color:#6366f1; font-weight:700; border-radius:30px; text-decoration:none; transition:.3s;}
+.landing-card a.register-btn:hover{background:#e0e7ff; transform:translateY(-3px);}
+
+/* WHY JOIN SECTION */
+.why-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+}
+.why-card{
+  flex:1 1 250px;
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  transition:.3s;
+}
+.why-card:hover{transform:translateY(-5px);}
+.why-card h4{margin-bottom:10px;}
+
+/* FINAL CTA */
+.final-cta{text-align:center;}
+.final-cta a.register-btn{font-size:1.2rem; padding:16px 36px;}
+
+/* FOOTER */
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  color:var(--text);
+}
+.footer-links-container{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:60px;
+  text-align:left;
+  position:relative;
+}
+.footer-separator{
+  width:1px;
+  background:rgba(255,255,255,0.2);
+  margin:0 30px;
+}
+.footer-links h4{
+  font-size:1.1rem;
+  margin-bottom:12px;
+  color:var(--accent2);
+  text-align:left;
+}
+.footer-links ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.footer-links ul li{
+  margin:6px 0;
+}
+.footer-links ul li a{
+  color:var(--text);
+  text-decoration:none;
+  transition:.3s;
+  display:block;
+  text-align:left;
+}
+.footer-links ul li a:hover{
+  color:var(--accent);
+}
+.footer-copy{
+  text-align:center;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* FLOAT BUTTON */
+.enroll-float{position:fixed;bottom:90px;right:20px;background:linear-gradient(135deg,#22d3ee,#6366f1);color:#020617;padding:14px 22px;border-radius:30px;font-weight:600;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.4);z-index:999;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .landing-grid{flex-direction:column; gap:30px;}
+  .why-grid{flex-direction:column; gap:20px;}
+  .landing-card a.register-btn{width:100%; text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <strong class="logo"><a href="index.html" style="text-decoration:none; color:black;">Valued Bytes</a></strong>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#landing">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admission.html">Enroll</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="logo-title">
+    <img src="logoround.png" alt="Valued Bytes Logo" class="institute-logo" style="width:120px;height:auto;">
+    <h1>Valued Bytes Tech Institute</h1>
+  </div>
+  <p>Empowering students in Chiniot with modern computer, design, development & AI‑driven skills.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.tiktok.com/@valuedbytesacademy" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.linkedin.com/company/valuedbytesacademy" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</header>
+
+<!-- LANDING PAGE SECTION -->
+<section id="landing">
+  <!-- Landing Grid -->
+  <div class="landing-grid">
+    <!-- Demo Card -->
+    <div class="landing-card demo-card">
+      <h2>🎓 Free Demo Class</h2>
+      <p><strong>Course:</strong> Essential Computer Skills</p>
+      <p><strong>Date:</strong> 10 Jan 2026</p>
+      <p><strong>Mode:</strong> In-person | Online / Live</p>
+      <h3>What you'll experience:</h3>
+      <ul>
+        <li>Typing mastery & keyboard shortcuts</li>
+        <li>Windows & file management</li>
+        <li>MS Word, Excel & PowerPoint basics</li>
+        <li>Internet, email & online research</li>
+        <li>Intro to AI productivity tools</li>
+      </ul>
+      <h3>Extra benefits:</h3>
+      <ul>
+        <li>Hands-on practice with instructor guidance</li>
+        <li>Q&A session for all questions</li>
+        <li>Preview of full course experience</li>
+        <li>Tips for enrolling in full program</li>
+      </ul>
+      <a href="admission.html" class="register-btn">Register Now</a>
+    </div>
+
+    <!-- Full Course Card -->
+    <div class="landing-card course-card">
+      <h2>Full Course Overview</h2>
+      <ul>
+        <li><strong>Computer & Internet:</strong> File management, Chrome tips, online safety</li>
+        <li><strong>MS Word:</strong> Professional documents, resumes, letters</li>
+        <li><strong>MS Excel:</strong> Expense tracking, reports, fear-free learning</li>
+        <li><strong>MS PowerPoint:</strong> Clean slides, confident presentations</li>
+        <li><strong>Google Tools:</strong> Docs, Drive, Forms — work anywhere</li>
+        <li><strong>AI Tools:</strong> Applications, study plans, productivity hacks</li>
+      </ul>
+      <p>Duration: 3 Months | 5 Days/Week | 2 Hours/Class</p>
+      <p>Mode: Physical classes with certificate & full guidance</p>
+      <p>Limited seats — enroll now to reserve your spot!</p>
+      <a href="admission.html" class="register-btn">Enroll in Full Course</a>
+    </div>
+  </div>
+
+  <!-- Why Join -->
+  <div style="text-align:center; margin-top:60px;">
+    <h2>Why Join This Course?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>Step-by-Step Learning</h4>
+        <p style="color:var(--muted); font-size:0.95rem;">Structured modules from beginner to professional skills</p>
+      </div>
+      <div class="why-card">
+        <h4>Hands-On Practice</h4>
+        <p style="color:var(--muted); font-size:0.95rem;">Practical exercises with live guidance from instructors</p>
+      </div>
+      <div class="why-card">
+        <h4>AI & Productivity</h4>
+        <p style="color:var(--muted); font-size:0.95rem;">Learn smart ways to use AI tools & Google apps for daily life</p>
+      </div>
+      <div class="why-card">
+        <h4>Confidence & Career Ready</h4>
+        <p style="color:var(--muted); font-size:0.95rem;">Excel in office tasks, presentations, and job/business readiness</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="final-cta" style="margin-top:60px;">
+    <h2>Ready to Transform Your Skills?</h2>
+    <a href="admission.html" class="register-btn">Enroll Now</a>
+    <p style="margin-top:12px; color:var(--muted); font-size:0.95rem;">
+      Limited seats | Physical classes | Certificate awarded | Full guidance
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/ValuedBytesTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/valuedbytesinst" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ValuedBytes" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://wa.me/923227826078" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Links Section -->
+    <div class="footer-links-container">
+
+      <!-- Main Pages Links -->
+      <div class="footer-links">
+        <h4>Main Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admission.html">Enroll</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-separator"></div>
+
+      <!-- Course Outlines Links -->
+      <div class="footer-links">
+        <h4>Course Outlines</h4>
+        <ul>
+          <li><a href="courses.html?course=c1">Essential Computer Skills</a></li>
+          <li><a href="courses.html?course=c2">Graphic Designing</a></li>
+          <li><a href="courses.html?course=c3">Web Development (Full Stack)</a></li>
+          <li><a href="courses.html?course=c4">Professional Video Editing</a></li>
+          <li><a href="courses.html?course=c5">Basic Computer Education for Kids</a></li>
+          <li><a href="courses.html?course=c6">Social Media Mastery & AI Tools</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="footer-copy">© 2025 Valued Bytes Tech Institute · Chiniot</p>
+
+  </div>
+</footer>
+
+<!-- FLOAT ENROLL BUTTON -->
+<a href="https://wa.me/923227826078?text=I%20want%20to%20enroll%20in%20a%20course" class="enroll-float" target="_blank">Enroll Now</a>
+
+<!-- JS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', ()=>{
+    navLinks.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
